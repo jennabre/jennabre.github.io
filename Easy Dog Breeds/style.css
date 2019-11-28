@@ -1,0 +1,327 @@
+/* Colors here: https://paletton.com/#uid=33l0C0kmvvdcOLMicBLrJtetMmJ */
+
+body {
+	background-color: #FFE499;
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Links */
+a { color: #0A626F; }
+/* a:visited { color: #AC0C22; } was interfering with nav links */
+a:hover { color: #2F8B98; text-decoration: none; }
+a:active { color: #7EC6D0; text-decoration: none; }
+
+header {
+	background-color: #AC0C22;
+	background-image: url(Paw.png);
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 60px;
+	height: 50px;
+	color: #FFE499;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	/* "Times New Roman" must be in quotation marks because of the white space*/
+	font-family: Georgia, "Times New Roman", Serif;
+	margin-bottom: 0;
+	padding-top: 15px;
+}
+
+nav {
+	background-color: #DE1E38;
+	text-align: center;
+}
+
+nav ul {
+	list-style-type: none;
+	text-align: center;
+	margin: 0;
+}
+
+nav li {
+	display: inline-block;
+	width: 20%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0;
+}
+
+nav a {
+	display: inline-block;
+	width: 20%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+	color: #FFE499;
+	font-size: 1.2em;
+}
+
+nav a:hover {
+	background-color: #ED465D;
+	color: #660714;
+}
+
+nav a:active {
+	color: #fff;
+}
+
+main {
+	padding: 1px 20px 20px 20px;
+	display: block;
+}
+
+h1 {
+	margin-top: 0;
+	font-family: Georgia, "Times New Roman", Serif;
+	color: #AC0C22;
+}
+
+h1::before {
+  content: url(Paw50.png);
+  display: block;
+  width: 60px;
+  height: 50px;
+  float: left;
+}
+
+h2 {
+	font-family: Georgia, "Times New Roman", Serif;
+	color: #0A626F;
+}
+
+h2::before {
+  content: url(Paw30.png);
+  display: block;
+  width: 40px;
+  height: 30px;
+  float: left;
+}
+
+h3 {
+	font-family: Georgia, "Times New Roman", Serif;
+}
+
+ul {
+	list-style-image: url(marker.gif);
+}
+
+
+
+figure {
+	text-align: center;
+}
+
+figure img {
+	max-width: 100%;
+}
+
+
+figcaption {
+	color: #777;
+	text-align: center;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+video {
+	float: right;
+	margin-left: 20px;
+}
+
+/* Breadcrumbs */
+
+#breadcrumb {
+	float: right;
+}
+
+/* Buttons! */
+
+.button, input[type=submit] {
+	background-color: #2f8b98;
+	padding: 10px;
+	border: 0;
+	margin-top: 10px;
+	min-height: 25px;
+	border-radius: 10px;
+	color: #fff;
+	text-decoration: none;
+	
+}
+
+.button:hover, input[type=submit]:hover {
+	background-color: #4ea5b1;
+	color: #fff;
+}
+
+.button:active, input[type=submit]:hover {
+	background-color: #7ec6d0;
+	color: #fff;
+}
+
+/* Colorbox */
+
+.colorbox {
+	background-color: #FFF2CC;
+	padding: 10px;
+}
+
+/* Table */
+
+table {
+	margin: auto;
+	border: 0;
+	width: 70%;
+	min-width: 300px;
+	border-spacing: 0;
+}
+
+td, th {
+	border: 0;
+	padding: 10px;
+	font-family: Arial, sans-serif;
+	text-align: center;
+}
+
+tr:nth-of-type(even) {
+	background-color: #BFE3E8;
+}
+
+tr:first-of-type {
+	background-color: #15808F;
+	color: #fff;
+}
+
+td:first-of-type {
+	text-align: left;
+	font-weight: bold;
+}
+
+/* The caption on top of the table */
+caption {
+	font-weight: bold;
+	font-size: 1.2em;
+	padding-bottom: 5px;
+}
+
+/* Correct answers */
+
+.answers {
+	list-style: none;
+}
+
+.correct { color: green; }
+
+.correct::before { 
+	content: "✓ ";
+	color: green;
+	font-weight: bold;
+}
+
+.wrong::before {
+	content: "X ";
+	color: red;
+	font-weight: bold;
+}
+
+
+
+#wrapper {
+	background-color: #fff;
+	width: 80%;
+	min-width: 960px;
+	max-width: 2048px;
+	margin-left: auto;
+	margin-right: auto;
+	/* box-shadow: horizontal offset, vertical offset, blur radius (optional), default spread distance (optional), color */
+	box-shadow: 3px 3px 2px #F9CA4A;
+}
+
+main {
+	padding: 50px;
+}
+
+footer {
+	font-family: Georgia, "Times New Roman", Serif;
+	font-size: 75%;
+	font-style: italic;
+	text-align: center;
+	padding: 20px;
+}
+
+/* Override the style for if we have a small thing */
+@media only screen and (max-width: 64em) {
+	body {
+		margin: 0;
+		background-color: #fff;
+	}
+	
+	#wrapper {
+		min-width: 0;
+		width: auto;
+		box-shadow: none;
+	}
+	
+	main {
+		margin-left: 0;
+	}
+	
+	nav {
+		float: none;
+		width: auto;
+		text-align: center;
+		padding: 0.5em;
+	}
+	
+	nav a {
+		display: inline;
+		padding: 0.25em 2em 0.25em 2em;
+		width: 30%;
+		min-width: 150px;
+	}
+	
+	footer {
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 37.5em) {
+	header { padding-top: 1em; }
+	
+	main {
+		padding: 0.1em 1em 0.1em 1em;
+		font-size: 90%;
+	}
+	
+	h1 { font-size: 1.5em; }
+	
+	nav { padding: 0; margin: 0; }
+	
+	nav a {
+		margin: 0;
+		padding: 0;
+	}
+	
+	nav a {
+		display: block;
+		margin: 0;
+		padding: 10px 0 10px 0;
+		width: 100%;
+		border-bottom: 2px solid #AC0C22;;
+	}
+	
+	nav a {
+		display: block;
+	}
+	
+	label { float:none; text-align: left;}
+	input[type="submit"] { margin-left: 0;}
+	
+	video { display:none; }
+	
+	#mobile { display: inline; }
+	#desktop { display: none; }
+}
