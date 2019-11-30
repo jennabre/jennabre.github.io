@@ -29,7 +29,8 @@ header {
 	/* "Times New Roman" must be in quotation marks because of the white space*/
 	font-family: Goudy Old Style, "Times New Roman", Serif;
 	margin-bottom: 0;
-	padding: 15px;
+	/* Not sure why padding on bottom has to be so huge in order for it to look nice */
+	padding: 15px 15px 50px 15px;
 }
 
 nav {
@@ -113,6 +114,7 @@ footer {
 	padding: 20px;
 }
 
+/* My home computer recognizes this, but not GitHub. Why? */
 img .me {
 	float: right;
 	margin-left: 2em;
