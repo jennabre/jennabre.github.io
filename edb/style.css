@@ -131,7 +131,7 @@ figcaption {
 /* Breadcrumbs */
 
 #breadcrumb {
-	float: right;
+	float: left;
 }
 
 /* Buttons! */
@@ -238,6 +238,7 @@ caption {
 
 main {
 	padding: 50px;
+	padding-top: 10px;
 }
 
 footer {

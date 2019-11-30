@@ -1,15 +1,3 @@
-/* Colors 
-Name   Dark     Medium   Light
-Teal   #006B80  #1F98B0  #55C3D9
-Green  #219637  #5ACB6E  #7EDC8F
-Gold   #D59618  #F0B745  #FFCC66
-Orange #CE4B28  #F36D49  #F39277
-Red    #D33033  #F24F52  #F38385
-Rose   #DB316B  #F24F87  #FF93B7
-Purple #7741B2  #9461CB  #C696FA
-
-*/
-
 /* Colors
 Name   Dark     Medium   Light
 Teal   #29617C  #418BA4  #61BCDB
@@ -38,9 +26,9 @@ header {
 	font-size: 2em;
 	font-weight: bold;
 	/* "Times New Roman" must be in quotation marks because of the white space*/
-	font-family: Georgia, "Times New Roman", Serif;
+	font-family: Goudy Old Style, "Times New Roman", Serif;
 	margin-bottom: 0;
-	padding-top: 15px;
+	padding: 15px;
 }
 
 nav {
@@ -88,23 +76,19 @@ main {
 
 h1 {
 	margin-top: 0;
-	font-family: Georgia, "Times New Roman", Serif;
-	color: #2854B3;
+	font-family: Goudy Old Style, "Times New Roman", Serif;
+	color: #6C1FB9;
 }
 
 h2 {
-	font-family: Georgia, "Times New Roman", Serif;
+	font-family: Goudy Old Style, "Times New Roman", Serif;
 	color: #0A626F;
 }
 
-
 h3 {
-	font-family: Georgia, "Times New Roman", Serif;
+	font-family: Goudy Old Style, "Times New Roman", Serif;
 }
 
-ul {
-	list-style-image: url(marker.gif);
-}
 
 
 
@@ -139,14 +123,6 @@ ul {
 	color: #fff;
 }
 
-/* Colorbox */
-
-.colorbox {
-	background-color: #FFF2CC;
-	padding: 10px;
-}
-
-
 
 
 
@@ -158,8 +134,49 @@ ul {
 	margin-left: auto;
 	margin-right: auto;
 	/* box-shadow: horizontal offset, vertical offset, blur radius (optional), default spread distance (optional), color */
-	box-shadow: 3px 3px 2px #6C1FB9;
+	box-shadow: 3px 3px 2px #D5589A;
 }
+
+/* Image gallery */
+/* Thanks to https://www.w3schools.com/css/tryit.asp?filename=trycss_image_pic_gallery */
+
+.pic {
+  background-color: #FAC8D5;
+  padding: 10px;
+}
+
+.pic img {
+  width: 100%;
+  height: auto;
+}
+
+.pic img:hover {
+  opacity: 70%;
+}
+
+.desc {
+  padding: 15px;
+  text-align: center;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.gallery {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 
 main {
 	padding: 50px;
@@ -202,6 +219,11 @@ footer {
 	footer {
 		margin-left: 0;
 	}
+	
+	.gallery {
+		width: 49.99999%;
+		margin: 6px 0;
+	}
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -219,6 +241,10 @@ footer {
 		padding: 15px 0 15px 0;
 		width: 100%;
 		border-bottom: 2px solid #6C1FB9;
+	}
+	
+	.gallery {
+		width: 100%;
 	}
 	
 	label { float:none; text-align: left;}
