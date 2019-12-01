@@ -1,11 +1,141 @@
 /* Colors 
-Name   Dark     Medium   Light
-Teal   #006B80  #1F98B0  #55C3D9
-Green  #219637  #5ACB6E  #7EDC8F
-Gold   #D59618  #F0B745  #FFCC66
-Orange #CE4B28  #F36D49  #F39277
-Red    #D33033  #F24F52  #F38385
-Rose   #DB316B  #F24F87  #FF93B7
-Purple #7741B2  #9461CB  #C696FA
+Name   Dark     Medium   Light    Pale     Ultra pale
+Teal   #006B80  #1F98B0  #55C3D9  #AAE1EC  #D5F0F6
+Green  #219637  #5ACB6E  #7EDC8F  #BFEEC7
+Gold   #D59618  #F0B745  #FFCC66  #FFE6B3
+Orange #CE4B28  #F36D49  #F39277  #F9C9BB
+Red    #D33033  #F24F52  #F38385  #F9C1C2
+Rose   #DB316B  #F24F87  #FF93B7  #FFC9DB
+Purple #7741B2  #9461CB  #C696FA  #E3CBFD
 
 */
+
+body {
+	background-color: #55C3D9;
+	font-family: Helvetica, sans-serif;
+}
+
+header {
+	background-image: url(rainbowdrip.png);
+	background-size: contain;
+	padding: 1em;
+	color: #7741B2;
+	font-weight: bold;
+	text-shadow: 2px 2px #fff;
+	font-size: 3em;
+	text-align: center;
+}
+
+/* Navigation */
+
+nav {
+	text-align: center;
+	height: 100%;
+	width: 20%;
+	float: left;
+	padding: 0;
+}
+
+nav li {
+	
+	list-style-type: none;
+}
+
+
+nav a {
+	background-color: #AAE1EC;
+	display: inline-block;
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+	color: #7741B2;
+	font-size: 1.2em;
+	
+}
+
+nav a:hover {
+	color: #fff;
+}
+
+nav a:active {
+	color: #fff;
+}
+
+/* Boxes */
+.blue   { background-color: #AAE1EC; }
+.green  { background-color: #BFEEC7; }
+.yellow { background-color: #FFE6B3; }
+.orange { background-color: #F9C9BB; }
+.red    { background-color: #F9C1C2; }
+.pink   { background-color: #FFC9DB; }
+.purple { background-color: #E3CBFD; }
+
+
+nav .blue:hover   { background-color: #55C3D9; }
+nav .green:hover  { background-color: #7EDC8F; }
+nav .yellow:hover { background-color: #FFCC66; }
+nav .orange:hover { background-color: #F39277; }
+nav .red:hover    { background-color: #F38385; }
+nav .pink:hover   { background-color: #FF93B7; }
+nav .purple:hover { background-color: #C696FA; }
+
+.colorbox {
+	background-color: #D5F0F6;
+	padding: 1em;
+}
+
+/* Main area */
+
+#wrapper {
+	background-color: #fff;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 960px;
+	max-width: 2000px;
+	padding: 0;
+}
+
+main {
+	padding: 2em;
+	margin-left: 20%;
+}
+
+h1, h2, h3 {
+	font-family: "Goudy Old Style", serif;
+}
+
+h1 {
+	color: #7741B2;
+}
+
+h2 {
+	color: #9461CB;
+}
+
+footer {
+	background-color: #D5F0F6;
+	padding: 2em;
+	text-align: center;
+}
+
+
+/* Quiz */
+
+.question {
+	font-weight: bold;
+	color: #7741B2;
+	margin-top: 1.2em;
+	margin-bottom: 0.4em;
+}
+
+.answers {
+	margin-bottom: 0.5em;
+}
+
+.answers label {
+	display: block;
+}

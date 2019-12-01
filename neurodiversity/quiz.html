@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio">
+		<meta name="description" content="Test your knowledge about neurodiversity at work!">
+		<title>Neurodiversity</title>
+		<link rel="stylesheet" href="nstyle.css">
+	</head>
+
+	<body>		
+		<div id="wrapper">
+		
+			<header>
+				Neurodiversity
+			</header>
+			<nav>
+				<a href="../index.html" class="red"><li>Back to portfolio</li></a>
+				<a href="index.html" class="orange"><li>Home</li></a>
+				<a href="advantages.html" class="yellow"><li>Advantages</li></a>
+				<a href="design.html" class="green"><li>Design</li></a>
+				<a href="quiz.html" class="blue"><li>Quiz</li></a>
+			</nav>
+			
+			<main>
+			
+				<h1>How much do you know about neurodiversity at work?</h1>
+				
+				<p>
+					Could you understand and support a neurodivergent colleague? 
+					Test your knowledge and see how savvy you are.
+				</p>
+				
+				<p>
+					If the correct answers surprise you, don't worry.
+				</p>
+			
+				<div id="quiz"></div>
+				<br/>
+				<button id="submit">Submit Quiz</button>
+				<div id="results"></div>
+				
+
+			</main>
+			<footer>
+				Copyright &copy; 2019 Jennifer Breunig<br/>
+				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+			</footer>
+		</div>
+		
+
+	</body>
+
+</html>
+
+<!-- Thanks to https://www.sitepoint.com/simple-javascript-quiz/ -->
+<script>
+	(function() {
+	
+		// Build quiz, should run on load
+		function buildQuiz() {
+			const output = [];
+
+			myQuestions.forEach((currentQuestion, questionNumber) => {
+				const answers = [];
+
+				// add radio button for each
+				for (letter in currentQuestion.answers) {
+					answers.push(
+						`<label>
+						<input type="radio" name="question${questionNumber}" value="${letter}">
+						${letter}:
+						${currentQuestion.answers[letter]}
+						</label>`
+					);
+				}
+
+				// output question and answers
+				output.push(
+					`<div class="question"> ${currentQuestion.question} </div>
+					<div class="answers"> ${answers.join("")} </div>`
+				);
+			});
+
+			// Push onto page
+			quizContainer.innerHTML = output.join("");
+		}
+
+		function showResults() {
+		// gather answer containers from our quiz
+		const answerContainers = quizContainer.querySelectorAll(".answers");
+
+		let numCorrect = 0;
+
+		// for each question...
+		myQuestions.forEach((currentQuestion, questionNumber) => {
+		
+			// find selected answer
+			const answerContainer = answerContainers[questionNumber];
+			const selector = `input[name=question${questionNumber}]:checked`;
+			const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+			// if answer correct
+			if (userAnswer === currentQuestion.correctAnswer) {
+				numCorrect++;
+
+				// color the answers green
+				answerContainers[questionNumber].style.color = "#219637";
+			} else {
+				// color red
+				answerContainers[questionNumber].style.color = "#D33033";
+			}
+		});
+
+			// show number of correct answers out of total
+			resultsContainer.innerHTML = `<br/>
+			<p>You got ${numCorrect} out of ${myQuestions.length} correct</p>
+			<p>Curious why something is correct or incorrect?</p>
+			<a href="answers.html"><button>Learn about the answers</button></a>
+			`;
+		}
+
+	const quizContainer = document.getElementById("quiz");
+	const resultsContainer = document.getElementById("results");
+	const submitButton = document.getElementById("submit");
+	const myQuestions = [
+		{
+			question: "During a meeting, my colleague starts rocking back and forth while staring into space. That means she's",
+				answers: {
+					a: "Not listening",
+					b: "Being rude",
+					c: "Paying attention in her own way"
+				},
+				correctAnswer: "c"
+		},
+		{
+			question: "My coworker says he can't focus in an open office. I'll suggest that he",
+				answers: {
+					a: "Explain the issue and ask for his own office",
+					b: "Stop complaining and deal with it",
+					c: "Wear headphones"
+				  },
+			  correctAnswer: "a"
+		},
+		{
+			question: "The autistic programmer I supervise is covering her ears. She looks like she might cry. I should",
+				answers: {
+				  a: "Suggest that she take a break or work from home today",
+				  b: "Ignore it",
+				  c: "Distract her with conversation about the work"
+				},
+				correctAnswer: "a"
+		},
+		{
+			question: "My coworker with Down syndrome has a speech impediment. It'll help him if I",
+				answers: {
+					a: "Mimic it so that he'll understand better",
+					b: "Talk normally; he'll tell me if he needs something else",
+					c: "Speak very slowly and loudly so he can process"
+				},
+				correctAnswer: "b"
+		},
+		{
+			question: "My teammate with ADHD talks so fast I can't understand! I should",
+				answers: {
+					a: "Try harder to listen",
+					b: "Drop hints to avoid hurting her feelings",
+					c: "Politely ask her to slow down so I can keep up"
+				},
+				correctAnswer: "c"
+		},
+		{
+			question: "My coworker monopolizes the conversation with obscure astronomy facts. The best way to handle it is probably to",
+				answers: {
+					a: "Tell him I'd like to talk about something else or say I've got to go",
+					b: "Avoid him whenever possible and talk with my coworkers about handling him",
+					c: "Tolerate it until I get frustrated and tell him to shut up"
+				},
+				correctAnswer: "a"
+		}
+		  
+	];
+
+	// display quiz right away
+	buildQuiz();
+
+	// on submit, show results
+	submitButton.addEventListener("click", showResults);
+})();
+
+</script>
+
+
+
