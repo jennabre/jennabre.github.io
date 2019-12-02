@@ -33,7 +33,7 @@
 					If you get 5 or more questions correct, you have good knowledge about dog care.
 				</p>
 				
-				<form action="#">
+				<form id="quiz">
 				
 					<p>
 						1. You are baking cookies when a chocolate chip falls onto the floor. 
@@ -41,58 +41,61 @@
 						You...
 					</p>
 					
-					<input type="radio" name="q1">Rush the dog to the vet<br>
-					<input type="radio" name="q1">Yell at the dog until it gets scared<br>
-					<input type="radio" name="q1">Move the bag farther from the edge and continue baking<br>
-					<input type="radio" name="q1">Feed the dog more chocolate<br>
+					<label for="q1a"><input type="radio" name="q1" value="0" id="q1a">Rush the dog to the vet</label><br>
+					<label for="q1b"><input type="radio" name="q1" value="0" id="q1b">Yell at the dog until it gets scared</label><br>
+					<label for="q1c"><input type="radio" name="q1" value="1" id="q1c">Move the bag farther from the edge and continue baking</label><br>
+					<label for="q1d"><input type="radio" name="q1" value="0" id="q1d">Feed the dog more chocolate</label><br>
 					
 					<p>
 						2. You're making a salad, and your dog begs for food. 
-						What would be OK to give your dog?
+						What would NOT be okay for your dog?
 					</p>
 					
-					<input type="checkbox" name="q2">Spinach<br>
-					<input type="checkbox" name="q2">Carrots<br>
-					<input type="checkbox" name="q2">Macadamia nuts<br>
-					<input type="checkbox" name="q2">Cucumbers<br>
+					<label for="q2a"><input type="radio" name="q2" value="0" id="q2a">Spinach</label><br>
+					<label for="q2b"><input type="radio" name="q2" value="0" id="q2b">Carrots</label><br>
+					<label for="q2c"><input type="radio" name="q2" value="1" id="q2c">Macadamia nuts</label><br>
+					<label for="q2d"><input type="radio" name="q2" value="0" id="q2d">Cucumbers</label><br>
 					
 					<p>
 						3. Which of these things should you do first in the morning?
 					</p>
 					
-					<input type="radio" name="q3">Take the dog out<br>
-					<input type="radio" name="q3">Feed the dog<br>
-					<input type="radio" name="q3">Get yourself ready for the day<br>
-					<input type="radio" name="q3">Check your phone<br>
+					<label for="q3a"><input type="radio" name="q3" value="1" id="q3a">Take the dog out</label><br>
+					<label for="q3b"><input type="radio" name="q3" value="0" id="q3b">Feed the dog</label><br>
+					<label for="q3c"><input type="radio" name="q3" value="0" id="q3c">Get yourself ready for the day</label><br>
+					<label for="q3d"><input type="radio" name="q3" value="0" id="q3d">Check your phone</label><br>
 					
 					<p>
 						4. Do dogs typically thrive on a vegetarian diet?
 					</p>
-					<input type="radio" name="q4">Yes<br>
-					<input type="radio" name="q4">No<br>
+					<label for="q4a"><input type="radio" name="q4" value="0" id="q4a">Yes</label><br>
+					<label for="q4b"><input type="radio" name="q4" value="1" id="q4b">No</label><br>
 					
 					<p>
 						5. How much guacamole can you give your dog?
 					</p>
 					
-					<input type="radio" name="q5">Plenty<br>
-					<input type="radio" name="q5">Just a little<br>
-					<input type="radio" name="q5">None<br>
+					<label for="q5a"><input type="radio" name="q5" value="0" id="q5a">Plenty</label><br>
+					<label for="q5b"><input type="radio" name="q5" value="0" id="q5b">Just a little</label><br>
+					<label for="q5c"><input type="radio" name="q5" value="1" id="q5c">None</label><br>
 					
 					<p>
 						6. Can you let your dog off its leash in any field?
 					</p>
 					
-					<input type="radio" name="q6">Yes<br>
-					<input type="radio" name="q6">No<br>
+					<label for="q6a"><input type="radio" name="q6" value="0" id="q6a">Yes</label><br>
+					<label for="q6b"><input type="radio" name="q6" value="1" id="q6b">No</label><br>
 					
 					<br>
 				
-					<input type="submit" value="Get my score">
+					<button type="submit" value="Submit">Get my score</button>
 				</form>
 				<br>
 				
-				<a href="answers.html" class="button">View correct answers</a>
+				<p>Score: <span id="grade">___</span></p>
+				<p id="grade2"></p>
+				
+				<!-- <a href="answers.html" class="button">View correct answers</a> -->
 				
 			</main>
 			
@@ -104,5 +107,51 @@
 		
 
 	</body>
+	
+	<script>
+		// Many thanks to https://codeactually.com/interactivequiz.html
+		
+		document.getElementById("quiz").onsubmit=function() {
+			a1 = parseInt(document.querySelector('input[name = "q1"]:checked').value);
+			a2 = parseInt(document.querySelector('input[name = "q2"]:checked').value);
+			a3 = parseInt(document.querySelector('input[name = "q3"]:checked').value);
+			a4 = parseInt(document.querySelector('input[name = "q4"]:checked').value);
+			a5 = parseInt(document.querySelector('input[name = "q5"]:checked').value);
+			a6 = parseInt(document.querySelector('input[name = "q6"]:checked').value);
+
+			//result = a1 + a2 + a3 + a4 + a5 + a6;
+			
+			
+
+
+			
+			result = 6;
+		   
+			document.getElementById("grade").innerHTML = result;
+
+			grading = [
+			   {score:0,feedback:"Did you do that on purpose?"},
+			   {score:1,feedback:"Oh, dear. Try again."},
+			   {score:2,feedback:"Give it another try."},
+			   {score:3,feedback:"Half correct. Give it another try."},
+			   {score:4,feedback:"Not bad! Give it another try."},
+			   {score:5,feedback:"Very close! Try again and see."},
+			   {score:6,feedback:"Great job! You might be ready for a dog!"}
+			   ];
+			  
+			for(i=0; i<grading.length; i++) {
+				if(result == grading[i].score) {
+					result2 = grading[i].feedback;
+				}
+			  }
+
+
+			document.getElementById("grade2").innerHTML = result2; 
+
+			return false; // required to not refresh the page; just leave this here
+		} //this ends the submit function
+
+	</script>
+
 
 </html>
