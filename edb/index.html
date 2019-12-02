@@ -66,12 +66,12 @@
 				<br>
 				<div class="colorbox">
 					<h2>Sign up for our mailing list!</h2>
-					<form action="#">
-						<input type="text" name="email" placeholder="example@example.com">
-						<br><br>
-						<input type="submit" value="Sign up">
-						
+					<form>
+					
+					<input type="text" name="email" placeholder="example@example.com"><br /><br />
 					</form>
+					
+					<input type="button" onclick="email()" value="Sign up">
 				
 				</div>
 			</main>
@@ -82,7 +82,13 @@
 			</footer>
 		</div>
 		
-
+		<script>
+			function email() {
+				alert("Sorry!\nNo mailing list exists");
+			}
+		</script>
 	</body>
+	
+	
 
 </html>
