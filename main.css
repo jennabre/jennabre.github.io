@@ -2,8 +2,9 @@
 Deep Purple		#6C1FB9 
 Medium Purple	#9C22CB
 Medium Pink		#D5589A 
-Pale Pink		#FFB3C7
-Palest Pink		#FAC8D5
+Pale Pink		#
+Paler Pink		#FAC8D5
+Palest Pink		#FDE4EA
 
 */
 
@@ -87,6 +88,7 @@ h1 {
 }
 
 h2 { color: #D5589A; }
+h3 { color: #6C1FB9; }
 
 
 
@@ -118,6 +120,71 @@ img .me {
 	float: right;
 	margin-left: 2em;
 }
+
+
+/* Quotes */
+.quotebox {
+	background-color: #FDE4EA;
+	padding: 10px;
+	margin: 1em;
+	color: #666;
+}
+.quotebox p {
+	font-family: "Goudy Old Style", serif;
+	font-size: 1.4em;
+	
+}
+.quotebox p::before {
+	content:url(quote.png);
+	opacity: 50%;
+	float: left;
+	margin-right: 2em;
+	margin-top: 0;
+	
+}
+.quotebox .attr {
+	text-align: right;
+	margin: 0 2em 0.8em 0;
+}
+.quotebox .attr::before {
+	content:"— ";
+}
+
+/* Columns */
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.columns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Progress bars */
+
+.progress {
+	background-color: #FDE4EA;
+	width: 20em;
+	height: 2em;
+	border-radius: 1em;
+	margin-bottom: 0.2em;
+}
+.progress span {
+	display: inline-block;
+	background-image: linear-gradient(to right, #FFB3C7, #D5589A);
+	border-radius: 1em;
+	height: 100%;
+	padding-top: 0.5em;
+	padding-right: 1em;
+	text-align: right;
+	color: #FDE4EA;
+}
+
 
 /* Image gallery */
 /* Thanks to https://www.w3schools.com/css/tryit.asp?filename=trycss_image_pic_gallery */
@@ -170,7 +237,7 @@ img .me {
 }
 /* Ugh why won't this center? */
 .social img {
-	display: block;
+	display: inline-block;
 	padding-left: auto;
 	padding-right: auto;
 	background-color: #fff;
