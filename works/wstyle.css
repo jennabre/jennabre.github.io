@@ -1,0 +1,184 @@
+/*
+Colors
+Darkest		#
+Dark		#
+Midtone		#2854B3
+Light mid	#447EC7
+Light tone	#768FD0		ugly...
+Pale		#B2D4F7
+*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #B2D4F7;
+}
+
+header {
+	margin: 0;
+	text-align: center;
+	font-size: 2em;
+	padding: 0.3em;
+}
+
+#wrapper {
+	background-color: #fff;
+	width: 80%;
+	min-width: 960px;
+	max-width: 2048px;
+	margin-left: auto;
+	margin-right: auto;
+}
+header {
+	background-color: #2854B3;
+	color: #B2D4F7;
+}
+
+/* Nav */
+/* Template courtesy of https://css-tricks.com/solved-with-css-dropdown-menus/ */
+
+nav {
+    width: 100%;
+	/* Match nav li background color */
+	background-color: #2854B3;
+	text-align: center;
+}
+
+/* Not working ideally */
+/* Also why do second & third list items not work in dropdowns? */
+nav a {
+	display: inline;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	text-decoration: none;
+}
+
+nav ul {
+	width: 100%;
+    list-style: none;
+    margin: 0;
+	padding: 0;
+}
+
+nav li {
+	/* Match nav background color */
+    background-color: #2854B3;
+	position: relative;
+	display: inline-block;
+	width: 12%;
+	padding: 1em;
+	margin: 0;
+	color: #fff;
+}
+  
+
+
+nav li:hover, nav li:focus-within {
+    background: #447EC7;
+    cursor: pointer;
+}
+
+nav li:focus-within a {
+  outline: none;
+}
+
+nav ul li ul {
+	display: none;
+	opacity: 0;
+    visibility: hidden;
+	min-width: 4em;
+    position: absolute;
+	transition: all 0.5s ease;
+	margin-top: 1em;
+    left: 0;
+}
+
+nav ul li:hover > ul, nav ul li:focus-within > ul,
+nav ul li ul:hover,
+nav ul li ul:focus {
+  visibility: visible;
+  opacity: 1;
+  display: block
+}
+
+nav ul li ul li {
+    clear: both;
+	width: 100%;
+}
+
+/* End of nav */
+
+main {
+	padding: 2em;
+}
+
+/* Table */
+td {
+	padding: 0.5em;
+}
+
+footer {
+	background: #447EC7;
+	padding: 0.5em;
+	color: #B2D4F7;
+	text-align: center;
+}
+footer a { color: #B2D4F7; }
+footer a:hover { color: #fff; }
+
+@media only screen and (max-width: 64em) {
+	body {
+		margin: 0;
+		background-color: #fff;
+	}
+	
+	#wrapper {
+		min-width: 0;
+		width: auto;
+	}
+	
+	main {
+		margin-left: 0;
+	}
+	
+	nav {
+		width: auto;
+	}
+	
+	nav a {
+		display: inline;
+		width: 30%;
+		min-width: 150px;
+	}
+	
+	footer {
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 37.5em) {
+	header { padding-top: 1em; }
+	
+	main {
+		padding: 0.1em 1em 0.1em 1em;
+		font-size: 90%;
+	}
+	
+	h1 { font-size: 1.5em; }
+	
+	nav { padding: 0; margin: 0; }
+	
+	nav li {
+		float: none;
+		margin: 0;
+		display: block;
+		width: 100%;
+		border-bottom: 2px solid #447EC7;
+	}
+	nav ul li ul {
+		display: true;
+	}
+
+	
+	#mobile { display: inline; }
+	#desktop { display: none; }
+}

@@ -157,6 +157,10 @@ img .me {
 .column {
   float: left;
   width: 50%;
+  cursor: pointer;
+}
+.column p {
+	padding: 0.5em;
 }
 
 /* Clear floats after the columns */
@@ -310,6 +314,12 @@ img .me {
 	}
 	
 	.gallery {
+		width: 100%;
+	}
+	
+	/* Change 2 columns to 1 */
+	.column {
+		float: none;
 		width: 100%;
 	}
 	
