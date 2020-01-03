@@ -1,10 +1,122 @@
 <!DOCTYPE html>
+<style>
+/* In case it's on a subpage and it can't find the main CSS, because apparently there's no backup? */
+/* Why on earth can't you have a backup option? */
+body {
+	background-color: #FAC8D5;
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Links */
+a { color: #9C22CB; }
+/* a:visited { color: #AC0C22; } was interfering with nav links */
+a:hover { color: #D5589A; text-decoration: none; }
+a:active { color: #FFB3C7; text-decoration: none; }
+
+header {
+	background-color: #6C1FB9;
+	height: 50px;
+	color: #FAC8D5;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	/* "Times New Roman" must be in quotation marks because of the white space*/
+	font-family: Goudy Old Style, "Times New Roman", Serif;
+	margin-bottom: 0;
+	/* Not sure why padding on bottom has to be so huge in order for it to look nice */
+	padding: 15px 15px 50px 15px;
+}
+
+nav {
+	background-color: #D5589A;
+	background:linear-gradient(0deg, rgba(213,88,154,1) 0%, rgba(156,34,203,1) 100%);
+	text-align: center;
+	height: 100%;
+	width: 20%;
+	float: left;
+	margin-right: 50px;
+	padding: 0;
+}
+
+nav li {
+	list-style-type: none;
+}
+
+
+nav a {
+	display: inline-block;
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.2em;
+	
+}
+
+nav a:hover {
+	color: #FAC8D5;
+	background-color: rgba(255,255,255,0.2);
+}
+
+nav a:active {
+	color: #000;
+}
+
+main {
+	padding: 1px 20px 20px 20px;
+	margin-left: 20%;
+}
+
+h1, h2, h3 {
+	font-family: Goudy Old Style, "Times New Roman", Serif;
+	font-weight: bold;
+}
+
+h1 {
+	margin-top: 0;
+	color: #6C1FB9;
+}
+
+h2 { color: #D5589A; }
+h3 { color: #6C1FB9; }
+
+
+
+#wrapper {
+	background-color: #fff;
+	width: 80%;
+	min-width: 960px;
+	max-width: 2048px;
+	margin-left: auto;
+	margin-right: auto;
+	/* box-shadow: horizontal offset, vertical offset, blur radius (optional), default spread distance (optional), color */
+	box-shadow: 3px 3px 2px #D5589A;
+}
+
+main {
+	padding: 50px;
+}
+
+footer {
+	margin-top: 2em;
+	font-family: Goudy Old Style, "Times New Roman", Serif;
+	font-size: 75%;
+	font-style: italic;
+	text-align: center;
+	padding: 20px;
+}
+</style>
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="keywords" content="portfolio">
 		<meta name="description" content="Web portfolio of Jennifer Breunig">
-		<title>The Work of Jenna Breunig</title>
+		<title>Error 404</title>
 		<link rel="stylesheet" href="main.css">
 		
 		<!-- Favicon -->
