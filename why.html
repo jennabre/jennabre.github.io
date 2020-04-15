@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio">
+		<meta name="description" content="Information about Jennifer (Jenna) Breunig">
+		<title>About Jenna</title>
+		<link rel="stylesheet" href="main.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+	</head>
+
+	<body>		
+		<div id="wrapper">
+			<header>
+				Jenna's Portfolio
+			</header>
+			<nav>
+				<a href="index.html"><li>Home</li></a>
+				<a href="about.html"><li>About Me</li></a>
+				<a href="experience.html"><li>My Experience</li></a>
+				<a href="social.html"><li>Social Media</li></a>
+				<a href="why.html"><li>Why Hire Me?</li></a>
+				<a href="edb/index.html"><li>Easy Dog Breeds</li></a>
+				<a href="neurodiversity/index.html"><li>Neurodiversity</li></a>
+				<a href="ilux/index.html"><li>iLux Instructions</li></a>
+			</nav>
+			
+			<main>
+				<h1>Why Hire Me?</h1>
+				<p>Prospective employers may be looking at this portfolio wondering if I'm worth hiring.</p>
+				
+				<p>Please enjoy this random generator. 
+				I can't promise you'll agree with all of it, but you may find it illuminating.</p>
+				
+				<label for="q1a"><input type="radio" name="q1" value="0" id="q1a">Good reason</label>
+				<label for="q1b"><input type="radio" name="q1" value="1" id="q1b">Bad reason</label>
+				<br/><br/>
+				<button onclick="giveReason()">Get a reason</button>
+				
+				<p id="reason"></p>
+				<br/><br/>
+
+			<footer>
+				Copyright &copy; 2019 Jennifer Breunig<br/>
+				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+			</footer>
+		</div>
+		
+
+	</body>
+
+	<script>
+		// Many thanks to https://codeactually.com/interactivequiz.html
+		// And https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null
+		
+		function giveReason() {
+			
+			var qualityReason = 0;
+			// Setting values of each answered question
+			var reason = document.querySelector('input[name = "q1"]:checked');
+			if (reason) {
+				qualityReason = parseInt(reason.value);
+			}
+			
+			var result = "";
+			
+			if (qualityReason === 0) {
+				result = getGoodReason();
+			}
+			else {
+				result = getBadReason();
+			}
+		   
+			document.getElementById("reason").innerHTML = result;
+
+			// Don't refresh page
+			return false;
+		}
+		
+		function getGoodReason() {
+			var reasons = [
+				"I enjoy creative projects",
+				"I can focus for long periods of time on a project that I enjoy",
+				"I take pride in producing quality work",
+				"I'm a quick learner",
+				"I'm a lifelong learner",
+				"I've learned many programming languages and am happy to learn more",
+				"I'm not afraid to look things up or ask for help if I don't know how to do something",
+				"I enjoy helping my coworkers and will be there for them when they need me",
+				"I get along well with most people",
+				"teamwork is important to me",
+				"I'm comfortable being a leader or a follower as needed",
+				"I'm a careful listener who tries to understand users",
+				"I'm a clear communicator",
+				"I can explain difficult concepts using simple words",
+				"I coded all this pretty quickly"
+			]
+			reason = reasons[Math.floor(Math.random() * reasons.length)];
+			return "I would be a worthwhile addition to your company because " + reason + ".";
+		}
+		
+		function getBadReason() {
+		
+			var adverbs = [
+				"totally", "definitely", "immediately"
+			]
+			adverb = adverbs[Math.floor(Math.random() * adverbs.length)];
+			var reasons = [
+				"I can " + getUselessSkill(),
+				"I'm too weird to be boring",
+				"my mom thinks I make life more colorful",
+				"the office will be more interesting if I am in it",
+				"if you ever feel like you're weird, you can stand next to me and you'll look normal by comparison",
+				"I'm very short, so I will probably look up to you",
+				"I am willing to bribe people with donuts and brownies",
+				"I keep a chocolate stash on my desk and I might allow you to have some",
+				"I have lots of quality cat videos ready in case someone at work is sad",
+				"I have never lit anything on fire by accident",
+				"I can catch a lizard with my hands and feet, so I'm perfect for agile development",
+				"I'm scared of dangerous activities, reducing the burden of company health insurance",
+				"I tend to leave places cleaner than I found them",
+				"I like decorating, so my office would look really pretty",
+				"my " + getRelative() + " thinks I'm worth hiring",
+				"my " + getRelative() + " thinks I'm smart",
+				"my " + getRelative() + " said my drawings are pretty",
+				"my little sister says I'm always right",
+				"my grandma says I'm special",
+				"my dad says I'm good with dogs, and their opinions are all that really matter",
+				"I look great on paper if you let me use Photoshop before I print it",
+				"I'm not pretty enough to distract my single coworkers",
+				"I have never thrown any objects while debugging",
+				"coding this is my idea of a fun afternoon"
+			]
+			reason = reasons[Math.floor(Math.random() * reasons.length)];
+			
+			return "You should " + adverb + " hire me because " + reason + ".";
+		}
+		
+		function getUselessSkill() {
+			var skills = [
+				"put my foot on my head",
+				"lick my own nose",
+				"play Chopin on the piano (if you don't mind a lot of mistakes)",
+				"sing impressively high, and mostly on key too",
+				"make the rest of you sound good by comparison if we do office karaoke",
+			]
+			return skills[Math.floor(Math.random() * skills.length)];
+		}
+		
+		function getRelative() {
+			var people = [
+				"dad", "mom", "little sister",
+				"grandma", "favorite teacher"
+			]
+			return people[Math.floor(Math.random() * people.length)];
+		}
+
+	</script>
+
+
+</html>
