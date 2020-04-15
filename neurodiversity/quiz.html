@@ -122,7 +122,7 @@
 			// show number of correct answers out of total
 			resultsContainer.innerHTML = `<br/>
 			<p>You got ${numCorrect} out of ${myQuestions.length} correct</p>
-			<p>Curious why something is correct or incorrect?</p>
+			<p>Want to learn about why?</p>
 			<a href="answers.html"><button>Learn about the answers</button></a>
 			`;
 		}
@@ -132,7 +132,7 @@
 	const submitButton = document.getElementById("submit");
 	const myQuestions = [
 		{
-			question: "During a meeting, my colleague starts rocking back and forth while staring into space. That means she's",
+			question: "During a meeting, my colleague rocks back and forth while staring into space. She's probably",
 				answers: {
 					a: "Not listening",
 					b: "Being rude",
@@ -145,7 +145,7 @@
 				answers: {
 					a: "Explain the issue and ask for his own office",
 					b: "Stop complaining and deal with it",
-					c: "Wear headphones"
+					c: "Buy a better pair of headphones"
 				  },
 			  correctAnswer: "a"
 		},
