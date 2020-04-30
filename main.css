@@ -200,11 +200,6 @@ img .me {
 	padding: 10px;
 }
 
-.clearfix:after {
-	content: "";
-	display: table;
-	clear: both;
-}
 .pic:hover {
 	opacity: 70%;
 }
@@ -218,6 +213,13 @@ img .me {
 	padding: 15px;
 	text-align: center;
 	color: #6C1FB9;
+}
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+	margin: 0;
+	padding: 0;
 }
 
 * {
