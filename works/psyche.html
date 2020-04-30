@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="portfolio">
 		<meta name="description" content="Web portfolio of Jennifer Breunig">
-		<title>Writing</title>
+		<title>Videos</title>
 		<link rel="stylesheet" href="wstyle.css">
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
@@ -40,13 +40,41 @@
 			</nav>
 			
 			<main>
-				<h1>Written Work</h1>
+				<h1>Psyche Inspired</h1>
 				
-				<p>
-					Most of my writing is done online under a pseudonym.
-				</p>
+				<p>I was given the remarkable opportunity to design the app for the nationwide Psyche Inspired project in 2020.</p>
 				
-				<a href="anoche.html">Translating "Anoche cuando dormía" by Antonio Machado</a>
+				<p>The app is not yet released. Here are some screenshots taken during a test run.</p>
+				
+				
+				<!-- The expanding image container -->
+				<div class="bigpic">
+				  <!-- Expanded image -->
+				  <img src="psyche1.png" id="expandedImg" width="800">
+
+				  <!-- Image text -->
+				  <div id="imgtext">Map</div>
+				</div>
+				
+				<!-- The grid: four columns -->
+				<div class="displayrow">
+				  <div class="displaycolumn">
+					<img src="psyche1.png" width="200" alt="Map" onclick="myFunction(this);">
+				  </div>
+				  <div class="displaycolumn">
+					<img src="psyche2.png" width="200" alt="Art by Janani Lakshmanan" onclick="myFunction(this);">
+				  </div>
+				  <div class="displaycolumn">
+					<img src="psyche3.png" width="200" alt="Artist comments" onclick="myFunction(this);">
+				  </div>
+				  <div class="displaycolumn">
+					<img src="psyche4.png" width="200" alt="Art by Finn Witt" onclick="myFunction(this);">
+				  </div>
+				</div>
+				
+				
+
+				
 
 			</main>
 			<footer>
@@ -57,5 +85,17 @@
 		
 
 	</body>
+	
+	<script>
+	
+	function myFunction(imgs) {
+	  var expandImg = document.getElementById("expandedImg");
+	  var imgText = document.getElementById("imgtext");
+	  expandImg.src = imgs.src;
+	  imgText.innerHTML = imgs.alt;
+	  expandImg.parentElement.style.display = "block";
+	}
+</script>
 
 </html>
+

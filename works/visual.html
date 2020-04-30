@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="portfolio">
 		<meta name="description" content="Web portfolio of Jennifer Breunig">
-		<title>Projects</title>
+		<title>Videos</title>
 		<link rel="stylesheet" href="wstyle.css">
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
@@ -39,10 +39,14 @@
 				<li><a href="../index.html">Portfolio</a></li>
 			</nav>
 			
-			<main>	
-				<p>
-					I've worked with various multimedia for school and enjoyment.
-				</p>
+			<main>
+				<h1>Visual work</h1>
+				
+				<p>I design videos, create graphics, and edit photos.</p>
+				
+				
+
+				
 
 			</main>
 			<footer>
@@ -53,5 +57,17 @@
 		
 
 	</body>
+	
+	<script>
+	
+	function myFunction(imgs) {
+	  var expandImg = document.getElementById("expandedImg");
+	  var imgText = document.getElementById("imgtext");
+	  expandImg.src = imgs.src;
+	  imgText.innerHTML = imgs.alt;
+	  expandImg.parentElement.style.display = "block";
+	}
+</script>
 
 </html>
+

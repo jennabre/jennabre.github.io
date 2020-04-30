@@ -1,15 +1,13 @@
 /*
 Colors
-Darkest		#
-Dark		#
-Midtone		#2854B3
-Light mid	#447EC7
-Light tone	#768FD0		ugly...
-Pale		#B2D4F7
+Dark, medium, light
+Green:	#51CCAC	#82D9C2	#9EF3DC
+Pink:	#EE88A0	#F3AABB	#FFC3D4
+Grays:	#D9D9D9
 */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #B2D4F7;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  background-color: #D9D9D9;
 }
 
 header {
@@ -17,6 +15,7 @@ header {
 	text-align: center;
 	font-size: 2em;
 	padding: 0.3em;
+	font-family: 'Lemon';
 }
 
 #wrapper {
@@ -28,8 +27,8 @@ header {
 	margin-right: auto;
 }
 header {
-	background-color: #2854B3;
-	color: #B2D4F7;
+	background-color: #82D9C2;
+	color: #fff;
 }
 
 /* Nav */
@@ -38,8 +37,9 @@ header {
 nav {
     width: 100%;
 	/* Match nav li background color */
-	background-color: #2854B3;
+	background-color: #82D9C2;
 	text-align: center;
+	font-size: 1.2em;
 }
 
 /* Not working ideally */
@@ -61,7 +61,7 @@ nav ul {
 
 nav li {
 	/* Match nav background color */
-    background-color: #2854B3;
+    background-color: #82D9C2;
 	position: relative;
 	display: inline-block;
 	width: 12%;
@@ -73,7 +73,7 @@ nav li {
 
 
 nav li:hover, nav li:focus-within {
-    background: #447EC7;
+    background: #9EF3DC;
     cursor: pointer;
 }
 
@@ -111,19 +111,79 @@ main {
 	padding: 2em;
 }
 
+h1, h2, h3 {
+	font-family: 'Lemon';
+	color: #EE88A0
+}
+
+a {
+	color: #EE88A0;
+}
+a:hover {
+	color: #F3AABB;
+}
+
 /* Table */
 td {
 	padding: 0.5em;
 }
+th {
+	background-color: #EE88A0;
+	color: white;
+	padding: 0.2em;
+}
 
 footer {
-	background: #447EC7;
+	background: #F3AABB;
 	padding: 0.5em;
-	color: #B2D4F7;
+	color: #fff;
 	text-align: center;
 }
-footer a { color: #B2D4F7; }
-footer a:hover { color: #fff; }
+footer a { color: #fff; }
+footer a:hover { color: #EE88A0; }
+
+/* Display pictures*/
+/* https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp */
+/* The grid: Four equal columns that floats next to each other */
+.displaycolumn {
+  float: left;
+  margin: 0;
+}
+
+/* Style the images inside the grid */
+.displaycolumn img {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.displaycolumn img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.displayrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.bigpic {
+  position: relative;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  top: 0.3em;
+  left: 0.3em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.2em;
+  color: white;
+  font-size: 1.5em;
+}
+
+/* Responsive */
 
 @media only screen and (max-width: 64em) {
 	body {
@@ -172,7 +232,7 @@ footer a:hover { color: #fff; }
 		margin: 0;
 		display: block;
 		width: 100%;
-		border-bottom: 2px solid #447EC7;
+		border-bottom: 2px solid #51CCAC;
 	}
 	nav ul li ul {
 		display: true;
