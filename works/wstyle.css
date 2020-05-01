@@ -51,6 +51,9 @@ nav a {
 	color: #fff;
 	text-decoration: none;
 }
+nav a:hover {
+	color: #51CCAC;
+}
 
 nav ul {
 	width: 100%;
@@ -142,37 +145,44 @@ footer {
 footer a { color: #fff; }
 footer a:hover { color: #EE88A0; }
 
-/* Display pictures*/
-/* https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp */
-/* The grid: Four equal columns that floats next to each other */
+
+/* Display gallery */
+/* Base: https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp */
+.displaybox {
+	background-color: #eee;
+	max-width: 25%;
+	float: left;
+	margin: 0.5em;
+	padding: 1em;
+	text-align: center;
+	height: 10em;
+}
+.displaybox:hover {
+	opacity: 0.8;
+}
+.displaybox p {
+	font-family: 'Lemon';
+	font-size: 1.2em;
+}
 .displaycolumn {
   float: left;
   margin: 0;
 }
-
-/* Style the images inside the grid */
 .displaycolumn img {
   opacity: 0.8;
   cursor: pointer;
 }
-
 .displaycolumn img:hover {
   opacity: 1;
 }
-
-/* Clear floats after the columns */
 .displayrow:after {
   content: "";
   display: table;
   clear: both;
 }
-
-/* The expanding image container (positioning is needed to position the close button and the text) */
 .bigpic {
   position: relative;
 }
-
-/* Expanding image text */
 #imgtext {
   position: absolute;
   top: 0.3em;
