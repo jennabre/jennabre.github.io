@@ -114,9 +114,14 @@ main {
 	padding: 2em;
 }
 
-h1, h2, h3 {
+h1, h2 {
 	font-family: 'Lemon';
 	color: #EE88A0
+}
+
+h3, h4 {
+	font-family: 'Lemon';
+	color: #51CCAC
 }
 
 a {
@@ -125,15 +130,28 @@ a {
 a:hover {
 	color: #F3AABB;
 }
+p {
+	/* I like big fonts and I cannot lie */
+	font-size: 1.1em;
+	color: #333;
+}
+
+figcaption {
+	color: #777;
+	text-align: center;
+	font-size: 1em;
+}
 
 /* Table */
 td {
 	padding: 0.5em;
+	font-size: 1.1em;
 }
 th {
 	background-color: #EE88A0;
 	color: white;
-	padding: 0.2em;
+	font-size: 1.2em;
+	padding: 0.5em;
 }
 
 footer {
@@ -225,7 +243,7 @@ footer a:hover { color: #EE88A0; }
 	}
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37em) {
 	header { padding-top: 1em; }
 	
 	main {
