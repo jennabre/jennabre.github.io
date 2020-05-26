@@ -7,23 +7,34 @@ Paler Pink		#FAC8D5
 Palest Pink		#FDE4EA
 
 */
+:root {
+	--darkgray: #444;
+	--mediumgray: #aaa;
+	--lightgray: #ddd;
+	--deepblue: #006B80;
+	--mediumblue: #1F98B0;
+	--pastelblue: #55C3D9;
+	--pastelpurple: #C696FA;
+	--pastelpink: #FF93B7;
+	--pastelyellow: #FFCC66;
+}
 
 body {
-	background-color: #FAC8D5;
+	background-color: var(--mediumgray);
 	color: #666;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Links */
-a { color: #9C22CB; }
+a { color: var(--mediumblue); }
 /* a:visited { color: #AC0C22; } was interfering with nav links */
-a:hover { color: #D5589A; text-decoration: none; }
-a:active { color: #FFB3C7; text-decoration: none; }
+a:hover { color: var(--pastelblue); text-decoration: none; }
+a:active { color: var(--pastelblue); text-decoration: none; }
 
 header {
-	background-color: #6C1FB9;
+	background-color: var(--darkgray);
 	height: 50px;
-	color: #FAC8D5;
+	color: #fff;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
@@ -35,8 +46,7 @@ header {
 }
 
 nav {
-	background-color: #D5589A;
-	background:linear-gradient(0deg, rgba(213,88,154,1) 0%, rgba(156,34,203,1) 100%);
+	background-color: var(--lightgray);
 	text-align: center;
 	height: 100%;
 	width: 20%;
@@ -58,18 +68,19 @@ nav a {
 	margin: 0;
 	text-align: center;
 	text-decoration: none;
-	color: #fff;
+	color: var(--deepblue);
 	font-size: 1.2em;
 	
 }
 
 nav a:hover {
-	color: #FAC8D5;
-	background-color: rgba(255,255,255,0.2);
+	background-color: var(--pastelblue);
+	color: #fff;
+	/* background-color: rgba(255,255,255,0.2); */
 }
 
 nav a:active {
-	color: #000;
+	color: var(--deepblue);
 }
 
 main {
@@ -84,11 +95,11 @@ h1, h2, h3 {
 
 h1 {
 	margin-top: 0;
-	color: #6C1FB9;
+	color: var(--deepblue);
 }
 
-h2 { color: #D5589A; }
-h3 { color: #6C1FB9; }
+h2 { color: var(--mediumblue); }
+h3 { color: var(--mediumgray); }
 
 
 
@@ -100,7 +111,7 @@ h3 { color: #6C1FB9; }
 	margin-left: auto;
 	margin-right: auto;
 	/* box-shadow: horizontal offset, vertical offset, blur radius (optional), default spread distance (optional), color */
-	box-shadow: 3px 3px 2px #D5589A;
+	box-shadow: 3px 3px 2px var(--darkgray);
 }
 
 main {
@@ -110,7 +121,7 @@ main {
 footer {
 	margin-top: 2em;
 	font-family: Goudy Old Style, "Times New Roman", Serif;
-	font-size: 75%;
+	font-size: 90%;
 	font-style: italic;
 	text-align: center;
 	padding: 20px;
@@ -126,10 +137,10 @@ img .me {
 
 /* Quotes */
 .quotebox {
-	background-color: #FDE4EA;
+	background-color: var(--lightgray);
 	padding: 10px;
 	margin: 1em;
-	color: #666;
+	color: var(--darkgray);
 }
 .quotebox p {
 	font-family: "Goudy Old Style", serif;
@@ -174,7 +185,7 @@ img .me {
 /* Progress bars */
 
 .progress {
-	background-color: #FDE4EA;
+	background-color: var(--lightgray);
 	width: 90%;
 	height: 2em;
 	border-radius: 1em;
@@ -182,13 +193,13 @@ img .me {
 }
 .progress span {
 	display: inline-block;
-	background-image: linear-gradient(to right, #FFB3C7, #D5589A);
+	background-image: linear-gradient(to right, var(--mediumblue), var(--deepblue));
 	border-radius: 1em;
 	height: 100%;
 	padding-top: 0.5em;
 	padding-right: 1em;
 	text-align: right;
-	color: #FDE4EA;
+	color: #fff;
 }
 
 
@@ -196,7 +207,7 @@ img .me {
 /* Thanks to https://www.w3schools.com/css/tryit.asp?filename=trycss_image_pic_gallery */
 
 .pic {
-	background-color: #FAC8D5;
+	background-color: var(--lightgray);
 	padding: 10px;
 }
 
@@ -210,10 +221,12 @@ img .me {
 }
 
 .desc {
-	padding: 15px;
+	padding: 1em;
 	text-align: center;
-	color: #6C1FB9;
+	color: var(--darkgray);
 }
+
+/* Clearfix */
 .clearfix:after {
 	content: "";
 	display: table;
