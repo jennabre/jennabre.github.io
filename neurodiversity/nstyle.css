@@ -46,8 +46,8 @@ nav a {
 	background-color: #AAE1EC;
 	display: inline-block;
 	width: 100%;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 0.8em;
+	padding-bottom: 0.8em;
 	margin: 0;
 	text-align: center;
 	text-decoration: none;
@@ -102,24 +102,42 @@ nav .purple:hover { background-color: #C696FA; }
 main {
 	padding: 2em;
 	margin-left: 20%;
+	font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3 {
-	font-family: "Goudy Old Style", serif;
-}
-
-h1 {
-	color: #7741B2;
-}
-
-h2 {
-	color: #9461CB;
-}
 
 footer {
 	background-color: #D5F0F6;
 	padding: 2em;
 	text-align: center;
+}
+
+hr {
+	background: url(rainbowsolid.png) repeat top left;
+	background-size: contain;
+	height: 15px;
+	border: none !important;
+	margin: 3em 0 3em 0;
+}
+
+/* Headings */
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+h1 {
+	font-size: 2em;
+	color: #7741B2;
+}
+
+h2 {
+	font-size: 1.7em;
+	color: #006B80;
+}
+
+h3 {
+	font-size: 1.4em;
+	color: #1F98B0;
 }
 
 /* Table */
