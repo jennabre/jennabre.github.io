@@ -21,7 +21,8 @@ Palest Pink		#FDE4EA
 body {
 	background-color: var(--pastelblue);
 	color: #555;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	font-size: 1.1em;
 }
 
 /* Links */
@@ -118,6 +119,20 @@ footer {
 	font-style: italic;
 	text-align: center;
 	padding: 20px;
+}
+
+button {
+	padding: 0.5em;
+	background-color: var(--mediumblue);
+	color: #fff;
+	border: none;
+}
+button:hover {
+	background-color: var(--lightblue);
+}
+
+button:active {
+	background-color: var(--barelyblue);
 }
 
 img .me {
@@ -237,7 +252,7 @@ img .me {
 .desc {
 	padding: 1em;
 	text-align: center;
-	color: var(--darkgray);
+	color: var(--deepblue);
 }
 
 * {
@@ -330,7 +345,12 @@ img .me {
 		margin: 0;
 		padding: 15px 0 15px 0;
 		width: 100%;
-		border-bottom: 2px solid var(--mediumgray);
+		border-bottom: 2px solid var(--deepblue);
+	}
+	
+	.accentbox {
+		/* Override specificity */
+		width: 100%!important;
 	}
 	
 	.gallery {
