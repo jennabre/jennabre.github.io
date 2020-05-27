@@ -13,14 +13,13 @@ Palest Pink		#FDE4EA
 	--lightgray: #ddd;
 	--deepblue: #006B80;
 	--mediumblue: #1F98B0;
-	--pastelblue: #55C3D9;
-	--pastelpurple: #C696FA;
-	--pastelpink: #FF93B7;
-	--pastelyellow: #FFCC66;
+	--lightblue: #55C3D9;
+	--pastelblue: #AAE1EC;
+	--barelyblue: #D5F0F6;
 }
 
 body {
-	background-color: var(--mediumgray);
+	background-color: var(--pastelblue);
 	color: #666;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -32,9 +31,8 @@ a:hover { color: var(--pastelblue); text-decoration: none; }
 a:active { color: var(--pastelblue); text-decoration: none; }
 
 header {
-	background-color: var(--darkgray);
+	background-color: var(--deepblue);
 	height: 50px;
-	color: #fff;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
@@ -44,14 +42,14 @@ header {
 	/* Not sure why padding on bottom has to be so huge in order for it to look nice */
 	padding: 15px 15px 50px 15px;
 }
+header a {
+	color: #fff;
+	text-decoration: none;
+}
 
 nav {
-	background-color: var(--lightgray);
+	background-color: var(--mediumblue);
 	text-align: center;
-	height: 100%;
-	width: 20%;
-	float: left;
-	margin-right: 50px;
 	padding: 0;
 }
 
@@ -62,19 +60,19 @@ nav li {
 
 nav a {
 	display: inline-block;
-	width: 100%;
+	width: 15%;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin: 0;
 	text-align: center;
 	text-decoration: none;
-	color: var(--deepblue);
+	color: var(--barelyblue);
 	font-size: 1.2em;
 	
 }
 
 nav a:hover {
-	background-color: var(--pastelblue);
+	background-color: var(--lightblue);
 	color: #fff;
 	/* background-color: rgba(255,255,255,0.2); */
 }
@@ -84,8 +82,7 @@ nav a:active {
 }
 
 main {
-	padding: 1px 20px 20px 20px;
-	margin-left: 20%;
+	padding: 0.1em 1.5em 1.5em 1.5em;
 }
 
 h1, h2, h3 {
@@ -99,7 +96,7 @@ h1 {
 }
 
 h2 { color: var(--mediumblue); }
-h3 { color: var(--mediumgray); }
+h3 { color: var(--lightblue); }
 
 
 
@@ -111,7 +108,7 @@ h3 { color: var(--mediumgray); }
 	margin-left: auto;
 	margin-right: auto;
 	/* box-shadow: horizontal offset, vertical offset, blur radius (optional), default spread distance (optional), color */
-	box-shadow: 3px 3px 2px var(--darkgray);
+	/*box-shadow: 3px 3px 2px var(--mediumblue);*/
 }
 
 main {
@@ -137,7 +134,7 @@ img .me {
 
 /* Quotes */
 .quotebox {
-	background-color: var(--lightgray);
+	background-color: var(--barelyblue);
 	padding: 10px;
 	margin: 1em;
 	color: var(--darkgray);
@@ -163,12 +160,25 @@ img .me {
 	content:"— ";
 }
 
+/* Little formatting stuff */
+
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+.spacer {
+	height: 75px;
+}
+
 /* Columns */
 
 .column {
   float: left;
   width: 50%;
-  cursor: pointer;
 }
 .column p {
 	padding: 0.5em;
@@ -185,7 +195,7 @@ img .me {
 /* Progress bars */
 
 .progress {
-	background-color: var(--lightgray);
+	background-color: var(--barelyblue);
 	width: 90%;
 	height: 2em;
 	border-radius: 1em;
@@ -193,13 +203,14 @@ img .me {
 }
 .progress span {
 	display: inline-block;
-	background-image: linear-gradient(to right, var(--mediumblue), var(--deepblue));
+	background-image: linear-gradient(to right, var(--lightblue), var(--mediumblue));
 	border-radius: 1em;
 	height: 100%;
 	padding-top: 0.5em;
 	padding-right: 1em;
 	text-align: right;
 	color: #fff;
+	cursor: pointer;
 }
 
 
@@ -207,7 +218,7 @@ img .me {
 /* Thanks to https://www.w3schools.com/css/tryit.asp?filename=trycss_image_pic_gallery */
 
 .pic {
-	background-color: var(--lightgray);
+	background-color: var(--barelyblue);
 	padding: 10px;
 }
 
@@ -224,15 +235,6 @@ img .me {
 	padding: 1em;
 	text-align: center;
 	color: var(--darkgray);
-}
-
-/* Clearfix */
-.clearfix:after {
-	content: "";
-	display: table;
-	clear: both;
-	margin: 0;
-	padding: 0;
 }
 
 * {
@@ -325,7 +327,7 @@ img .me {
 		margin: 0;
 		padding: 15px 0 15px 0;
 		width: 100%;
-		border-bottom: 2px solid #6C1FB9;
+		border-bottom: 2px solid var(--mediumgray);
 	}
 	
 	.gallery {
