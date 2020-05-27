@@ -20,7 +20,7 @@ Palest Pink		#FDE4EA
 
 body {
 	background-color: var(--pastelblue);
-	color: #666;
+	color: #555;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -31,7 +31,7 @@ a:hover { color: var(--pastelblue); text-decoration: none; }
 a:active { color: var(--pastelblue); text-decoration: none; }
 
 header {
-	background-color: var(--deepblue);
+	background-color: var(--mediumblue);
 	height: 50px;
 	text-align: center;
 	font-size: 2em;
@@ -82,7 +82,7 @@ nav a:active {
 }
 
 main {
-	padding: 0.1em 1.5em 1.5em 1.5em;
+	padding: 3em;
 }
 
 h1, h2, h3 {
@@ -111,10 +111,6 @@ h3 { color: var(--lightblue); }
 	/*box-shadow: 3px 3px 2px var(--mediumblue);*/
 }
 
-main {
-	padding: 50px;
-}
-
 footer {
 	margin-top: 2em;
 	font-family: Goudy Old Style, "Times New Roman", Serif;
@@ -129,6 +125,13 @@ img .me {
 	/* Can I fix the margin-left so it actually works? */
 	margin-left: 2em;
 	margin-bottom: 0;
+}
+
+.accentbox {
+	background-color: var(--barelyblue);
+	padding: 1em;
+	font-size: 1.2em;
+	color: var(--deepblue);
 }
 
 
