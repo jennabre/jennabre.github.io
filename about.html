@@ -120,6 +120,9 @@
 		}
 		
 		function getGoodReason() {
+			var adjectives = [
+				"worthwhile", "useful", "helpful", "practical"
+			]
 			var reasons = [
 				"I enjoy creative projects",
 				"I can focus for long periods of time on a project that I enjoy",
@@ -140,7 +143,8 @@
 				"I coded all this pretty quickly"
 			]
 			reason = reasons[Math.floor(Math.random() * reasons.length)];
-			return "I would be a worthwhile addition to your company because " + reason + ".";
+			adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+			return "I would be a " + adjective + " addition to your company because " + reason + ".";
 		}
 		
 		function getBadReason() {
