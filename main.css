@@ -189,7 +189,7 @@ img .me {
 	padding: 0;
 }
 .spacer {
-	height: 75px;
+	height: 25px;
 }
 
 /* Columns */
@@ -230,6 +230,11 @@ img .me {
 	color: #fff;
 	cursor: pointer;
 }
+
+/* Social media */
+.socials { text-align: center; }
+.socials img { width: 50px; }
+.socials img:hover { opacity: 80%; }
 
 
 /* Image gallery */
