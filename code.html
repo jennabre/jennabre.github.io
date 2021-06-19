@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio">
+		<meta name="description" content="Web portfolio of Jennifer Breunig">
+		<title>Code by Jenna</title>
+		<link rel="stylesheet" href="main.css">
+		
+		<!-- Font -->
+		<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+		
+	</head>
+
+	<body>		
+		<div id="wrapper">
+			<header>
+				<a href="index.html">Jenna's Portfolio</a>
+			</header>
+			<nav role="navigation">
+			  <ul>
+			  <!-- If every a is not inside every li, it WILL break! -->
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="code.html">Code</a>
+				  <ul class="dropdown">
+					<li><a href="websites.html">Websites</a></li>
+					<li><a href="apps.html">Apps</a></li>
+				  </ul>
+				<li><a href="art.html">Art</a>
+				  <ul class="dropdown">
+					<li><a href="art-ig.html">Instagram</a></li>
+					<li><a href="art-misc.html">Misc</a></li>
+				  </ul>
+				</li>
+				<li><a href="photoedit.html">Photos</a></li>
+			</nav>
+			
+			<main>
+				<h1>My Code</h1>
+				
+				<a href="websites.html"><button>Websites</button></a>
+				
+				<div class="columns">
+					<div class="column">
+						<h2>Languages</h2>
+				
+						<!-- These values aren't exact. I'm guessing. -->
+						<!-- Please don't take the percentages too seriously. -->
+
+						<div class="progress" onclick="exp()">
+							<span style="width: 85%">HTML</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 65%">CSS</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 25%">JS</span>
+						</div>
+						
+						<div class="progress" onclick="exp()">
+							<span style="width: 75%">Java</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 55%">C & C++</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 20%">Pyt.</span>
+							</div>
+						<p>One semester or less: SQL, MIPS, Scheme, Prolog</p>
+					
+					</div>
+					
+					<div class="column">
+						<h2>Programs</h2>
+							
+						<!-- +5% for making it the center of the circle -->
+						<!-- Wait, why am I pretending this is remotely scientific? -->
+						<div class="progress" onclick="exp()">
+							<span style="width: 80%">Canva</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 60%">WordPress</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 40%">Photoshop</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 80%">Google Drive</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 90%">MS Word & Power Point</span>
+						</div>
+						<div class="progress" onclick="exp()">
+							<span style="width: 30%">Unity</span>
+						</div>
+							
+							<p>Also: Google Analytics, Hootsuite, Clip Studio, Arduino</p>
+
+							
+					</div>
+				
+				</div>
+				<!-- End of column area -->
+				
+				<p>
+					I'm a fast learner who picks up on new languages quickly. 
+					I can learn anything I'm asked to learn.
+				</p>
+				
+				<div class="spacer"></div>
+				
+				<h1>Philosophy</h1>
+				
+				<div class="columns">
+					<div class="column">
+						<div class="quotebox">
+							<p>Form follows function.</p>
+							<div class="attr">Louis Sullivan</div>
+						</div>
+						<p>
+							Code exists to help people. 
+							I design not to show off what I can do, but to create the best user experience I can.
+						</p>
+					
+					</div>
+					
+					<div class="column">
+						<div class="quotebox">
+							<p>Friends before trends.</p>
+							<div class="attr">Jenna Breunig</div>
+						</div>
+						
+						<p>
+							Web design styles come and go. 
+							I can follow the trends if you'd like, but I won't sacrifice ease of use or accessibility. 
+							The user comes first.
+						</p>
+							
+					</div>
+				
+				</div>
+				<!-- End of column area -->
+				
+				
+				
+				
+				
+
+			
+			<footer>
+				Copyright &copy; 2021 Jennifer Breunig<br/>
+				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+			</footer>
+		</div>
+		
+
+	</body>
+
+</html>
+
+<script>
+	function exp() {
+		alert("Sorry!\nOnly my teachers, my employers, and I can edit these levels.");
+	}
+</script>

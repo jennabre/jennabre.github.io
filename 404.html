@@ -151,11 +151,23 @@ footer {
 			<header>
 				Jenna's Portfolio
 			</header>
-			<nav>
-				<a href="index.html"><li>Home</li></a>
-				<a href="about.html"><li>About</li></a>
-				<a href="websites.html"><li>Sites</li></a>
-				<a href="art.html"><li>Art</li></a>
+			<nav role="navigation">
+			  <ul>
+			  <!-- If every a is not inside every li, it WILL break! -->
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="code.html">Code</a>
+				  <ul class="dropdown">
+					<li><a href="websites.html">Websites</a></li>
+					<li><a href="apps.html">Apps</a></li>
+				  </ul>
+				<li><a href="art.html">Art</a>
+				  <ul class="dropdown">
+					<li><a href="art-ig.html">Instagram</a></li>
+					<li><a href="art-misc.html">Misc</a></li>
+				  </ul>
+				</li>
+				<li><a href="photoedit.html">Photos</a></li>
 			</nav>
 			
 			<main>

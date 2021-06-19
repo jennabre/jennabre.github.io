@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="portfolio">
 		<meta name="description" content="Web portfolio of Jennifer Breunig">
-		<title>The Work of Jenna Breunig</title>
+		<title>Websites by Jenna</title>
 		<link rel="stylesheet" href="main.css">
 		
 		<!-- Font -->
@@ -34,11 +34,23 @@
 			<header>
 				<a href="index.html">Jenna's Portfolio</a>
 			</header>
-			<nav>
-				<a href="index.html"><li>Home</li></a>
-				<a href="about.html"><li>About</li></a>
-				<a href="websites.html"><li>Sites</li></a>
-				<a href="art.html"><li>Art</li></a>
+			<nav role="navigation">
+			  <ul>
+			  <!-- If every a is not inside every li, it WILL break! -->
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="code.html">Code</a>
+				  <ul class="dropdown">
+					<li><a href="websites.html">Websites</a></li>
+					<li><a href="apps.html">Apps</a></li>
+				  </ul>
+				<li><a href="art.html">Art</a>
+				  <ul class="dropdown">
+					<li><a href="art-ig.html">Instagram</a></li>
+					<li><a href="art-misc.html">Misc</a></li>
+				  </ul>
+				</li>
+				<li><a href="photoedit.html">Photos</a></li>
 			</nav>
 			
 			<main>
@@ -76,7 +88,7 @@
 				<a href="neurodiversity/index.html">
 					<div class="gallery">
 					  <div class="pic">
-						<img src="site neurodiversity.png" alt="Neurodiversity" width="600" height="400">
+						<img src="site neurodiversity.jpg" alt="Neurodiversity" width="600" height="400">
 						<div class="desc"><b>Neurodiversity</b><br/>College project</div>
 					  </div>
 					</div>
@@ -85,7 +97,7 @@
 				<a href="https://926.4ee.myftpupload.com/">
 					<div class="gallery">
 					  <div class="pic">
-						<img src="construction.png" alt="Projects" width="600" height="400">
+						<img src="site tlc.jpg" alt="Projects" width="600" height="400">
 						<div class="desc"><b>Truly TLC Pet Sitting</b><br/>Currently a draft</div>
 					  </div>
 					</div>

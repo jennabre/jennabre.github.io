@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio">
+		<meta name="description" content="Information about Jennifer (Jenna) Breunig">
+		<title>Bad Info About Jenna</title>
+		<link rel="stylesheet" href="wstyle.css">
+		
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+		
+	</head>
+
+	<body>		
+		<div id="wrapper">
+			<header>
+				<a href="index.html">Jenna's Unportfolio</a>
+			</header>
+			<nav>
+				<a href="index.html"><li>Home</li></a>
+				<a href="about.html"><li>About</li></a>
+				<a href="design.html"><li>Design</li></a>
+				<a href="art.html"><li>Why?</li></a>
+				<a href="../index.html"><li>Back</li></a>
+			</nav>
+			
+			<main>
+				<h1>About Me</h1>
+				
+				
+				<h2>Useless facts about me</h2>
+				
+				<ul>
+					<li>As you may have noticed, I love bright and cheerful colors.</li>
+					<li>I can type about 90-100 wpm under normal circumstances and about 70 wpm when one of my fingers is unusable because I tried to save the bees with my bare hands.</li>
+					<li>My useless skills include doing calculus in my sleep and putting my foot on my own head.</li>
+					<li>This website is the type of thing that happens when I am left unsupervised.</li>
+				</ul>
+				
+				
+				<div class="spacer"></div>
+				
+				<h2>Very Serious Reasons to Hire Me</h2>
+				<p>Prospective employers may be looking at this portfolio wondering if I'm worth hiring.</p>
+				
+				<p>If you're on the fence, I can offer some illuminating insights on whether it would be a good decision.</p>
+				
+				<br/>
+				<button onclick="giveReason()">Get a reason</button>
+				
+				<p id="reason"></p>
+				<br/><br/>
+				<p><i>For actually useful information, visit my <a href="../about.html">portfolio.</a></i></p>
+
+			<footer>
+				Copyright &copy; 2021 Jennifer Breunig<br/>
+				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+			</footer>
+		</div>
+		
+
+	</body>
+
+</html>
+
+<script>
+		// Many thanks to https://codeactually.com/interactivequiz.html
+		// And https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null
+		
+		function giveReason() {
+			
+			result = getBadReason();
+			document.getElementById("reason").innerHTML = result;
+
+			// Don't refresh page
+			return false;
+		}
+		
+		
+		
+		function getBadReason() {
+		
+			var adverbs = [
+				"absolutely", "definitely", "happily", "immediately", "instantly", "totally"
+			]
+			adverb = adverbs[Math.floor(Math.random() * adverbs.length)];
+			var reasons = [
+				"I can " + getUselessSkill(),
+				"I'm too weird to be boring",
+				"my mom thinks I make life more colorful",
+				"the office will be more interesting if I am in it",
+				"if you ever feel like you're weird, you can stand next to me and you'll look normal by comparison",
+				"I'm very short, so I will probably look up to you",
+				"I am willing to bribe people with donuts and brownies",
+				"I keep a chocolate stash on my desk and I might allow you to have some",
+				"I have lots of quality cat videos ready in case someone at work is sad",
+				"I have never lit anything on fire by accident",
+				"I can catch a lizard with my bare hands and feet, so I'm perfect for agile development",
+				"I'm scared of dangerous activities, reducing the burden of company health insurance",
+				"I tend to leave places cleaner than I found them",
+				"I like decorating, so my office would look really pretty",
+				"my " + getRelative() + " thinks I'm worth hiring",
+				"my " + getRelative() + " thinks I'm smart",
+				"my " + getRelative() + " said my drawings are pretty",
+				"my little sister says I'm always right",
+				"my grandma says I'm special",
+				"my dad says I'm good with dogs, and their opinions are all that really matter",
+				"I look great on paper if you let me use Photoshop before I print it",
+				"I'm not pretty enough to distract my single coworkers",
+				"I have never thrown any objects while debugging",
+				"coding this is my idea of a fun afternoon"
+			]
+			reason = reasons[Math.floor(Math.random() * reasons.length)];
+			
+			return "You should " + adverb + " hire me because " + reason + ".";
+		}
+		
+		function getUselessSkill() {
+			var skills = [
+				"put my foot on my head",
+				"lick my own nose",
+				"play Chopin on the piano (if you don't mind a lot of mistakes)",
+				"sing impressively high, and mostly on key too",
+				"make the rest of you sound good by comparison if we do office karaoke",
+			]
+			return skills[Math.floor(Math.random() * skills.length)];
+		}
+		
+		function getRelative() {
+			var people = [
+				"dad", "mom", "little sister",
+				"grandma", "favorite teacher"
+			]
+			return people[Math.floor(Math.random() * people.length)];
+		}
+
+	</script>

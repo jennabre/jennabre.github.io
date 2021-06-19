@@ -4,53 +4,119 @@
 		<meta charset="utf-8">
 		<meta name="keywords" content="portfolio">
 		<meta name="description" content="Web portfolio of Jennifer Breunig">
-		<title>Pizza Hut App</title>
-		<link rel="stylesheet" href="wstyle.css">
-		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+		<title>Apps by Jenna</title>
+		<link rel="stylesheet" href="main.css">
+		
+		<!-- Font -->
 		<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-	
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
 		  gtag('config', 'G-95Q4H0KXJJ');
-	</script>
-	
+		</script>
+		
 	</head>
 
 	<body>		
 		<div id="wrapper">
 			<header>
-				<a href="index.html">Projects</a>
+				<a href="index.html">Jenna's Portfolio</a>
 			</header>
 			<nav role="navigation">
 			  <ul>
 			  <!-- If every a is not inside every li, it WILL break! -->
 				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
 				<li><a href="code.html">Code</a>
 				  <ul class="dropdown">
-					<li><a href="psyche.html">Psyche Inspired</a></li>
-					<li><a href="pizza.html">Pizza Hut App</a></li>
+					<li><a href="websites.html">Websites</a></li>
+					<li><a href="apps.html">Apps</a></li>
 				  </ul>
-				<li><a href="written.html">Writing</a>
+				<li><a href="art.html">Art</a>
 				  <ul class="dropdown">
-					<li><a href="anoche.html">Anoche cuando dormía</a></li>
+					<li><a href="art-ig.html">Instagram</a></li>
+					<li><a href="art-misc.html">Misc</a></li>
 				  </ul>
 				</li>
-				<li><a href="visual.html">Visual work</a>
-				  <ul class="dropdown">
-					<li><a href="photoedit.html">Photo edits</a></li>
-					<li><a href="video.html">Videos</a></li>
-				  </ul>
-				</li>
-				<li><a href="../index.html">Portfolio</a></li>
+				<li><a href="photoedit.html">Photos</a></li>
 			</nav>
 			
 			<main>
-				<h1>Pizza Hut App</h1>
+				<h1>Apps</h1>
+				
+				<h2>Psyche Inspired</h2>
+				
+				<p>I was given the remarkable opportunity to design the app for the nationwide Psyche Inspired project in 2020, working with Meteor Studio at ASU.</p>
+				
+				<p>The app is available on <a href="https://play.google.com/store/apps/details?id=edu.asu.ame.meteor.PsycheInspiredArtGallery">Android</a> and <a href="https://apps.apple.com/us/app/psyche-inspired-art-gallery/id1511627040">iOS</a>.</p>
+				
+				
+				<!-- The expanding image container -->
+				<div class="bigpic">
+				  <!-- Expanded image -->
+				  <img src="pics/psyche1.png" id="expandedImg" width="800">
+
+				  <!-- Image text -->
+				  <div id="imgtext">Map</div>
+				</div>
+				
+				<!-- The grid: four columns -->
+				<div class="displayrow">
+				  <div class="displaycolumn">
+					<img src="pics/psyche1.png" width="200" alt="Map" onclick="myFunction(this);">
+				  </div>
+				  <div class="displaycolumn">
+					<img src="pics/psyche2.png" width="200" alt="Art by Janani Lakshmanan" onclick="myFunction(this);">
+				  </div>
+				  <div class="displaycolumn">
+					<img src="pics/psyche3.png" width="200" alt="Artist comments" onclick="myFunction(this);">
+				  </div>
+				  <div class="displaycolumn">
+					<img src="pics/psyche4.png" width="200" alt="Art by Finn Witt" onclick="myFunction(this);">
+				  </div>
+				</div>
+				
+				<h3>Features</h3>
+				<ul>
+					<li>Pan and zoom to see works in detail</li>
+					<li>Pagination and slide displays</li>
+					<li>Music player</li>
+					<li>Tap to play/pause videos</li>
+				</ul>
+				
+				<h3>Process</h3>
+				<p>
+					Professor Robert LiKamWa asked our class to create sample apps for the Psyche Inspired project in Unity. 
+					The best app would be chosen to become the official app for Psyche Inspired.
+				</p>
+				
+				<p>
+					As an artist myself (or at least someone who likes to think I am), I focused on how to showcase the work as clearly as possible. 
+					I chose to use slides in some areas so that the art could appear larger. 
+					I also color-corrected and enhanced photographed artwork to restore its original look.
+				</p>
+				
+				<p>I felt the map would showcase the geographic diversity of the artists.</p>
+				
+				<p>
+					I'm honored that my design was chosen. 
+					Please feel free to download the app. 
+					The art is truly beautiful.
+				</p>
+				
+				<h2>Pizza Hut App</h2>
 				
 				<p>I designed the UI for a prototype of a new app functionality for Pizza Hut: driver tracking. 
 				Built in Android Studio, the app features a map with the driver's location, 
@@ -71,7 +137,7 @@
 					<figcaption>Many students are familiar with<br/>ride sharing apps.</figcaption>
 				</figure>
 				
-				<h2>Process</h2>
+				
 				<p>I worked on a team of 4 alongside Miguel Guerra, James Stievater, and Yu Ling for our senior capstone project. 
 				Our supervisor, Helen Chavez, organized the project and helped us interface with Pizza Hut.
 				</p>
@@ -153,7 +219,17 @@
 		
 
 	</body>
-
+	
+	<script>
+	
+	function myFunction(imgs) {
+	  var expandImg = document.getElementById("expandedImg");
+	  var imgText = document.getElementById("imgtext");
+	  expandImg.src = imgs.src;
+	  imgText.innerHTML = imgs.alt;
+	  expandImg.parentElement.style.display = "block";
+	}
+</script>
 
 </html>
 

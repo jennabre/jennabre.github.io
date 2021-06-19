@@ -34,11 +34,23 @@
 			<header>
 				<a href="index.html">Jenna's Portfolio</a>
 			</header>
-			<nav>
-				<a href="index.html"><li>Home</li></a>
-				<a href="about.html"><li>About</li></a>
-				<a href="websites.html"><li>Sites</li></a>
-				<a href="art.html"><li>Art</li></a>
+			<nav role="navigation">
+			  <ul>
+			  <!-- If every a is not inside every li, it WILL break! -->
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="code.html">Code</a>
+				  <ul class="dropdown">
+					<li><a href="websites.html">Websites</a></li>
+					<li><a href="apps.html">Apps</a></li>
+				  </ul>
+				<li><a href="art.html">Art</a>
+				  <ul class="dropdown">
+					<li><a href="art-ig.html">Instagram</a></li>
+					<li><a href="art-misc.html">Misc</a></li>
+				  </ul>
+				</li>
+				<li><a href="photoedit.html">Photos</a></li>
 			</nav>
 			
 			<main>
@@ -60,14 +72,7 @@
 				
 				<h1>Favorite Projects</h1>
 				
-				<a href="projects/index.html">
-					<div class="gallery">
-					  <div class="pic">
-						<img src="site projects.jpg" alt="Projects" width="600" height="400">
-						<div class="desc"><b>Projects</b><br/>Apps, projects</div>
-					  </div>
-					</div>
-				</a>
+				
 				
 				<a href="https://optimistjenna.com/">
 					<div class="gallery">
@@ -91,8 +96,17 @@
 				<a href="neurodiversity/index.html">
 					<div class="gallery">
 					  <div class="pic">
-						<img src="site neurodiversity.png" alt="Neurodiversity" width="600" height="400">
+						<img src="site neurodiversity.jpg" alt="Neurodiversity" width="600" height="400">
 						<div class="desc"><b>Neurodiversity</b><br/>Personal project</div>
+					  </div>
+					</div>
+				</a>
+				
+				<a href="unportfolio/index.html">
+					<div class="gallery">
+					  <div class="pic">
+						<img src="site projects.jpg" alt="Projects" width="600" height="400">
+						<div class="desc"><b>Unportfolio</b><br/>Don't click this</div>
 					  </div>
 					</div>
 				</a>
@@ -118,110 +132,6 @@
 					I am a certified octopus, with a typing speed of about 90 wpm.
 				</p>
 				<br/>
-				
-				
-				<div class="columns">
-					<div class="column">
-						<h2>Languages</h2>
-				
-						<!-- These values aren't exact. I'm guessing. -->
-						<!-- Please don't take the percentages too seriously. -->
-
-						<div class="progress" onclick="exp()">
-							<span style="width: 85%">HTML</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 65%">CSS</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 25%">JS</span>
-						</div>
-						
-						<div class="progress" onclick="exp()">
-							<span style="width: 75%">Java</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 55%">C & C++</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 20%">Pyt.</span>
-							</div>
-						<p>One semester or less: SQL, MIPS, Scheme, Prolog</p>
-					
-					</div>
-					
-					<div class="column">
-						<h2>Programs</h2>
-							
-						<!-- +5% for making it the center of the circle -->
-						<!-- Wait, why am I pretending this is remotely scientific? -->
-						<div class="progress" onclick="exp()">
-							<span style="width: 80%">Canva</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 60%">WordPress</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 40%">Photoshop</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 80%">Google Drive</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 90%">MS Word & Power Point</span>
-						</div>
-						<div class="progress" onclick="exp()">
-							<span style="width: 30%">Unity</span>
-						</div>
-							
-							<p>Also: Google Analytics, Hootsuite, Clip Studio, Arduino</p>
-
-							
-					</div>
-				
-				</div>
-				<!-- End of column area -->
-				<p>
-					I'm a fast learner who picks up on new languages quickly. 
-					I can learn anything I'm asked to learn.
-				</p>
-				
-				<div class="spacer"></div>
-				
-				<h1>Philosophy</h1>
-				
-				<div class="columns">
-					<div class="column">
-						<div class="quotebox">
-							<p>Form follows function.</p>
-							<div class="attr">Louis Sullivan</div>
-						</div>
-						<p>
-							Code exists to help people. 
-							I design not to show off what I can do, but to create the best user experience I can.
-						</p>
-					
-					</div>
-					
-					<div class="column">
-						<div class="quotebox">
-							<p>Friends before trends.</p>
-							<div class="attr">Jenna Breunig</div>
-						</div>
-						
-						<p>
-							Web design styles come and go. 
-							I can follow the trends if you'd like, but I won't sacrifice ease of use or accessibility. 
-							The user comes first.
-						</p>
-							
-					</div>
-				
-				</div>
-				<!-- End of column area -->
-				
-
-				
 				
 
 			
