@@ -49,9 +49,26 @@
 				<p>This is the most <b style="color: red">beautiful portfolio</b> ever to exist.</p>
 				
 				<p>Please admire the <b style="color: green">amazing design</b> and the <b style="color: blue">perfect colors</b>. 
-				When you open it in Inspect Element, you will be delighted to see <b style="color: magenta">no design mistakes.</b></p>
+				When you open it in Inspect Element, you will be delighted to see <b style="color: magenta; font-family: serif;">no design mistakes.</b></p>
 				
 				<h2>About the Unportfolio</h2>
+				
+				<button type="button" class="question">Why did you make an unportfolio?</button>
+				<div class="answer">
+				  <p>Because my powers are beyond what a simple portfolio can contain.</p>
+				  <p>That and I need something unproductive to do on weekends.</p>
+				</div>
+				<button type="button" class="question">Will reading this make me dumber?</button>
+				<div class="answer">
+				  <p>Yes, immediately. But not for the reasons you think.</p>
+				  <p>You see, each time you go to this site, I steal a few of your IQ points. That's how the internet works. Why else do you think social media founders are so smart?</p>
+				</div>
+				<button type="button" class="question">I'm afraid of you now.</button>
+				<div class="answer">
+				  <p>Good. You should be.</p>
+				</div>
+				
+				<br/><br/>
 
 			<footer>
 				Copyright &copy; 2021 Jenna Breunig<br/>
@@ -61,5 +78,22 @@
 		
 
 	</body>
+	
+	<script>
+var coll = document.getElementsByClassName("question");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var answer = this.nextElementSibling;
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+    } else {
+      answer.style.display = "block";
+    }
+  });
+}
+</script>
 
 </html>

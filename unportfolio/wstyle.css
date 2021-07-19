@@ -1,13 +1,18 @@
-/*
-Colors
-Dark, medium, light
-Green:	#51CCAC	#82D9C2	#9EF3DC
-Pink:	#EE88A0	#F3AABB	#FFC3D4
-Grays:	#D9D9D9
-*/
+
+:root {
+	--gray:		#D9D9D9;
+	--pink1:	#E57992;
+	--pink2:	#F3AABB;
+	--pink3:	#FFC3D4;
+	--green1:	#51CCAC;
+	--green2:	#82D9C2;
+	--green3:	#A0E9D5;
+	--green4:	#CEF1E7;
+}
+
 body {
   font-family: 'Lato', Arial, Helvetica, sans-serif;
-  background-color: #D9D9D9;
+  background-color: var(--gray);
 }
 
 header {
@@ -16,20 +21,20 @@ header {
 	font-size: 2em;
 	padding: 0.3em;
 	font-family: 'Lemon';
-	background-color: #82D9C2;
+	background-color: var(--green2);
 }
 
 header a {
-	color: #fff;
+	color: white;
 	text-decoration: none;
 }
 
 header a:hover {
-	color: #9EF3DC;
+	color: var(--green3);
 }
 
 #wrapper {
-	background-color: #fff;
+	background-color: white;
 	width: 80%;
 	min-width: 960px;
 	max-width: 2048px;
@@ -43,7 +48,7 @@ header a:hover {
 nav {
     width: 100%;
 	/* Match nav li background color */
-	background-color: #82D9C2;
+	background-color: var(--green2);
 	text-align: center;
 	font-size: 1.2em;
 }
@@ -54,11 +59,11 @@ nav a {
 	display: inline;
 	width: 100%;
 	height: 100%;
-	color: #fff;
+	color: white;
 	text-decoration: none;
 }
 nav a:hover {
-	color: #51CCAC;
+	color: var(--green1);
 }
 
 nav ul {
@@ -70,7 +75,7 @@ nav ul {
 
 nav li {
 	/* Match nav background color */
-    background-color: #82D9C2;
+    background-color: var(--green2);
 	position: relative;
 	display: inline-block;
 	width: 12%;
@@ -82,7 +87,7 @@ nav li {
 
 
 nav li:hover, nav li:focus-within {
-    background: #9EF3DC;
+    background: var(--green3);
     cursor: pointer;
 }
 
@@ -120,21 +125,21 @@ main {
 	padding: 2em;
 }
 
-h1, h2 {
+h1 {
 	font-family: 'Lemon';
-	color: #EE88A0
+	color: var(--pink2)
 }
 
-h3, h4 {
-	font-family: 'Lemon';
-	color: #51CCAC
+h2 {
+	font-family: serif;
+	color: var(--pink1)
 }
 
 a {
-	color: #EE88A0;
+	color: var(--pink1);
 }
 a:hover {
-	color: #F3AABB;
+	color: var(--pink3);
 }
 p {
 	/* I like big fonts and I cannot lie */
@@ -142,79 +147,39 @@ p {
 	color: #333;
 }
 
-figcaption {
-	color: #777;
-	text-align: center;
-	font-size: 1em;
-}
-
-/* Table */
-td {
-	padding: 0.5em;
-	font-size: 1.1em;
-}
-th {
-	background-color: #EE88A0;
-	color: white;
-	font-size: 1.2em;
-	padding: 0.5em;
-}
 
 footer {
-	background: #F3AABB;
+	background: var(--pink2);
 	padding: 0.5em;
-	color: #fff;
+	color: white;
 	text-align: center;
 }
-footer a { color: #fff; }
-footer a:hover { color: #EE88A0; }
+footer a { color: white; }
+footer a:hover { color: var(--pink3); }
 
-
-/* Display gallery */
-/* Base: https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp */
-.displaybox {
-	background-color: #eee;
-	max-width: 25%;
-	float: left;
-	margin: 0.5em;
-	padding: 1em;
-	text-align: center;
-	height: 10em;
-}
-.displaybox:hover {
-	opacity: 0.8;
-}
-.displaybox p {
-	font-family: 'Lemon';
-	font-size: 1.2em;
-}
-.displaycolumn {
-  float: left;
-  margin: 0;
-}
-.displaycolumn img {
-  opacity: 0.8;
+/* Q&A */
+/* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */
+.question {
+  background-color: var(--green4);
   cursor: pointer;
+  padding: 1em;
+  width: 100%;
+  border: none;
+  font-size: 1.2em;
+  text-align: left;
+  outline: none;
 }
-.displaycolumn img:hover {
-  opacity: 1;
-}
-.displayrow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.bigpic {
-  position: relative;
-}
-#imgtext {
-  position: absolute;
-  top: 0.3em;
-  left: 0.3em;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0.2em;
+
+.active, .question:hover {
+  background-color: var(--green2);
   color: white;
-  font-size: 1.5em;
+}
+
+.answer {
+  padding: 0 1em;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
 }
 
 /* Responsive */
@@ -222,7 +187,7 @@ footer a:hover { color: #EE88A0; }
 @media only screen and (max-width: 64em) {
 	body {
 		margin: 0;
-		background-color: #fff;
+		background-color: white;
 	}
 	
 	#wrapper {
@@ -266,7 +231,7 @@ footer a:hover { color: #EE88A0; }
 		margin: 0;
 		display: block;
 		width: 100%;
-		border-bottom: 2px solid #51CCAC;
+		border-bottom: 2px solid var(--green1);
 	}
 	nav ul li ul {
 		display: true;

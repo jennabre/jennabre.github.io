@@ -1,12 +1,4 @@
-/* Colors
-Deep Purple		#6C1FB9 
-Medium Purple	#9C22CB
-Medium Pink		#D5589A 
-Pale Pink		#FF93B7
-Paler Pink		#FAC8D5
-Palest Pink		#FDE4EA
 
-*/
 :root {
 	--darkgray: #444;
 	--mediumgray: #aaa;
@@ -139,7 +131,7 @@ h3 { color: var(--lightblue); }
 
 
 #wrapper {
-	background-color: #fff;
+	background-color: white;
 	width: 80%;
 	min-width: 960px;
 	max-width: 2048px;
@@ -161,7 +153,7 @@ footer {
 button {
 	padding: 0.5em;
 	background-color: var(--mediumblue);
-	color: #fff;
+	color: white;
 	border: none;
 }
 button:hover {
@@ -398,7 +390,7 @@ img .me {
 @media only screen and (max-width: 64em) {
 	body {
 		margin: 0;
-		background-color: #fff;
+		background-color: white;
 	}
 	
 	#wrapper {
