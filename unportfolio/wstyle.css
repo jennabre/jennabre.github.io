@@ -4,6 +4,7 @@
 	--pink1:	#E57992;
 	--pink2:	#F3AABB;
 	--pink3:	#FFC3D4;
+	--green0:	#17A68C;
 	--green1:	#51CCAC;
 	--green2:	#82D9C2;
 	--green3:	#A0E9D5;
@@ -11,7 +12,7 @@
 }
 
 body {
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   background-color: var(--gray);
 }
 
@@ -20,8 +21,7 @@ header {
 	text-align: center;
 	font-size: 2em;
 	padding: 0.3em;
-	font-family: 'Lemon';
-	background-color: var(--green2);
+	background-color: var(--green1);
 }
 
 header a {
@@ -48,9 +48,9 @@ header a:hover {
 nav {
     width: 100%;
 	/* Match nav li background color */
-	background-color: var(--green2);
+	background-color: var(--green1);
 	text-align: center;
-	font-size: 1.2em;
+	font-size: 1.5em;
 }
 
 /* Not working ideally */
@@ -75,7 +75,7 @@ nav ul {
 
 nav li {
 	/* Match nav background color */
-    background-color: var(--green2);
+    background-color: var(--green1);
 	position: relative;
 	display: inline-block;
 	width: 12%;
@@ -126,12 +126,14 @@ main {
 }
 
 h1 {
-	font-family: 'Lemon';
-	color: var(--pink2)
+	font-family: "Times New Roman";
+	font-size: 2.2em;
+	color: var(--green1)
 }
 
 h2 {
-	font-family: serif;
+	font-family: Georgia;
+	font-size: 1.8em;
 	color: var(--pink1)
 }
 
@@ -171,7 +173,8 @@ footer a:hover { color: var(--pink3); }
 }
 
 .active, .question:hover {
-  background-color: var(--green2);
+  background-color: var(--green1);
+  text-shadow: 2px 2px var(--green0);
   color: white;
 }
 
