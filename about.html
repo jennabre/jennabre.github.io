@@ -50,7 +50,7 @@
 			</nav>
 			
 			<main>
-				<img src="me2.jpg" width="200" style="float:right;" class="me" />
+				<img class="me float-right" src="_pics/me2.jpg" width="200" height="200"/>
 				<h1>About Me</h1>
 				<p>
 					I'm a junior email developer with a degree in informatics from ASU. 
@@ -59,26 +59,22 @@
 				
 				
 				<h2>Useful facts about me</h2>
-				<ul>
+				<ul class="pb20">
 					<li>I have been writing code since I was about 14 years old.</li>
 					<li>I'm interested in design, usability, and accessibility.</li>
 					<li>I am Veeva certified for 2022.</li>
 				</ul>
 				
-				<div class="spacer"></div>
-				
 				<div class="socials">
-					<a href="https://instagram.com/optimist.jenna"><img src="social ig.png" alt="instagram" /></a> &nbsp; 
-					<a href="https://twitter.com/optimistjenna"><img src="social twitter.png" alt="twitter" /></a> &nbsp; 
-					<a href="https://www.linkedin.com/in/jennifer-breunig/"><img src="social linkedin.png" alt="linkedin" /></a>
+					<a href="https://instagram.com/optimist.jenna"><img src="_pics/social-ig.png" alt="instagram" /></a> &nbsp; 
+					<a href="https://twitter.com/optimistjenna"><img src="_pics/social-twitter.png" alt="twitter" /></a> &nbsp; 
+					<a href="https://www.linkedin.com/in/jennifer-breunig/"><img src="_pics/social-linkedin.png" alt="linkedin" /></a>
 				</div>
 				
 				<div class="spacer"></div>
 				
 				<h2>Should you hire me?</h2>
-				<p>Prospective employers may be looking at this portfolio wondering if I'm worth hiring.</p>
-				
-				<p>If you're on the fence, I can offer some illuminating insights on whether it would be a good decision.</p>
+				<p>Prospective employers may be looking at this portfolio wondering if I'm worth hiring. If you're on the fence, you can try my reason generator.</p>
 				
 				<br/>
 				<button onclick="giveReason()">Get a reason</button>
@@ -86,15 +82,13 @@
 				<p id="reason"></p>
 				<br/><br/>
 				
-				<p><i>For useless facts and bad reasons to hire me, visit my <a href="unportfolio/about.html">unportfolio</a></i>.</p>
+				<p><em>For useless facts and bad reasons to hire me, visit my <a href="unportfolio/about.html">unportfolio</a></em>.</p>
 
 			<footer>
 				Copyright &copy; 2022 Jennifer Breunig<br/>
 				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
 			</footer>
 		</div>
-		
-
 	</body>
 
 </html>
@@ -114,8 +108,8 @@
 		
 		function getGoodReason() {
 			var adjectives = [
-				"n excellent",
-				" worthwhile", " useful", " helpful", " practical", " quality", " unique"
+				"n excellent", "n invaluable",
+				" good", " worthwhile", " superb", " useful", " helpful", " practical", " quality", " unique", " fantastic", " valuable", " splendid"
 			]
 			var reasons = [
 				"I enjoy creative projects",
@@ -140,6 +134,4 @@
 			adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
 			return "I would be a" + adjective + " addition to your company because " + reason + ".";
 		}
-		
-
 	</script>

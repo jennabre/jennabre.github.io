@@ -62,26 +62,23 @@
 				
 				<!-- The expanding image container -->
 				<div class="bigpic">
-				  <!-- Expanded image -->
-				  <img src="pics/psyche1.png" id="expandedImg" width="800">
-
-				  <!-- Image text -->
+				  <img src="_pics/apps/psyche1.png" id="expandedImg" width="800">
 				  <div id="imgtext">Map</div>
 				</div>
 				
 				<!-- The grid: four columns -->
 				<div class="displayrow">
 				  <div class="displaycolumn">
-					<img src="pics/psyche1.png" width="200" alt="Map" onclick="myFunction(this);">
+					<img src="_pics/apps/psyche1.png" width="200" alt="Map" onclick="changePicture(this);">
 				  </div>
 				  <div class="displaycolumn">
-					<img src="pics/psyche2.png" width="200" alt="Art by Janani Lakshmanan" onclick="myFunction(this);">
+					<img src="_pics/apps/psyche2.png" width="200" alt="Art by Janani Lakshmanan" onclick="changePicture(this);">
 				  </div>
 				  <div class="displaycolumn">
-					<img src="pics/psyche3.png" width="200" alt="Artist comments" onclick="myFunction(this);">
+					<img src="_pics/apps/psyche3.png" width="200" alt="Artist comments" onclick="changePicture(this);">
 				  </div>
 				  <div class="displaycolumn">
-					<img src="pics/psyche4.png" width="200" alt="Art by Finn Witt" onclick="myFunction(this);">
+					<img src="_pics/apps/psyche4.png" width="200" alt="Art by Finn Witt" onclick="changePicture(this);">
 				  </div>
 				</div>
 				
@@ -95,50 +92,36 @@
 				
 				<h3>Process</h3>
 				<p>
-					Professor Robert LiKamWa asked our class to create sample apps for the Psyche Inspired project in Unity. 
-					The best app would be chosen to become the official app for Psyche Inspired.
+					Professor Robert LiKamWa asked our class to create sample apps for the Psyche Inspired project in Unity. The best app would be chosen to become the official app for Psyche Inspired.
 				</p>
-				
 				<p>
-					As an artist myself (or at least someone who likes to think I am), I focused on how to showcase the work as clearly as possible. 
-					I chose to use slides in some areas so that the art could appear larger. 
-					I also color-corrected and enhanced photographed artwork to restore its original look.
+					As an artist myself (or at least someone who likes to think I am), I focused on how to showcase the work as clearly as possible. I chose to use slides in some areas so that the art could appear larger. I also color-corrected and enhanced photographed artwork to restore its original look.
 				</p>
-				
 				<p>I felt the map would showcase the geographic diversity of the artists.</p>
-				
-				<p>
-					I'm honored that my design was chosen. 
-					Please feel free to download the app. 
-					The art is truly beautiful.
+				<p class="pb30">
+					I feel honored that my design was chosen. Please feel free to download the app. The art is truly beautiful.
 				</p>
 				
-				<div class="spacer"></div>
+				<h2>Pizza Hut App Prototype</h2>
 				
-				<h2>Pizza Hut App</h2>
-				
-				<p>I designed the UI for a prototype of a new app functionality for Pizza Hut: driver tracking. 
-				Built in Android Studio, the app features a map with the driver's location, 
-				a time estimate, and a menu that can be swiped up to show more.</p>
-				
+				<p>
+					I designed the UI for a prototype of a new app functionality for Pizza Hut: driver tracking. Built in Android Studio, the app features a map with the driver's location, a time estimate, and a menu that can be swiped up to show more.
+				</p>
 				<p>Pizza Hut has given me permission to share screenshots online.</p>
 				
 				<!-- Putting them in reverse order here actually makes them in order on the site -->
-				<img src="pics/Pizza Hut App 2.png" width="300" />
-				<img src="pics/Pizza Hut App 1.png" width="300" style="float:left; margin-right: 1em" />
+				<img src="_pics/apps/pizza-hut-app-2.png" width="300" height="562" />
+				<img class="float-left" src="_pics/apps/pizza-hut-app-1.png" width="300" height="562" style="margin-right: 1em" />
 				
 				<p>
 					The app features a bottom sheet that can be pulled up and down.
 				</p>
-				
-				<figure style="float: right">
-					<img src="pics/Pizza Hut Ride Sharing.png" width="250" alt="A pie chart showing high familiarity with ride sharing." />
+				<figure class="float-right">
+					<img src="_pics/apps/pizza-hut-ride-sharing.png" width="250" height="188" alt="A pie chart showing high familiarity with ride sharing." />
 					<figcaption>Many students are familiar with<br/>ride sharing apps.</figcaption>
 				</figure>
-				
-				
-				<p>I worked on a team of 4 alongside Miguel Guerra, James Stievater, and Yu Ling for our senior capstone project. 
-				Our supervisor, Helen Chavez, organized the project and helped us interface with Pizza Hut.
+				<p>
+					I worked on a team of 4 alongside Miguel Guerra, James Stievater, and Yu Ling for our senior capstone project. Our supervisor, Helen Chavez, organized the project and helped us interface with Pizza Hut.
 				</p>
 				
 				<h3>Research</h3>
@@ -146,68 +129,48 @@
 					At the beginning of the project, I wrote a detailed survey on user preferences and experiences. 
 					Our main goal was to see how much experience users had with similar apps and what they wanted to see in a driver tracking app.
 				</p>
-				
 				<p>
-					We surveyed 182 ASU students, recruited via classes. 
-					They viewed the most important features of an app as being:
+					We surveyed 182 ASU students, recruited via classes. They viewed the most important features of an app as being:
 				</p>
-				
 				<ol>
 					<li>Driver tracking</li>
 					<li>Deivery time estimates</li>
 					<li>Push notifications</li>
 					<li>Ability to communicate with driver</li>
 				</ol>
-				
 				<p>
-					Two thirds of the students typically did not contact the driver when getting food delivery. 
-					The majority had ordered food from at least one food delivery service (such as Postmates or Uber Eats) before.
+					Two thirds of the students typically did not contact the driver when getting food delivery. The majority had ordered food from at least one food delivery service (such as Postmates or Uber Eats) before.
 				</p>
-				
 				<p>
 					Based on this information, we chose to focus on the first 3 priorities and save communication with the driver for later.
 				</p>
 				
-				<figure style="float: right">
-					<img src="pics/Pizza Hut Quotes.png" width="250" alt="A simple graphic of four people with speech bubbles explaining their priorities." />
+				<figure class="float-right">
+					<img src="_pics/apps/pizza-hut-quotes.png" width="250" alt="A simple graphic of four people with speech bubbles explaining their priorities." />
 					<figcaption>A graphic I made for our final<br/>presentation</figcaption>
 				</figure>
 				
 				<h3>Creation</h3>
 				<p>
-					The prototype's first draft looked very different from the final draft, with buttons instead of a bottom sheet. 
-					We switched to a bottom sheet later in order to mimic ride sharing and food delivery apps, 
-					since many customers were already familiar with these.
+					The prototype's first draft looked very different from the final draft, with buttons instead of a bottom sheet. We switched to a bottom sheet later in order to mimic ride sharing and food delivery apps, since many customers were already familiar with these.
 				</p>
-				
 				<p>
 					I wrote the code for the UI in Android Studio with the help of experienced programmer Vrushabh Jambhulkar.
 				</p>
-				
+
 				<h3>Testing</h3>
-				
 				<p>
-					Before we ran official studies, I ran many unofficial tests, showing the app to friends and acquaintances and watching them interact with it. 
-					This offered valuable insights into ease of use. 
-					We didn't have money for a focus group, but I ran an unofficial group with family members that proved invaluable.
+					Before we ran official studies, I ran many unofficial tests, showing the app to friends and acquaintances and watching them interact with it. This offered valuable insights into ease of use. We didn't have money for a focus group, but I ran an unofficial group with family members that proved invaluable.
 				</p>
-				
 				<p>
-					By the time we ran official studies, the app was intuitive. 
-					One user had even opened the bottom sheet to look around before I started asking questions.
+					By the time we ran official studies, the app was intuitive. One user had even opened the bottom sheet to look around before I started asking questions.
 				</p>
-				
 				<p>
-					My personal favorite feature is the carat at the top of the sheet, which swivels as you open or close the sheet.
+					My personal favorite feature is the caret at the top of the sheet, which swivels as you open or close the sheet.
 				</p>
-				
 				<p>
 					I'm happy with our final product and I hope it helps Pizza Hut as they expand their app.
 				</p>
-				
-				
-
-				
 
 			</main>
 			<footer>
@@ -221,7 +184,7 @@
 	
 	<script>
 	
-	function myFunction(imgs) {
+	function changePicture(imgs) {
 	  var expandImg = document.getElementById("expandedImg");
 	  var imgText = document.getElementById("imgtext");
 	  expandImg.src = imgs.src;

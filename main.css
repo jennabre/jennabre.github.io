@@ -194,7 +194,7 @@ button:active { background-color: var(--barelyblue); }
 }
 .quotebox p { font-family: "Goudy Old Style", serif; font-size: 1.4em; }
 .quotebox p::before {
-	content:url(quote.png);
+	content:url(_pics/quote.png);
 	opacity: 50%;
 	float: left;
 	margin-right: 1.5em;
