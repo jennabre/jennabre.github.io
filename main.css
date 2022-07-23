@@ -10,6 +10,19 @@
 	--barelyblue: #D5F0F6;
 }
 
+
+/***********************/
+/*       Padding       */
+/***********************/
+
+.pb5 { padding-bottom: 5px; }
+.pb10 { padding-bottom: 10px; }
+.pb15 { padding-bottom: 15px; }
+.pb20 { padding-bottom: 20px; }
+.pb25 { padding-bottom: 25px; }
+.pb30 { padding-bottom: 30px; }
+
+
 body {
 	background-color: var(--pastelblue);
 	color: #555;
@@ -30,7 +43,7 @@ header {
 	font-size: 2em;
 	font-weight: bold;
 	/* "Times New Roman" must be in quotation marks because of the white space*/
-	font-family: Goudy Old Style, "Times New Roman", Serif;
+	font-family: "Goudy Old Style", "Times New Roman", Serif;
 	margin-bottom: 0;
 	/* Not sure why padding on bottom has to be so huge in order for it to look nice */
 	padding: 15px 15px 50px 15px;
@@ -40,11 +53,13 @@ header a {
 	text-decoration: none;
 }
 
-/* Nav */
+/***********************/
+/*      Navigation     */
+/***********************/
 /* Template courtesy of https://css-tricks.com/solved-with-css-dropdown-menus/ */
 
 nav {
-    width: 100%;
+	width: 100%;
 	/* Match nav li background color */
 	background-color: var(--mediumblue);
 	text-align: center;
@@ -64,14 +79,14 @@ nav a:hover {
 
 nav ul {
 	width: 100%;
-    list-style: none;
-    margin: 0;
+	list-style: none;
+	margin: 0;
 	padding: 0;
 }
 
 nav li {
 	/* Match nav background color */
-    background-color: var(--mediumblue);
+	background-color: var(--mediumblue);
 	position: relative;
 	display: inline-block;
 	width: 12%;
@@ -80,8 +95,8 @@ nav li {
 	color: #fff;
 }
 nav li:hover, nav li:focus-within {
-    background: var(--lightblue);
-    cursor: pointer;
+	background: var(--lightblue);
+	cursor: pointer;
 }
 nav li:focus-within a {
   outline: none;
@@ -90,12 +105,12 @@ nav li:focus-within a {
 nav ul li ul {
 	display: none;
 	opacity: 0;
-    visibility: hidden;
+	visibility: hidden;
 	min-width: 4em;
-    position: absolute;
+	position: absolute;
 	transition: all 0.5s ease;
 	margin-top: 1em;
-    left: 0;
+	left: 0;
 }
 nav ul li:hover > ul, nav ul li:focus-within > ul,
 nav ul li ul:hover,
@@ -116,7 +131,7 @@ main {
 }
 
 h1, h2, h3 {
-	font-family: Goudy Old Style, "Times New Roman", Serif;
+	font-family: "Goudy Old Style", "Times New Roman", Serif;
 	font-weight: bold;
 }
 
@@ -126,7 +141,7 @@ h1 {
 }
 
 h2 { color: var(--mediumblue); }
-h3 { color: var(--lightblue); }
+h3 { color: var(--deepblue); }
 
 
 
@@ -135,15 +150,11 @@ h3 { color: var(--lightblue); }
 	width: 80%;
 	min-width: 960px;
 	max-width: 2048px;
-	margin-left: auto;
-	margin-right: auto;
-	/* box-shadow: horizontal offset, vertical offset, blur radius (optional), default spread distance (optional), color */
-	/*box-shadow: 3px 3px 2px var(--mediumblue);*/
+	margin: 0 auto;
 }
 
 footer {
 	margin-top: 2em;
-	font-family: Goudy Old Style, "Times New Roman", Serif;
 	font-size: 90%;
 	font-style: italic;
 	text-align: center;
@@ -169,8 +180,6 @@ button:active {
 
 img .me {
 	float: right;
-	/* Can I fix the margin-left so it actually works? */
-	margin-left: 2em;
 	margin-bottom: 0;
 }
 
@@ -185,20 +194,20 @@ img .me {
 /* Quotes */
 .quotebox {
 	background-color: var(--barelyblue);
-	padding: 10px;
-	margin: 1em;
+	padding: 10px 20px;
+	width: 90%;
+	margin: 0 auto 20px auto;
 	color: var(--darkgray);
 }
 .quotebox p {
 	font-family: "Goudy Old Style", serif;
 	font-size: 1.4em;
-	
 }
 .quotebox p::before {
 	content:url(quote.png);
 	opacity: 50%;
 	float: left;
-	margin-right: 2em;
+	margin-right: 1.5em;
 	margin-top: 0;
 	
 }
@@ -226,13 +235,12 @@ img .me {
 
 /* Columns */
 
-.column {
+.column2 {
   float: left;
   width: 50%;
 }
-.column p {
-	padding: 0.5em;
-}
+.column2.left-column { padding-right: 0.5em; }
+.column2.right-column { padding-left: 0.5em; }
 
 /* Clear floats after the columns */
 .columns:after {
@@ -248,7 +256,7 @@ img .me {
 	justify-content: space-around;
 }
 .flexbox img {
-	max-width: 400px;
+	max-width: 270px;
 }
 
 
@@ -389,7 +397,7 @@ img .me {
 
 
 
-/* Override the style for if we have a small thing */
+/* Media queries */
 @media only screen and (max-width: 64em) {
 	body {
 		margin: 0;
@@ -420,7 +428,7 @@ img .me {
 	}
 	
 	.gallery {
-		width: 49.99999%;
+		width: 49.99%;
 		margin: 6px 0;
 	}
 }
