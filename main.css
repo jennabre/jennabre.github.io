@@ -1,13 +1,11 @@
 
 :root {
-	--darkgray: #444;
-	--mediumgray: #aaa;
-	--lightgray: #ddd;
-	--deepblue: #006B80;
+	--dark-gray: #444;
+	--deep-blue: #006B80;
 	--mediumblue: #1F98B0;
 	--lightblue: #55C3D9;
-	--pastelblue: #AAE1EC;
-	--barelyblue: #D5F0F6;
+	--pastel-blue: #AAE1EC;
+	--baby-blue: #D5F0F6;
 
 	--nav-width: 140px;
 }
@@ -18,7 +16,7 @@
 
 main { padding: 3em; margin-left: var(--nav-width); }
 body {
-	background-color: var(--pastelblue);
+	background-color: var(--pastel-blue);
 	color: #555;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.1em;
@@ -26,16 +24,16 @@ body {
 
 h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; }
 
-h1 { margin-top: 0; color: var(--deepblue); }
+h1 { margin-top: 0; color: var(--deep-blue); }
 h2 { color: var(--mediumblue); }
-h3 { color: var(--deepblue); }
+h3 { color: var(--deep-blue); }
 
 /* Links */
 /* No a:visited or nav links will act up */
 a { color: var(--mediumblue); }
 
-a:hover { color: var(--pastelblue); text-decoration: none; }
-a:active { color: var(--pastelblue); text-decoration: none; }
+a:hover { color: var(--pastel-blue); text-decoration: none; }
+a:active { color: var(--pastel-blue); text-decoration: none; }
 
 header {
 	background-color: var(--mediumblue);
@@ -77,7 +75,7 @@ footer {
 
 nav {
 	float: left;
-	background-color: var(--barelyblue);
+	background-color: var(--baby-blue);
 	height: 100%;
 	position: absolute;
 	width: var(--nav-width);
@@ -86,7 +84,7 @@ nav a {
 	display: block;
 	padding: 15px;
 	text-decoration: none;
-	color: var(--deepblue);
+	color: var(--deep-blue);
 }
 nav ul ul a {
 	padding-left: 25px;
@@ -125,13 +123,11 @@ nav a:hover { color: white; background-color: var(--lightblue); }
 	height: 25px;
 }
 
-img .me { float: right; margin-bottom: 0; }
-
 .accentbox {
-	background-color: var(--barelyblue);
+	background-color: var(--baby-blue);
 	padding: 1em;
 	font-size: 1.2em;
-	color: var(--deepblue);
+	color: var(--deep-blue);
 }
 
 button {
@@ -144,16 +140,16 @@ button {
 	cursor: pointer;
 }
 button:hover { background-color: var(--lightblue); }
-button:active { background-color: var(--barelyblue); }
+button:active { background-color: var(--baby-blue); }
 
 
 /* Quotes */
 .quotebox {
-	background-color: var(--barelyblue);
+	background-color: var(--baby-blue);
 	padding: 10px 20px;
 	width: 90%;
 	margin: 0 auto 20px auto;
-	color: var(--darkgray);
+	color: var(--dark-gray);
 }
 .quotebox p { font-family: "Goudy Old Style", serif; font-size: 1.4em; }
 .quotebox p::before {
@@ -167,7 +163,7 @@ button:active { background-color: var(--barelyblue); }
 .quotebox .attr::before { content:"— "; }
 
 .progress {
-	background-color: var(--barelyblue);
+	background-color: var(--baby-blue);
 	width: 90%;
 	height: 2em;
 	border-radius: 1em;
@@ -205,12 +201,12 @@ button:active { background-color: var(--barelyblue); }
 /* Image gallery */
 /* Thanks to https://www.w3schools.com/css/tryit.asp?filename=trycss_image_pic_gallery */
 .pic {
-	background-color: var(--barelyblue);
+	background-color: var(--baby-blue);
 	padding: 10px;
 }
 .pic:hover { opacity: 70%; }
 .pic img { width: 100%; height: auto; }
-.desc { padding: 1em; text-align: center; color: var(--deepblue); }
+.desc { padding: 1em; text-align: center; color: var(--deep-blue); }
 
 * { box-sizing: border-box; }
 
@@ -308,7 +304,7 @@ button:active { background-color: var(--barelyblue); }
 /* Mobile phones */
 @media only screen and (max-width: 37.5em) {
 
-	.mobile-only { display: none; height: 0; overflow: hidden; }
+	.desktop-only { display: none; height: 0; overflow: hidden; }
 	.m-width100 { width: 100%; }
 
 	.columns .left-column, .columns .right-column { padding: 0; }
@@ -342,9 +338,6 @@ button:active { background-color: var(--barelyblue); }
 		float: none;
 		width: 100%;
 	}
-	
-	/* No room for my pretty face */
-	.me { display: none; }
 	
 	label { float:none; text-align: left;}
 	input[type="submit"] { margin-left: 0;}
