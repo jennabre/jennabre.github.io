@@ -8,13 +8,15 @@
 	--lightblue: #55C3D9;
 	--pastelblue: #AAE1EC;
 	--barelyblue: #D5F0F6;
+
+	--nav-width: 140px;
 }
 
 /***********************/
 /*     Major Styling    */
 /***********************/
 
-main { padding: 3em; }
+main { padding: 3em; margin-left: var(--nav-width); }
 body {
 	background-color: var(--pastelblue);
 	color: #555;
@@ -74,70 +76,28 @@ footer {
 /* Template courtesy of https://css-tricks.com/solved-with-css-dropdown-menus/ */
 
 nav {
-	width: 100%;
-	/* Match nav li background color */
-	background-color: var(--mediumblue);
-	text-align: center;
-	font-size: 1.2em;
-}
-
-nav a {
-	display: inline;
-	width: 100%;
+	float: left;
+	background-color: var(--barelyblue);
 	height: 100%;
-	color: #fff;
-	text-decoration: none;
-}
-nav a:hover {
-	color: white;
-}
-
-nav ul {
-	width: 100%;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-nav li {
-	/* Match nav background color */
-	background-color: var(--mediumblue);
-	position: relative;
-	display: inline-block;
-	width: 12%;
-	padding: 1em;
-	margin: 0;
-	color: #fff;
-}
-nav li:hover, nav li:focus-within {
-	background: var(--lightblue);
-	cursor: pointer;
-}
-nav li:focus-within a {
-  outline: none;
-}
-
-nav ul li ul {
-	display: none;
-	opacity: 0;
-	visibility: hidden;
-	min-width: 4em;
 	position: absolute;
-	transition: all 0.5s ease;
-	margin-top: 1em;
-	left: 0;
+	width: var(--nav-width);
 }
-nav ul li:hover > ul, nav ul li:focus-within > ul,
-nav ul li ul:hover,
-nav ul li ul:focus {
-  visibility: visible;
-  opacity: 1;
-  display: block;
+nav a {
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+	color: var(--deepblue);
 }
-nav ul li ul li {
-    clear: both;
-	width: 100%;
+nav ul ul a {
+	padding-left: 25px;
+	color: var(--mediumblue);
 }
+nav ul { padding: 0; margin: 0; }
+nav li { list-style-type: none; }
+
+nav a:hover { color: white; background-color: var(--lightblue); }
+
+.toggle-button { display: none; }
 
 /***********************/
 /*       Utilities     */
@@ -337,11 +297,6 @@ button:active { background-color: var(--barelyblue); }
 		box-shadow: none;
 	}
 	
-	main { margin-left: 0; }
-	
-	nav { float: none; width: 100%; }
-	nav a { width: 100%; }
-	
 	footer { margin-left: 0; }
 	
 	.gallery { width: 49.99%; margin: 6px 0; }
@@ -351,18 +306,23 @@ button:active { background-color: var(--barelyblue); }
 @media only screen and (max-width: 37.5em) {
 	
 	main {
+		margin-left: 0;
 		padding: 1em 1.5em 0.2em 1.5em;
 		font-size: 90%;
 	}
 	
 	h1 { font-size: 1.7em; }
 	
+	nav { display: none; width: 100%; height: auto; position: relative; }
 	nav a {
 		display: block;
-		margin: 0;
-		padding: 15px 0 15px 0;
-		width: 100%;
-		border-bottom: 2px solid var(--deepblue);
+		border-bottom: 2px solid var(--mediumblue);
+	}
+	.toggle-button {
+		display: block;
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 10px;
 	}
 	
 	.accentbox { width: 100%!important; }
