@@ -106,9 +106,12 @@ nav a:hover { color: white; background-color: var(--lightblue); }
 .float-left { float: left; }
 .float-right { float: right; }
 
+.columns > div { float: left; }
 .column2 { float: left; width: 50%; }
-.column2.left-column { padding-right: 0.5em; }
-.column2.right-column { padding-left: 0.5em; }
+.column70 { width: 70%; }
+.column30 { width: 30%; }
+.columns .left-column { padding-right: 0.5em; }
+.columns .right-column { padding-left: 0.5em; }
 .columns:after { content: ""; display: table; clear: both; }
 
 .clearfix:after {
@@ -304,6 +307,11 @@ button:active { background-color: var(--barelyblue); }
 
 /* Mobile phones */
 @media only screen and (max-width: 37.5em) {
+
+	.mobile-only { display: none; height: 0; overflow: hidden; }
+	.m-width100 { width: 100%; }
+
+	.columns .left-column, .columns .right-column { padding: 0; }
 	
 	main {
 		margin-left: 0;
