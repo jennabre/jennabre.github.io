@@ -330,7 +330,7 @@ button:active { background-color: var(--barelyblue); }
 	.gallery { width: 100%; }
 	
 	/* Change 2 columns to 1 */
-	.column {
+	.column2 {
 		float: none;
 		width: 100%;
 	}
