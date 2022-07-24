@@ -29,25 +29,29 @@
 	<body>		
 		<div id="wrapper">
 			<header>
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="_pics/icon-hamburger.png" width="25" height="25" />
+				</a>
 				<a href="index.html">Jenna's Portfolio</a>
 			</header>
-			<nav role="navigation">
+			<nav id="nav-list" role="navigation">
 			  <ul>
-			  <!-- If every a is not inside every li, it WILL break! -->
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="code.html">Code</a>
-				  <ul class="dropdown">
-					<li><a href="websites.html">Websites</a></li>
-					<li><a href="apps.html">Apps</a></li>
-				  </ul>
-				<li><a href="art.html">Art</a>
-				  <ul class="dropdown">
-					<li><a href="art-ig.html">Instagram</a></li>
-					<li><a href="art-misc.html">Misc</a></li>
-				  </ul>
-				</li>
-				<li><a href="photoedit.html">Photos</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="code.html">Code</a>
+						<ul class="dropdown">
+						<li><a href="websites.html">Websites</a></li>
+						<li><a href="apps.html">Apps</a></li>
+						</ul>
+					</li>
+					<li><a href="art.html">Art</a>
+						<ul class="dropdown">
+						<li><a href="art-ig.html">Instagram</a></li>
+						<li><a href="art-misc.html">Misc</a></li>
+						</ul>
+					</li>
+					<li><a href="photoedit.html">Photos</a></li>
+				</ul>
 			</nav>
 			
 			<main>
@@ -133,11 +137,7 @@
 					  </div>
 					</div>
 				</a>
-
 				
-				
-				
-
 				<!-- Line break -->
 				<div class="clearfix"></div>
 				
@@ -147,16 +147,10 @@
 				
 				<h2>My Approach</h2>
 				<p>
-					Talking with clients about their dreams for the site is the most important part of the process. 
-					There are millions of ways to create a website. 
-					But there's only one vision of yours. 
-					I work to understand your plans and then give you something even better.
+					Talking with clients about their dreams for the site is the most important part of the process. There are millions of ways to create a website. But there's only one vision of yours. I work to understand your plans and then give you something even better.
 				</p>
-				
 				<p>
-					Page speed remains a priority for me. 
-					I use Google PageSpeed Insights to evaluate and troubleshoot page loading speed. 
-					If your page doesn't load within 2 seconds, I aim to fix that.
+					Page speed remains a priority for me. I use Google PageSpeed Insights to evaluate and troubleshoot page loading speed. If your page doesn't load within 2 seconds, I aim to fix that.
 				</p>
 				
 
@@ -166,14 +160,16 @@
 				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
 			</footer>
 		</div>
-		
-
 	</body>
-
 </html>
 
 <script>
-	function exp() {
-		alert("Sorry!\nOnly my employers, coworkers, and I can edit these levels.");
+	function toggleMenu() {
+		var x = document.getElementById("nav-list");
+			if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
 	}
 </script>

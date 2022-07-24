@@ -28,25 +28,29 @@
 	<body>		
 		<div id="wrapper">
 			<header>
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="_pics/icon-hamburger.png" width="25" height="25" />
+				</a>
 				<a href="index.html">Jenna's Portfolio</a>
 			</header>
-			<nav role="navigation">
+			<nav id="nav-list" role="navigation">
 			  <ul>
-			  <!-- If every a is not inside every li, it WILL break! -->
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="code.html">Code</a>
-				  <ul class="dropdown">
-					<li><a href="websites.html">Websites</a></li>
-					<li><a href="apps.html">Apps</a></li>
-				  </ul>
-				<li><a href="art.html">Art</a>
-				  <ul class="dropdown">
-					<li><a href="art-ig.html">Instagram</a></li>
-					<li><a href="art-misc.html">Misc</a></li>
-				  </ul>
-				</li>
-				<li><a href="photoedit.html">Photos</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="code.html">Code</a>
+						<ul class="dropdown">
+						<li><a href="websites.html">Websites</a></li>
+						<li><a href="apps.html">Apps</a></li>
+						</ul>
+					</li>
+					<li><a href="art.html">Art</a>
+						<ul class="dropdown">
+						<li><a href="art-ig.html">Instagram</a></li>
+						<li><a href="art-misc.html">Misc</a></li>
+						</ul>
+					</li>
+					<li><a href="photoedit.html">Photos</a></li>
+				</ul>
 			</nav>
 			
 			<main>
@@ -92,46 +96,52 @@
 	</body>
 
 </html>
-
 <script>
-		// Many thanks to https://codeactually.com/interactivequiz.html
-		// And https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null
-		
-		function giveReason() {
-			
-			result = getGoodReason();
-			document.getElementById("reason").innerHTML = result;
+	function toggleMenu() {
+		var x = document.getElementById("nav-list");
+			if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
 
-			// Don't refresh page
-			return false;
-		}
-		
-		function getGoodReason() {
-			var adjectives = [
-				"n excellent", "n invaluable",
-				" good", " worthwhile", " superb", " useful", " helpful", " practical", " quality", " unique", " fantastic", " valuable", " splendid"
-			]
-			var reasons = [
-				"I enjoy creative projects",
-				"I can focus for long periods of time on a project that I enjoy",
-				"I take pride in producing quality work",
-				"I'm a quick learner",
-				"I'm a lifelong learner",
-				"I've learned many programming languages and am happy to learn more",
-				"as you can see, I already have experience using GitHub",
-				"I'm not afraid to look things up or ask for help if I don't know how to do something",
-				"I enjoy helping my coworkers and will be there for them when they need me",
-				"I get along well with most people",
-				"teamwork is important to me",
-				"I'm comfortable being a leader or a follower as needed",
-				"I'm a careful listener who tries to understand users",
-				"I'm a clear communicator",
-				"I can explain difficult concepts using simple words",
-				"I comment my code in detail",
-				"I coded all this pretty quickly"
-			]
-			reason = reasons[Math.floor(Math.random() * reasons.length)];
-			adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-			return "I would be a" + adjective + " addition to your company because " + reason + ".";
-		}
-	</script>
+	// Many thanks to https://codeactually.com/interactivequiz.html
+	// And https://idiallo.com/javascript/uncaught-typeerror-cannot-read-property-of-null
+	function giveReason() {
+		result = getGoodReason();
+		document.getElementById("reason").innerHTML = result;
+
+		// Don't refresh page
+		return false;
+	}
+	
+	function getGoodReason() {
+		var adjectives = [
+			"n excellent", "n invaluable",
+			" good", " worthwhile", " superb", " useful", " helpful", " practical", " quality", " unique", " fantastic", " valuable", " splendid"
+		]
+		var reasons = [
+			"I enjoy creative projects",
+			"I can focus for long periods of time on a project that I enjoy",
+			"I take pride in producing quality work",
+			"I'm a quick learner",
+			"I'm a lifelong learner",
+			"I've learned many programming languages and am happy to learn more",
+			"as you can see, I already have experience using GitHub",
+			"I'm not afraid to look things up or ask for help if I don't know how to do something",
+			"I enjoy helping my coworkers and will be there for them when they need me",
+			"I get along well with most people",
+			"teamwork is important to me",
+			"I'm comfortable being a leader or a follower as needed",
+			"I'm a careful listener who tries to understand users",
+			"I'm a clear communicator",
+			"I can explain difficult concepts using simple words",
+			"I comment my code in detail",
+			"I coded all this pretty quickly"
+		]
+		reason = reasons[Math.floor(Math.random() * reasons.length)];
+		adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+		return "I would be a" + adjective + " addition to your company because " + reason + ".";
+	}
+</script>
