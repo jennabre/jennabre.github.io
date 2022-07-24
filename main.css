@@ -194,8 +194,8 @@ button:active { background-color: var(--barelyblue); }
 }
 .flexbox img { max-width: 270px; }
 
-.instagallery img:hover { opacity:70%; }
-.instagallery img { padding: 0.1em; }
+.flexbox img:hover { opacity:70%; }
+.flexbox img { padding: 0.1em; }
 .social img:hover { opacity: 70%; }
 
 
