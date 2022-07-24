@@ -3,32 +3,44 @@
 /* In case it's on a subpage and it can't find the main CSS, because apparently there's no backup? */
 /* Why on earth can't you have a backup option? */
 :root {
-	--darkgray: #444;
-	--mediumgray: #aaa;
-	--lightgray: #ddd;
-	--deepblue: #006B80;
-	--mediumblue: #1F98B0;
-	--pastelblue: #55C3D9;
-	--pastelpurple: #C696FA;
-	--pastelpink: #FF93B7;
-	--pastelyellow: #FFCC66;
+	--dark-gray: #444;
+	--deep-green: #194037;
+	--dark-green: #286658;
+	--medium-green: #84AEA2;
+	--light-green: #CCDFDB;
+	--pastel-green: #E6EFED;
+
+	--nav-width: 140px;
 }
+/***********************/
+/*     Major Styling    */
+/***********************/
+
 
 body {
-	background-color: var(--mediumgray);
-	color: #666;
+	background-color: var(--light-green);
+	background: url(pics/texture-light-green.jpg);
+	background-repeat: repeat;
+	color: #555;
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.1em;
 }
 
+h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; color: var(--dark-green);  }
+h1 { margin-top: 0; }
+
 /* Links */
-a { color: var(--mediumblue); }
-a:hover { color: var(--pastelblue); text-decoration: none; }
-a:active { color: var(--pastelblue); text-decoration: none; }
+/* No a:visited or nav links will act up */
+a { color: var(--dark-green); }
+
+a:hover { color: var(--light-green); text-decoration: none; }
+a:active { color: var(--light-green); text-decoration: none; }
 
 header {
-	background-color: var(--darkgray);
+	background-color: var(--dark-green);
+	background: url(pics/texture-dark-green.jpg);
+	background-repeat: repeat;
 	height: 50px;
-	color: #fff;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
@@ -37,66 +49,32 @@ header {
 	/* Not sure why padding on bottom has to be so huge in order for it to look nice */
 	padding: 15px 15px 50px 15px;
 }
-
-nav {
-	background-color: var(--lightgray);
-	text-align: center;
-	height: 100%;
-	width: 20%;
-	float: left;
-	margin-right: 50px;
-	padding: 0;
-}
-nav li { list-style-type: none; }
-nav a {
-	display: inline-block;
-	width: 100%;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	margin: 0;
-	text-align: center;
-	text-decoration: none;
-	color: var(--deepblue);
-	font-size: 1.2em;
-	
-}
-nav a:hover {
-	background-color: var(--pastelblue);
+header a {
 	color: #fff;
-	/* background-color: rgba(255,255,255,0.2); */
+	text-decoration: none;
 }
-nav a:active { color: var(--deepblue); }
-
-main {
-	padding: 1px 20px 20px 20px;
-	margin-left: 20%;
-}
-
-h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; }
-h1 { margin-top: 0; color: var(--deepblue); }
-h2 { color: var(--mediumblue); }
-
-
 
 #wrapper {
-	background-color: #fff;
+	background-color: white;
 	width: 80%;
 	min-width: 960px;
 	max-width: 2048px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 }
-
-main { padding: 50px; }
+main { padding: 2em; margin-left: var(--nav-width); }
 
 footer {
 	margin-top: 2em;
-	font-family: Goudy Old Style, "Times New Roman", Serif;
 	font-size: 90%;
 	font-style: italic;
 	text-align: center;
 	padding: 20px;
 }
+
+/***********************/
+/*      Navigation     */
+/***********************/
+/* Template courtesy of https://css-tricks.com/solved-with-css-dropdown-menus/ */
 </style>
 
 <html lang="en">
@@ -134,38 +112,20 @@ footer {
 				</a>
 				<a href="index.html">Jenna's Portfolio</a>
 			</header>
-			<nav id="nav-list" role="navigation">
-			  <ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="code.html">Code</a>
-						<ul class="dropdown">
-						<li><a href="websites.html">Websites</a></li>
-						<li><a href="apps.html">Apps</a></li>
-						</ul>
-					</li>
-					<li><a href="art.html">Art</a>
-						<ul class="dropdown">
-						<li><a href="art-ig.html">Instagram</a></li>
-						<li><a href="art-misc.html">Misc</a></li>
-						</ul>
-					</li>
-					<li><a href="photoedit.html">Photos</a></li>
-				</ul>
-			</nav>
 			
 			<main>
-				<h1>Oops!</h1>
-				<h2>Error 404</h2>
+				<img src="pics/art/doodle-404.png" onerror="this.src='../art/doodle-404.png';" width="130" height="232" style="float: left; margin-right: 30px;" />
+				<div>
+					<h1>Oops!</h1>
+					<h2>Error 404</h2>
+					<p>
+						I seem to have misplaced this page. Maybe it's between the couch cushions?
+					</p>
+					<p>
+						While I work on that, perhaps you'd like to <a href="index.html">return to the homepage</a>.
+					</p>
+				</div>
 				
-				<img src="/pics/shrug.png" onerror="this.src='../pics/icon-shrug.png';" width="200" height="200" />
-				
-				<p>
-					I seem to have misplaced this page. Maybe it's between the couch cushions?
-				</p>
-				<p>
-					While I work on that, perhaps you'd like to <a href="index.html">return to the homepage</a>.
-				</p>
 			</main>
 			
 			<footer>

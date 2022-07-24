@@ -65,24 +65,24 @@
 				
 				
 				<!-- The expanding image container -->
-				<div class="bigpic">
-				  <img src="pics/apps/psyche1.png" id="expandedImg" width="800">
-				  <div id="imgtext">Map</div>
+				<div class="big-pic">
+					<div id="image-text">Map</div>
+				  <img src="pics/apps/psyche1.png" id="expandedImg" width="100%">
 				</div>
 				
 				<!-- The grid: four columns -->
-				<div class="displayrow">
-				  <div class="displaycolumn">
-					<img src="pics/apps/psyche1.png" width="200" alt="Map" onclick="changePicture(this);">
+				<div class="display-row">
+				  <div class="display-column">
+						<img src="pics/apps/psyche1.png" width="300" alt="Map" onclick="changePicture(this);">
 				  </div>
-				  <div class="displaycolumn">
-					<img src="pics/apps/psyche2.png" width="200" alt="Art by Janani Lakshmanan" onclick="changePicture(this);">
+				  <div class="display-column">
+						<img src="pics/apps/psyche2.png" width="300" alt="Art by Janani Lakshmanan" onclick="changePicture(this);">
 				  </div>
-				  <div class="displaycolumn">
-					<img src="pics/apps/psyche3.png" width="200" alt="Artist comments" onclick="changePicture(this);">
+				  <div class="display-column">
+						<img src="pics/apps/psyche3.png" width="300" alt="Artist comments" onclick="changePicture(this);">
 				  </div>
-				  <div class="displaycolumn">
-					<img src="pics/apps/psyche4.png" width="200" alt="Art by Finn Witt" onclick="changePicture(this);">
+				  <div class="display-column">
+						<img src="pics/apps/psyche4.png" width="300" alt="Art by Finn Witt" onclick="changePicture(this);">
 				  </div>
 				</div>
 				
@@ -138,7 +138,7 @@
 				</p>
 				<ol>
 					<li>Driver tracking</li>
-					<li>Deivery time estimates</li>
+					<li>Delivery time estimates</li>
 					<li>Push notifications</li>
 					<li>Ability to communicate with driver</li>
 				</ol>
@@ -188,9 +188,9 @@
 	<script>
 		function changePicture(imgs) {
 			var expandImg = document.getElementById("expandedImg");
-			var imgText = document.getElementById("imgtext");
+			var text = document.getElementById("image-text");
 			expandImg.src = imgs.src;
-			imgText.innerHTML = imgs.alt;
+			text.innerHTML = imgs.alt;
 			expandImg.parentElement.style.display = "block";
 		}
 

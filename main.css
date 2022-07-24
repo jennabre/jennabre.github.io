@@ -1,11 +1,11 @@
 
 :root {
 	--dark-gray: #444;
-	--deep-blue: #006B80;
-	--mediumblue: #1F98B0;
-	--lightblue: #55C3D9;
-	--pastel-blue: #AAE1EC;
-	--baby-blue: #D5F0F6;
+	--deep-green: #194037;
+	--dark-green: #286658;
+	--medium-green: #84AEA2;
+	--light-green: #CCDFDB;
+	--pastel-green: #E6EFED;
 
 	--nav-width: 140px;
 }
@@ -14,34 +14,34 @@
 /*     Major Styling    */
 /***********************/
 
-main { padding: 3em; margin-left: var(--nav-width); }
+
 body {
-	background-color: var(--pastel-blue);
+	background-color: var(--light-green);
+	background: url(pics/texture-light-green.jpg);
+	background-repeat: repeat;
 	color: #555;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.1em;
 }
 
-h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; }
-
-h1 { margin-top: 0; color: var(--deep-blue); }
-h2 { color: var(--mediumblue); }
-h3 { color: var(--deep-blue); }
+h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; color: var(--dark-green);  }
+h1 { margin-top: 0; }
 
 /* Links */
 /* No a:visited or nav links will act up */
-a { color: var(--mediumblue); }
+a { color: var(--dark-green); }
 
-a:hover { color: var(--pastel-blue); text-decoration: none; }
-a:active { color: var(--pastel-blue); text-decoration: none; }
+a:hover { color: var(--light-green); text-decoration: none; }
+a:active { color: var(--light-green); text-decoration: none; }
 
 header {
-	background-color: var(--mediumblue);
+	background-color: var(--dark-green);
+	background: url(pics/texture-dark-green.jpg);
+	background-repeat: repeat;
 	height: 50px;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
-	/* "Times New Roman" must be in quotation marks because of the white space*/
 	font-family: "Goudy Old Style", "Times New Roman", Serif;
 	margin-bottom: 0;
 	/* Not sure why padding on bottom has to be so huge in order for it to look nice */
@@ -59,6 +59,7 @@ header a {
 	max-width: 2048px;
 	margin: 0 auto;
 }
+main { padding: 2em; margin-left: var(--nav-width); }
 
 footer {
 	margin-top: 2em;
@@ -75,7 +76,7 @@ footer {
 
 nav {
 	float: left;
-	background-color: var(--baby-blue);
+	background-color: var(--pastel-green);
 	height: 100%;
 	position: absolute;
 	width: var(--nav-width);
@@ -84,16 +85,16 @@ nav a {
 	display: block;
 	padding: 15px;
 	text-decoration: none;
-	color: var(--deep-blue);
+	color: var(--deep-green);
 }
 nav ul ul a {
 	padding-left: 25px;
-	color: var(--mediumblue);
+	color: var(--dark-green);
 }
 nav ul { padding: 0; margin: 0; }
 nav li { list-style-type: none; }
 
-nav a:hover { color: white; background-color: var(--lightblue); }
+nav a:hover { color: white; background-color: var(--medium-green); }
 
 .toggle-button { display: none; }
 
@@ -123,47 +124,49 @@ nav a:hover { color: white; background-color: var(--lightblue); }
 	height: 25px;
 }
 
-.accentbox {
-	background-color: var(--baby-blue);
+.accent-box {
+	background-color: var(--pastel-green);
 	padding: 1em;
 	font-size: 1.2em;
-	color: var(--deep-blue);
+	color: var(--deep-green);
 }
 
 button {
-	padding: 1em;
-	background-color: var(--mediumblue);
+	padding: 0.8em;
+	background-color: var(--dark-green);
+	background-image: url(pics/texture-dark-green.jpg);
+	background-repeat: repeat;
 	color: white;
 	border: none;
 	border-radius: 30px;
 	font-size: 1.2em;
 	cursor: pointer;
 }
-button:hover { background-color: var(--lightblue); }
-button:active { background-color: var(--baby-blue); }
+button:hover { background-image: none; background-color: var(--medium-green); }
+button:active { background-color: var(--pastel-green); }
 
 
 /* Quotes */
-.quotebox {
-	background-color: var(--baby-blue);
+.quote-box {
+	background-color: var(--pastel-green);
 	padding: 10px 20px;
 	width: 90%;
 	margin: 0 auto 20px auto;
 	color: var(--dark-gray);
 }
-.quotebox p { font-family: "Goudy Old Style", serif; font-size: 1.4em; }
-.quotebox p::before {
+.quote-box p { font-family: "Goudy Old Style", serif; font-size: 1.4em; }
+.quote-box p::before {
 	content:url(_pics/quote.png);
 	opacity: 50%;
 	float: left;
 	margin-right: 1.5em;
 	margin-top: 0;
 }
-.quotebox .attr { text-align: right; margin: 0 2em 0.8em 0; }
-.quotebox .attr::before { content:"— "; }
+.quote-box .attr { text-align: right; margin: 0 2em 0.8em 0; }
+.quote-box .attr::before { content:"— "; }
 
 .progress {
-	background-color: var(--baby-blue);
+	background-color: var(--pastel-green);
 	width: 90%;
 	height: 2em;
 	border-radius: 1em;
@@ -171,7 +174,7 @@ button:active { background-color: var(--baby-blue); }
 }
 .progress span {
 	display: inline-block;
-	background-image: linear-gradient(to right, var(--lightblue), var(--mediumblue));
+	background-image: linear-gradient(to right, var(--medium-green), var(--dark-green));
 	border-radius: 1em;
 	height: 100%;
 	padding-top: 0.5em;
@@ -201,12 +204,12 @@ button:active { background-color: var(--baby-blue); }
 /* Image gallery */
 /* Thanks to https://www.w3schools.com/css/tryit.asp?filename=trycss_image_pic_gallery */
 .pic {
-	background-color: var(--baby-blue);
+	background-color: var(--pastel-green);
 	padding: 10px;
 }
 .pic:hover { opacity: 70%; }
 .pic img { width: 100%; height: auto; }
-.desc { padding: 1em; text-align: center; color: var(--deep-blue); }
+.desc { padding: 1em; text-align: center; color: var(--deep-green); }
 
 * { box-sizing: border-box; }
 
@@ -216,51 +219,10 @@ button:active { background-color: var(--baby-blue); }
 	width: 24.99%;
 }
 
-/* Display gallery */
-/* Base: https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp */
-.displaybox {
-	background-color: #eee;
-	max-width: 25%;
-	float: left;
-	margin: 0.5em;
-	padding: 1em;
-	text-align: center;
-	height: 10em;
-}
-.displaybox:hover { opacity: 0.8; }
-.displaybox p { font-size: 1.2em; }
-.displaycolumn {
-  float: left;
-  margin: 0;
-}
-.displaycolumn img {
-  opacity: 0.8;
-  cursor: pointer;
-}
-.displaycolumn img:hover { opacity: 1; }
-.displayrow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.bigpic { position: relative; }
-#imgtext {
-  position: absolute;
-  top: 0.3em;
-  left: 0.3em;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0.2em;
-  color: white;
-  font-size: 1.5em;
-}
-
-
 .socials { text-align: center; }
 .socials img { width: 50px; }
 .socials img:hover { opacity: 80%; }
 
-/* Overrides for social gallery */
-.social { width: 12em; }
 .social .pic img {
 	display: block;
 	width: 70%;
@@ -268,7 +230,34 @@ button:active { background-color: var(--baby-blue); }
 	margin-right: auto;
 }
 
+/* Display gallery (e.g. Psyche Inspired) */
+/* Base: https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp */
 
+.display-row .display-column {
+  float: left;
+	width: 25%;
+  margin: 0;
+}
+.display-row .display-column img {
+  opacity: 0.8;
+	max-width: 100%;
+  cursor: pointer;
+}
+.display-row .display-column img:hover { opacity: 1; }
+.display-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.display-row .big-pic { position: relative; }
+#image-text {
+	background-color: var(--pastel-green);
+	background: url(pics/texture-pastel-green.jpg);
+	background-repeat: repeat;
+	width: 100%;
+  padding: 0.2em;
+  font-size: 1.5em;
+}
 
 /***********************/
 /*       Padding       */
@@ -279,6 +268,13 @@ button:active { background-color: var(--baby-blue); }
 .pb20 { padding-bottom: 20px; }
 .pb25 { padding-bottom: 25px; }
 .pb30 { padding-bottom: 30px; }
+
+.pt5 { padding-top: 5px; }
+.pt10	{ padding-top: 10px; }
+.pt15 { padding-top: 15px; }
+.pt20	{ padding-top: 20px; }
+.pt25 { padding-top: 25px; }
+.pt30 { padding-top: 30px; }
 
 /***********************/
 /*     Mobile CSS      */
@@ -320,7 +316,7 @@ button:active { background-color: var(--baby-blue); }
 	nav { display: none; width: 100%; height: auto; position: relative; }
 	nav a {
 		display: block;
-		border-bottom: 2px solid var(--mediumblue);
+		border-bottom: 2px solid var(--dark-green);
 	}
 	.toggle-button {
 		display: block;
@@ -328,8 +324,6 @@ button:active { background-color: var(--baby-blue); }
 		margin-right: 20px;
 		margin-bottom: 10px;
 	}
-	
-	.accentbox { width: 100%!important; }
 	
 	.gallery { width: 100%; }
 	
