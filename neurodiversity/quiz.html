@@ -29,9 +29,12 @@
 		<div id="wrapper">
 		
 			<header>
-				Neurodiversity
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="../pics/icon-hamburger.png" width="25" height="25" />
+				</a>
+				Intro to Neurodiversity
 			</header>
-			<nav>
+			<nav id="nav-list" role="navigation">
 				<a href="../index.html" class="red"><li>Back to portfolio</li></a>
 				<a href="index.html" class="orange"><li>Home</li></a>
 				<a href="terms.html" class="yellow"><li>Terminology</li></a>
@@ -43,14 +46,11 @@
 			<main>
 			
 				<h1>How much do you know about neurodiversity at work?</h1>
-				
 				<p>
-					Could you understand and support a neurodivergent colleague? 
-					Test your knowledge and see how savvy you are.
+					Could you understand and support a neurodivergent colleague? Test your knowledge and see how savvy you are.
 				</p>
-				
 				<p>
-					If the correct answers surprise you, don't worry.
+					If the correct answers surprise you, don't worry. We'll go over them.
 				</p>
 			
 				<div id="quiz"></div>
@@ -61,18 +61,23 @@
 
 			</main>
 			<footer>
-				Copyright &copy; 2019 Jennifer Breunig<br/>
-				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+				Copyright &copy; 2022 Jennifer Breunig
 			</footer>
 		</div>
-		
-
 	</body>
-
 </html>
 
 <!-- Thanks to https://www.sitepoint.com/simple-javascript-quiz/ -->
 <script>
+	function toggleMenu() {
+		var x = document.getElementById("nav-list");
+			if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+	
 	(function() {
 	
 		// Build quiz, should run on load
@@ -123,10 +128,10 @@
 				numCorrect++;
 
 				// color the answers green
-				answerContainers[questionNumber].style.color = "#219637";
+				answerContainers[questionNumber].style.color = "#256859";
 			} else {
 				// color red
-				answerContainers[questionNumber].style.color = "#D33033";
+				answerContainers[questionNumber].style.color = "#B03532";
 			}
 		});
 

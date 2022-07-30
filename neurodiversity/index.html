@@ -29,9 +29,12 @@
 		<div id="wrapper">
 		
 			<header>
-				Neurodiversity
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="../pics/icon-hamburger.png" width="25" height="25" />
+				</a>
+				Intro to Neurodiversity
 			</header>
-			<nav>
+			<nav id="nav-list" role="navigation">
 				<a href="../index.html" class="red"><li>Back to portfolio</li></a>
 				<a href="index.html" class="orange"><li>Home</li></a>
 				<a href="terms.html" class="yellow"><li>Terminology</li></a>
@@ -41,55 +44,50 @@
 			</nav>
 			
 			<main>
-			
 				<h1>Neurodiversity</h1>
 			
-				<div class="colorbox">
+				<div class="color-box">
 					<b>Neurodiversity</b> is the diversity of human brains and minds – 
 					the infinite variation in neurocognitive functioning within our species.
 					<p style="text-align:right;"><a href="https://neurocosmopolitanism.com/neurodiversity-some-basic-terms-definitions/">Nick Walker</a></p>
 				</div>
 				
 				<h2>What Is It?</h2>
-				
 				<p>
-					Humans are different. We have different sizes, genders, skin tones, voices, and more. 
-					We also have different minds. 
-					The diversity of human brains is called "neurodiversity."
+					Humans are different. We have different sizes, genders, skin tones, voices, and more. We also have different minds. The diversity of human brains is called "neurodiversity."
 				</p>
 				
 				<h2>Rethinking Neurodiversity</h2>
 				
-				<img src="pic-a.jpg" style="float: right; margin-left: 1em;" width="300" height="300" alt="different people" />
+				<img class="float-right pl20" src="pics/neurodiversity-a.jpg" alt="different people" width="300" height="300"/>
 			
 				<p>
-					In the past, society viewed neurological differences as deficits. 
-					But lately, a new perspective is changing the world. 
-					More communities and workplaces are recognizing the largely untapped potential of neurodivergent people.
+					In the past, society viewed neurological differences as deficits. But lately, a new perspective is changing the world. More communities and workplaces are recognizing the largely untapped potential of neurodivergent people.
 				</p>
-				
 				<p>
-					Not every different trait is a bad trait. 
-					For example, people with ADHD can be highly creative and autistic people can be detail-oriented. 
-					More people believe that diverse brains strengthen a community.
+					Not every different trait is a bad trait. For example, people with ADHD can be highly creative and autistic people can be detail-oriented. More people believe that diverse brains strengthen a community.
 				</p>
-				
 				<p>
-					Embracing neurodiversity means including neurodivergent people. 
-					It doesn't mean ignoring the disabling aspects of certain conditions. 
-					Instead, it means finding work-arounds and recognizing the value of each person.
+					Embracing neurodiversity means including neurodivergent people. It doesn't mean ignoring the disabling aspects of certain conditions. Instead, it means finding work-arounds and recognizing the value of each person.
 				</p>
 				
 
 			</main>
 			<footer>
-				Copyright &copy; 2021 Jennifer Breunig<br/>
-				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+				Copyright &copy; 2022 Jennifer Breunig
 			</footer>
 		</div>
-		
-
 	</body>
-
 </html>
+
+<script>
+	function toggleMenu() {
+		var x = document.getElementById("nav-list");
+			if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+</script>
 

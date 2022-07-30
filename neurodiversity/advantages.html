@@ -29,9 +29,12 @@
 		<div id="wrapper">
 		
 			<header>
-				Neurodiversity
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="../pics/icon-hamburger.png" width="25" height="25" />
+				</a>
+				Intro to Neurodiversity
 			</header>
-			<nav>
+			<nav id="nav-list" role="navigation">
 				<a href="../index.html" class="red"><li>Back to portfolio</li></a>
 				<a href="index.html" class="orange"><li>Home</li></a>
 				<a href="terms.html" class="yellow"><li>Terminology</li></a>
@@ -57,7 +60,6 @@
 				<p>
 					Other strengths associated with ADHD include:
 				</p>
-				
 				<ul>
 					<li><a href="https://www.scientificamerican.com/article/the-creativity-of-adhd/">Creativity</a></li>
 					<li>Problem-solving</li>
@@ -66,16 +68,12 @@
 				</ul>
 				
 				<h2>Autism</h2>
-				
 				<p>
-					While many people have heard stories of autistic savants or STEM wizards, 
-					the reality is that autistic people are a diverse group with a range of skills.
+					While many people have heard stories of autistic savants or STEM wizards, the reality is that autistic people are a diverse group with a range of skills.
 				</p>
-				
 				<p>
 					Common advantages of autistic brains include:
 				</p>
-				
 				<ul>
 					<li>Systems thinking</li>
 					<li>Detail orientation</li>
@@ -84,12 +82,9 @@
 				</ul>
 				
 				<h2>Dyslexia</h2>
-				
 				<p>
-					While dyslexia is traditionally thought of as a weakness, this doesn't explain 
-					the relatively high percentage of CEOs with the condition.
+					While dyslexia is traditionally thought of as a weakness, this doesn't explain the relatively high percentage of CEOs with the condition.
 				</p>
-				
 				<ul>
 					<li>Superior work ethic</li>
 				</ul>
@@ -105,13 +100,20 @@
 
 			</main>
 			<footer>
-				Copyright &copy; 2019 Jennifer Breunig<br/>
-				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+				Copyright &copy; 2022 Jennifer Breunig
 			</footer>
 		</div>
-		
-
 	</body>
-
 </html>
+
+<script>
+	function toggleMenu() {
+		var x = document.getElementById("nav-list");
+			if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+</script>
 

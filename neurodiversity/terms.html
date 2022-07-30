@@ -27,11 +27,13 @@
 
 	<body>		
 		<div id="wrapper">
-		
 			<header>
-				Neurodiversity
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="../pics/icon-hamburger.png" width="25" height="25" />
+				</a>
+				Intro to Neurodiversity
 			</header>
-			<nav>
+			<nav id="nav-list" role="navigation">
 				<a href="../index.html" class="red"><li>Back to portfolio</li></a>
 				<a href="index.html" class="orange"><li>Home</li></a>
 				<a href="terms.html" class="yellow"><li>Terminology</li></a>
@@ -45,8 +47,7 @@
 				<h1>Neurodiversity terminology</h1>
 			
 				<p>
-					How do you talk about neurodiversity? 
-					Here's some general information.
+					How do you talk about neurodiversity? Here's some general information.
 				</p>
 				
 				<h2>Definitions</h2>
@@ -58,38 +59,28 @@
 					<li><b>Neurodiversity</b>: The natural diversity of human brains</li>
 					<li><b>Neurotypical</b>: Someone with a "neurologically typical" brain, lacking any disabilities</li>
 					<li><b>Social model of disability</b>: The idea that disability is caused by society's failure to accommodate a difference in ability</li>
+					<li><b>Stimming</b>: Repetitive fidgeting movements, like hair-twirling or hand-flapping, that can help a neurodivergent person self-regulate</li>
 				</ul>
 				
 				<h3>Example usage</h3>
 				
 				<p>
-					"Jacob doesn't mind people saying he is disabled. 
-					Disability doesn't make him inferior; it just means he faces extra barriers."
+					"Jacob is disabled because he has dyspraxia."
 				</p>
-				
 				<p>
-					"Ella is neurodivergent. 
-					She has ADHD, her daughter is autistic, and her husband is neurotypical. 
-					They are a neurodiverse family."
+					"Ella is neurodivergent. She has ADHD, her daughter is autistic, and her husband is neurotypical. They are a neurodiverse family."
 				</p>
-				
 				<p>
-					"Amir believes in the social model of disability. 
-					He can participate in society as usual until he's expected to handle a chaotic environment. 
-					He believes that he suffers not from a defective brain, 
-					but from lack of understanding and accommodations."
+					"Amir is a disability advocate who uses <a href="https://www.optimistjenna.com/social-model-disability-autism/">the social model of disability</a> to explain accessibility. He can participate normally in society until he's thrown into a chaotic sensory environment. He aims to advance inclusion."
 				</p>
 				
 				<h2>Person first or identity first?</h2>
 
 				<p>
-					Some people believe in saying "person with X." 
-					This is a way to say "I am more than my disability/illness."
+					Some people believe in saying "person with X." This is a way to say "I am more than my disability/illness."
 				</p>
-				
 				<p>
-					Other people believe in saying "X person." 
-					This is a way to say "There is nothing bad about who I am."
+					Other people believe in saying "X person." This is a way to say "There is nothing bad about who I am."
 				</p>
 				
 				<table>
@@ -98,60 +89,57 @@
 						<th>Person First</th>
 						<th>Identity First</th>
 					</tr>
-					
 					<tr>
 						<td>Person with a disability</td>
 						<td>Disabled person</td>
 					</tr>
-					
 					<tr>
 						<td>Woman with Down syndrome</td>
 						<td>Down syndrome woman</td>
 					</tr>
-					
 					<tr>
 						<td>Adult with autism</td>
 						<td>Autistic adult</td>
 					</tr>
-					
 					<tr>
 						<td>Kids with ADHD</td>
 						<td>ADHD kids</td>
 					</tr>
-					
 					<tr>
 						<td>Man with dyslexia</td>
 						<td>Dyslexic man</td>
 					</tr>
-				
-				
 				</table>
 				
 				<p>
-					You may have seen campaigns urging you to "always put the person first!" 
-					But <a href="https://www.wikihow.com/Write-About-Disability">according to wikiHow</a>, it's a little more complicated than that.
+					You may have seen campaigns urging you to "always put the person first!" But it's a little more complicated than that.
 				</p>
-				
 				<ul>
 					<li>Americans often prefer person-first language. Brits often prefer identity-first language.</li>
 					<li>People with developmental disabilities usually prefer person-first language. 
-					Autistics often strongly prefer identity-first language.</li>
+					Autistic, blind, and deaf people often prefer identity-first language.</li>
 					<li>People who see their condition as an illness or impediment usually prefer person-first language. 
 					People who see their condition as part of their identity often prefer identity-first language.</li>
 				</ul>
-				
-				<p>If there is no clear community preference, a mix of both will suffice.</p>
+				<p>If there is no clear community preference, a mix of both will work.</p>
+				<div class="color-box">For more info on talking about neurodiversity, check out my blog post on <a href="https://www.optimistjenna.com/talk-about-disability/">how to talk about disability</a>.</div>
 				
 
 			</main>
 			<footer>
-				Copyright &copy; 2019 Jennifer Breunig<br/>
-				<a href="mailto:jmbreunig12@gmail.com">jmbreunig12@gmail.com</a>
+				Copyright &copy; 2022 Jennifer Breunig
 			</footer>
 		</div>
-		
-
 	</body>
-
 </html>
 
+<script>
+	function toggleMenu() {
+		var x = document.getElementById("nav-list");
+			if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+</script>

@@ -10,9 +10,9 @@
 	--nav-width: 140px;
 }
 
-/***********************/
-/*     Major Styling    */
-/***********************/
+/***********************
+			Major Styling
+***********************/
 
 
 body {
@@ -69,10 +69,9 @@ footer {
 	padding: 20px;
 }
 
-/***********************/
-/*      Navigation     */
-/***********************/
-/* Template courtesy of https://css-tricks.com/solved-with-css-dropdown-menus/ */
+/***********************
+			Navigation
+***********************/
 
 nav {
 	float: left;
@@ -98,9 +97,9 @@ nav a:hover { color: white; background-color: var(--medium-green); }
 
 .toggle-button { display: none; }
 
-/***********************/
-/*       Utilities     */
-/***********************/
+/***********************
+			Utilities
+***********************/
 
 .float-left { float: left; }
 .float-right { float: right; }
@@ -259,41 +258,45 @@ button:active { background-color: var(--pastel-green); }
   font-size: 1.5em;
 }
 
-/***********************/
-/*       Padding       */
-/***********************/
-.pb5 { padding-bottom: 5px; }
+/***********************
+				Padding
+***********************/
+.pb5  { padding-bottom: 5px;  }
 .pb10 { padding-bottom: 10px; }
 .pb15 { padding-bottom: 15px; }
 .pb20 { padding-bottom: 20px; }
 .pb25 { padding-bottom: 25px; }
 .pb30 { padding-bottom: 30px; }
 
-.pt5 { padding-top: 5px; }
+.pt5  { padding-top: 5px;  }
 .pt10	{ padding-top: 10px; }
 .pt15 { padding-top: 15px; }
 .pt20	{ padding-top: 20px; }
 .pt25 { padding-top: 25px; }
 .pt30 { padding-top: 30px; }
 
-/***********************/
-/*     Mobile CSS      */
-/***********************/
+.pl5  { padding-left: 5px;  }
+.pl10	{ padding-left: 10px; }
+.pl15 { padding-left: 15px; }
+.pl20	{ padding-left: 20px; }
+.pl25 { padding-left: 25px; }
+.pl30 { padding-left: 30px; }
+
+/***********************
+			Mobile CSS
+***********************/
 /* Tablets */
 @media only screen and (max-width: 64em) {
 	body {
 		margin: 0;
 		background-color: white;
 	}
-	
 	#wrapper {
 		min-width: 0;
 		width: auto;
 		box-shadow: none;
 	}
-	
 	footer { margin-left: 0; }
-	
 	.gallery { width: 49.99%; margin: 6px 0; }
 }
 
@@ -310,7 +313,6 @@ button:active { background-color: var(--pastel-green); }
 		padding: 1em 1.5em 0.2em 1.5em;
 		font-size: 90%;
 	}
-	
 	h1 { font-size: 1.7em; }
 	
 	nav { display: none; width: 100%; height: auto; position: relative; }
