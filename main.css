@@ -155,7 +155,7 @@ button:active { background-color: var(--pastel-green); }
 }
 .quote-box p { font-family: "Goudy Old Style", serif; font-size: 1.4em; }
 .quote-box p::before {
-	content:url(_pics/quote.png);
+	content:url(pics/quote.png);
 	opacity: 50%;
 	float: left;
 	margin-right: 1.5em;
