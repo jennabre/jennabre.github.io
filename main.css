@@ -193,10 +193,10 @@ button:active { background-color: var(--pastel-green); }
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+.flexbox div { max-width: 300px; padding: 15px; }
 .flexbox img { max-width: 270px; }
 
 .flexbox img:hover { opacity:70%; }
-.flexbox img { padding: 0.1em; }
 .social img:hover { opacity: 70%; }
 
 
@@ -219,15 +219,8 @@ button:active { background-color: var(--pastel-green); }
 }
 
 .socials { text-align: center; }
-.socials img { width: 50px; }
-.socials img:hover { opacity: 80%; }
+.socials img:hover { opacity: 70%; }
 
-.social .pic img {
-	display: block;
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-}
 
 /* Display gallery (e.g. Psyche Inspired) */
 /* Base: https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp */
