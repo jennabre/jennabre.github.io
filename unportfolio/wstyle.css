@@ -4,11 +4,13 @@
 	--pink1:	#E57992;
 	--pink2:	#F3AABB;
 	--pink3:	#FFC3D4;
-	--green0:	#17A68C;
-	--green1:	#51CCAC;
-	--green2:	#82D9C2;
-	--green3:	#A0E9D5;
-	--green4:	#CEF1E7;
+	--green0:	#00352B;
+	--green1:	#025244;
+	--green2:	#097864;
+	--green3:	#51CCAC;
+	--green4:	#82D9C2;
+	--green5:	#A0E9D5;
+	--green6:	#CEF1E7;
 }
 
 body {
@@ -21,16 +23,11 @@ header {
 	text-align: center;
 	font-size: 2em;
 	padding: 0.3em;
-	background-color: var(--green1);
+	background-color: var(--green3);
 }
-
 header a {
 	color: white;
 	text-decoration: none;
-}
-
-header a:hover {
-	color: var(--green3);
 }
 
 #wrapper {
@@ -46,15 +43,12 @@ header a:hover {
 /* Template courtesy of https://css-tricks.com/solved-with-css-dropdown-menus/ */
 
 nav {
-    width: 100%;
+  width: 100%;
 	/* Match nav li background color */
-	background-color: var(--green1);
+	background-color: var(--green3);
 	text-align: center;
 	font-size: 1.5em;
 }
-
-/* Not working ideally */
-/* Also why do second & third list items not work in dropdowns? */
 nav a {
 	display: inline;
 	width: 100%;
@@ -63,19 +57,17 @@ nav a {
 	text-decoration: none;
 }
 nav a:hover {
-	color: var(--green1);
+	color: var(--green4);
 }
-
 nav ul {
 	width: 100%;
-    list-style: none;
-    margin: 0;
+  list-style: none;
+  margin: 0;
 	padding: 0;
 }
-
 nav li {
 	/* Match nav background color */
-    background-color: var(--green1);
+  background-color: var(--green3);
 	position: relative;
 	display: inline-block;
 	width: 12%;
@@ -83,86 +75,60 @@ nav li {
 	margin: 0;
 	color: #fff;
 }
-  
-
-
 nav li:hover, nav li:focus-within {
-    background: var(--green3);
-    cursor: pointer;
-}
-
-nav li:focus-within a {
-  outline: none;
-}
-
-nav ul li ul {
-	display: none;
-	opacity: 0;
-    visibility: hidden;
-	min-width: 4em;
-    position: absolute;
-	transition: all 0.5s ease;
-	margin-top: 1em;
-    left: 0;
-}
-
-nav ul li:hover > ul, nav ul li:focus-within > ul,
-nav ul li ul:hover,
-nav ul li ul:focus {
-  visibility: visible;
-  opacity: 1;
-  display: block
-}
-
-nav ul li ul li {
-    clear: both;
-	width: 100%;
+	background: var(--green4);
+	cursor: pointer;
 }
 
 /* End of nav */
 
-main {
-	padding: 2em;
-}
+a { color: var(--pink1); }
+a:hover { color: var(--pink3); }
+
+
 
 h1 {
 	font-family: "Times New Roman";
 	font-size: 2.2em;
-	color: var(--green1)
+	color: var(--green3)
 }
-
 h2 {
 	font-family: Georgia;
 	font-size: 1.8em;
 	color: var(--pink1)
 }
-
-a {
-	color: var(--pink1);
-}
-a:hover {
-	color: var(--pink3);
-}
 p {
-	/* I like big fonts and I cannot lie */
 	font-size: 1.1em;
 	color: #333;
 }
 
+main {
+	padding: 2em;
+}
 
 footer {
-	background: var(--pink2);
+	background: var(--pink1);
 	padding: 0.5em;
 	color: white;
 	text-align: center;
 }
-footer a { color: white; }
+footer p, footer a { color: white; }
 footer a:hover { color: var(--pink3); }
+
+button {
+	background-color: var(--pink3);
+	border: 0;
+	padding: 0.75em 1.25em;
+	border-radius: 15px 10px;
+}
+button:hover {
+	background-color: var(--pink1);
+}
 
 /* Q&A */
 /* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */
 .question {
-  background-color: var(--green4);
+  background-color: var(--green6);
   cursor: pointer;
   padding: 1em;
   width: 100%;
@@ -171,13 +137,11 @@ footer a:hover { color: var(--pink3); }
   text-align: left;
   outline: none;
 }
-
 .active, .question:hover {
-  background-color: var(--green1);
-  text-shadow: 2px 2px var(--green0);
+  background-color: var(--green3);
+  text-shadow: 1px 1px var(--green2);
   color: white;
 }
-
 .answer {
   padding: 0 1em;
   display: none;
@@ -185,8 +149,9 @@ footer a:hover { color: var(--pink3); }
   background-color: #f1f1f1;
 }
 
-/* Responsive */
 
+/* Responsive */
+/* Tablet */
 @media only screen and (max-width: 64em) {
 	body {
 		margin: 0;
@@ -205,7 +170,6 @@ footer a:hover { color: var(--pink3); }
 	nav {
 		width: auto;
 	}
-	
 	nav a {
 		display: inline;
 		width: 30%;
@@ -217,6 +181,7 @@ footer a:hover { color: var(--pink3); }
 	}
 }
 
+/* Phone */
 @media only screen and (max-width: 37em) {
 	header { padding-top: 1em; }
 	
@@ -234,7 +199,7 @@ footer a:hover { color: var(--pink3); }
 		margin: 0;
 		display: block;
 		width: 100%;
-		border-bottom: 2px solid var(--green1);
+		border-bottom: 2px solid var(--green4);
 	}
 	nav ul li ul {
 		display: true;
