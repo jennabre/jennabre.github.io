@@ -125,6 +125,32 @@ button:hover {
 	background-color: var(--pink1);
 }
 
+/***********************
+			Utilities
+***********************/
+
+.float-left { float: left; }
+.float-right { float: right; }
+
+.columns > div { float: left; }
+.column2 { float: left; width: 49%; }
+.column70 { width: 70%; }
+.column30 { width: 30%; }
+.columns .left-column { padding-right: 0.5em; }
+.columns .right-column { padding-left: 0.5em; }
+.columns:after { content: ""; display: table; clear: both; }
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+.spacer {
+	height: 25px;
+}
+
 /* Q&A */
 /* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */
 .question {
@@ -147,6 +173,40 @@ button:hover {
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
+}
+
+/* Popup Hell */
+/* Inspiration: https://www.foolishdeveloper.com/2021/11/how-to-create-automatic-popup-window.html */
+.popup {
+	position: fixed;
+	width: 50%;
+	left: 15%;
+	top: 50%;
+	padding: 2em;
+	text-align: center;
+	border: 2px solid var(--green3);
+	border-radius: 20px 30px;
+	background-color: var(--green6);
+	display: none;
+}
+
+.progress {
+	background-color: var(--green6);
+	width: 90%;
+	height: 2em;
+	border-radius: 1em;
+	margin-bottom: 0.2em;
+}
+.progress span {
+	display: inline-block;
+	background-image: linear-gradient(to right, var(--green4), var(--green2));
+	border-radius: 1em;
+	height: 100%;
+	padding-top: 0.5em;
+	padding-right: 1em;
+	text-align: right;
+	color: #fff;
+	cursor: pointer;
 }
 
 
@@ -203,6 +263,14 @@ button:hover {
 	}
 	nav ul li ul {
 		display: true;
+	}
+
+	/* Change 2 columns to 1 */
+	.columns .left-column, .columns .right-column { padding: 0; }
+	
+	.column2 {
+		float: none;
+		width: 100%;
 	}
 
 	

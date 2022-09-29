@@ -299,7 +299,13 @@ button:active { background-color: var(--pastel-green); }
 	.desktop-only { display: none; height: 0; overflow: hidden; }
 	.m-width100 { width: 100%; }
 
+	/* Change 2 columns to 1 */
 	.columns .left-column, .columns .right-column { padding: 0; }
+	
+	.column2 {
+		float: none;
+		width: 100%;
+	}
 	
 	main {
 		margin-left: 0;
@@ -322,11 +328,7 @@ button:active { background-color: var(--pastel-green); }
 	
 	.gallery { width: 100%; }
 	
-	/* Change 2 columns to 1 */
-	.column2 {
-		float: none;
-		width: 100%;
-	}
+	
 	
 	label { float:none; text-align: left;}
 	input[type="submit"] { margin-left: 0;}
