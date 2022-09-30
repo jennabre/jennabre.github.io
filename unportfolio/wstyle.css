@@ -86,17 +86,10 @@ a { color: var(--pink1); }
 a:hover { color: var(--pink3); }
 
 
+h1 { font-family: 'Brush Script MT', sans-serif; font-size: 2.2em; color: var(--green3) }
+h2 { font-family: 'Comic Sans MS', serif; font-size: 1.8em; color: var(--pink1) }
+h3 { font-family: Papyrus, serif; color: var(--pink2); }
 
-h1 {
-	font-family: "Times New Roman";
-	font-size: 2.2em;
-	color: var(--green3)
-}
-h2 {
-	font-family: Georgia;
-	font-size: 1.8em;
-	color: var(--pink1)
-}
 p {
 	font-size: 1.1em;
 	color: #333;
@@ -150,6 +143,12 @@ button:hover {
 .spacer {
 	height: 25px;
 }
+
+/* Chaos */
+.bg-lime { background-color: #0f0; }
+.bg-cyan { background-color: #9ff; }
+.bg-yell { background-color: #ff9;}
+.font-comic-sans { font-family: 'Comic Sans MS', serif; }
 
 /* Q&A */
 /* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */

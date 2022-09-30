@@ -103,14 +103,18 @@ nav a:hover { color: white; background-color: var(--medium-green); }
 
 .float-left { float: left; }
 .float-right { float: right; }
+.center-block { margin: 0 auto; }
 
 .columns > div { float: left; }
 .column2 { float: left; width: 50%; }
+.column3 { width: 33%; }
 .column70 { width: 70%; }
 .column30 { width: 30%; }
 .columns .left-column { padding-right: 0.5em; }
 .columns .right-column { padding-left: 0.5em; }
 .columns:after { content: ""; display: table; clear: both; }
+
+.fade-on-hover:hover { opacity: 70%; }
 
 .clearfix:after {
 	content: "";
@@ -163,25 +167,6 @@ button:active { background-color: var(--pastel-green); }
 }
 .quote-box .attr { text-align: right; margin: 0 2em 0.8em 0; }
 .quote-box .attr::before { content:"— "; }
-
-.progress {
-	background-color: var(--pastel-green);
-	width: 90%;
-	height: 2em;
-	border-radius: 1em;
-	margin-bottom: 0.2em;
-}
-.progress span {
-	display: inline-block;
-	background-image: linear-gradient(to right, var(--medium-green), var(--dark-green));
-	border-radius: 1em;
-	height: 100%;
-	padding-top: 0.5em;
-	padding-right: 1em;
-	text-align: right;
-	color: #fff;
-	cursor: pointer;
-}
 
 
 /***********************/
@@ -274,6 +259,13 @@ button:active { background-color: var(--pastel-green); }
 .pl20	{ padding-left: 20px; }
 .pl25 { padding-left: 25px; }
 .pl30 { padding-left: 30px; }
+
+.pr5  { padding-right: 5px; }
+.pr10	{ padding-right: 10px; }
+.pr15 { padding-right: 15px; }
+.pr20 { padding-right: 20px; }
+.pr25 { padding-right: 25px; }
+.pr30 { padding-right: 30px; }
 
 /***********************
 			Mobile CSS
