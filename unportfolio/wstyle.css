@@ -44,40 +44,17 @@ header a {
 
 nav {
   width: 100%;
-	/* Match nav li background color */
-	background-color: var(--green3);
+	background-color: var(--pink1);
 	text-align: center;
 	font-size: 1.5em;
+	color: white;
 }
 nav a {
-	display: inline;
-	width: 100%;
-	height: 100%;
 	color: white;
 	text-decoration: none;
 }
 nav a:hover {
 	color: var(--green4);
-}
-nav ul {
-	width: 100%;
-  list-style: none;
-  margin: 0;
-	padding: 0;
-}
-nav li {
-	/* Match nav background color */
-  background-color: var(--green3);
-	position: relative;
-	display: inline-block;
-	width: 12%;
-	padding: 1em;
-	margin: 0;
-	color: #fff;
-}
-nav li:hover, nav li:focus-within {
-	background: var(--green4);
-	cursor: pointer;
 }
 
 /* End of nav */
@@ -146,9 +123,11 @@ button:hover {
 
 /* Chaos */
 .bg-lime { background-color: #0f0; }
+.bg-pink { background-color: var(--pink3); }
 .bg-cyan { background-color: #9ff; }
 .bg-yell { background-color: #ff9;}
 .font-comic-sans { font-family: 'Comic Sans MS', serif; }
+.font-impact { font-family: Impact, sans-serif; }
 
 /* Q&A */
 /* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */
@@ -249,20 +228,7 @@ button:hover {
 		font-size: 90%;
 	}
 	
-	h1 { font-size: 1.5em; }
-	
 	nav { padding: 0; margin: 0; }
-	
-	nav li {
-		float: none;
-		margin: 0;
-		display: block;
-		width: 100%;
-		border-bottom: 2px solid var(--green4);
-	}
-	nav ul li ul {
-		display: true;
-	}
 
 	/* Change 2 columns to 1 */
 	.columns .left-column, .columns .right-column { padding: 0; }
@@ -272,6 +238,7 @@ button:hover {
 		width: 100%;
 	}
 
+	.m-width-100 { width: 100%; }
 	
 	#mobile { display: inline; }
 	#desktop { display: none; }
