@@ -1,13 +1,15 @@
 
 :root {
 	--gray:		#D9D9D9;
-	--pink1:	#E57992;
+	--pink0:	#a84159;
+	--pink1:	#d9728a;
 	--pink2:	#F3AABB;
-	--pink3:	#FFC3D4;
+	--pink3:	#ffc3d4;
+	--pink4:  #FFD4E1;
 	--green0:	#00352B;
 	--green1:	#025244;
 	--green2:	#097864;
-	--green3:	#51CCAC;
+	--green3:	#40a48a;
 	--green4:	#82D9C2;
 	--green5:	#A0E9D5;
 	--green6:	#CEF1E7;
@@ -59,13 +61,13 @@ nav a:hover {
 
 /* End of nav */
 
-a { color: var(--pink1); }
-a:hover { color: var(--pink3); }
+a { color: var(--pink0); }
+a:hover { color: var(--pink2); }
 
 
 h1 { font-family: 'Brush Script MT', sans-serif; font-size: 2.2em; color: var(--green3) }
 h2 { font-family: 'Comic Sans MS', serif; font-size: 1.8em; color: var(--pink1) }
-h3 { font-family: Papyrus, serif; color: var(--pink2); }
+h3 { font-family: Papyrus, serif; color: var(--pink1); }
 
 p {
 	font-size: 1.1em;
@@ -77,7 +79,7 @@ main {
 }
 
 footer {
-	background: var(--pink1);
+	background: var(--pink0);
 	padding: 0.5em;
 	color: white;
 	text-align: center;
@@ -90,6 +92,7 @@ button {
 	border: 0;
 	padding: 0.75em 1.25em;
 	border-radius: 15px 10px;
+	cursor: pointer;
 }
 button:hover {
 	background-color: var(--pink1);
@@ -122,12 +125,14 @@ button:hover {
 }
 
 /* Chaos */
-.bg-lime { background-color: #0f0; }
-.bg-pink { background-color: var(--pink3); }
+.bg-lime { background-color: #9f9; }
+.bg-pink { background-color: var(--pink4); }
 .bg-cyan { background-color: #9ff; }
-.bg-yell { background-color: #ff9;}
+.bg-yell { background-color: #ffa;}
+
 .font-comic-sans { font-family: 'Comic Sans MS', serif; }
 .font-impact { font-family: Impact, sans-serif; }
+.font-papyrus { font-family: Papyrus; }
 
 /* Q&A */
 /* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */
@@ -159,14 +164,15 @@ button:hover {
 	position: fixed;
 	width: 50%;
 	left: 15%;
-	top: 50%;
-	padding: 2em;
+	bottom: 5%;
+	padding: 1em;
 	text-align: center;
 	border: 2px solid var(--green3);
 	border-radius: 20px 30px;
-	background-color: var(--green6);
+	background-color: var(--pink4);
 	display: none;
 }
+.popup button { background-color: var(--green6);}
 
 .progress {
 	background-color: var(--green6);

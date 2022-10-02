@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio">
+		<meta name="description" content="The unportfolio is truly the most hideous thing I have ever created. Please enjoy this awful, horrible website.">
+		<title>Definitely Not the Worst Advice Ever</title>
+		<link rel="stylesheet" href="wstyle.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+		
+	</head>
+
+	<body onload="changeMeaningsOfLife(true)">		
+		<div id="wrapper">
+			<header>
+				<a href="index.html"><img src="pics/header-202209.gif" alt="un-portfolio gif" width="400" height="100"></a>
+			</header>
+			<nav>
+				Navigation:
+				<a href="index.html">Home</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="about.html">About</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="design.html">Design</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="advice.html">Advice</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="why.html">Why?</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../index.html">Back</a>
+			</nav>
+			
+			<main>
+				<h1>Important advice you need in your life</h1>
+
+				<h2>Design</h2>
+				<ul>
+					<li>
+						<span class="bg-cyan">Never</span> limit your color scheme. Use all the colors. <span class="bg-lime">All</span> <span class="bg-pink">of</span> <span class="bg-yell">them</span>.
+					</li>
+					<li>
+						<span class="font-impact">More</span> <strong class="font-papyrus">fonts</strong> = <span class="font-comic-sans">better</span>.
+					</li>
+					<li>There's nothing wrong with tiny fonts. Weed out the people who don't care enough to squint and strain their eyes. They just <sub>aren't <sub>dedicated <sub>enough.</sub></sub></sub></li>
+					<li>Sometimes, the cruelest thing you can give a client is exactly what they want.</li>
+				</ul>
+
+				<a href="https://www.redbubble.com/people/optimistjenna/shop"><img class="float-right" src="pics/hypnosis-202210.gif" alt="Ugly hypnosis saying you want to buy my stuff" width="200" height="200"></a>
+
+				<h2>Prosperity</h2>
+				<ul>
+					<li>
+						If you want people to buy more stuff from your shop, <a href="https://www.redbubble.com/people/optimistjenna/shop">just link to it more.</a> 
+						Use <a title="Inclusion Matters bag" href="https://www.redbubble.com/i/tote-bag/Inclusion-Matters-by-optimistjenna/89998346.P1QBH">lots</a> of <a title="Give Me Space shirt" href="https://www.redbubble.com/i/t-shirt/Give-Me-Space-by-optimistjenna/88586469.0S66D">links</a> to <a title="neurodiversity symbol sticker" href="https://www.redbubble.com/i/sticker/Neurodiversity-Symbol-Light-by-optimistjenna/88190815.EJUG5">different</a> <a title="cute colorful laptop case" href="https://www.redbubble.com/i/laptop-case/Bright-Color-Block-by-optimistjenna/89087055.2U5KG">products</a>. 
+						People will subconsciously want to buy everything.
+					</li>
+					<li>Some people like to do a "grindset" but it is also inappropriate to grind your bones into dust, so keep that in mind. You need your bones for later.</li>
+				</ul>
+
+				<h2>Life</h2>
+				<ul>
+					<li>When life gives you lemons, <span class="bg-yell">crush them with your bare hands.</span> Show it the results of your workouts. This will intimidate/enamor life into giving you its highest-quality fruit.</li>
+					<li>If you don't understand something, just collect as many numbers about it as you possibly can.</li>
+					<li>The trick for never being ashamed for taking a break is to be utterly shameless. Yeah, maybe I'm a potato sometimes. What are you gonna do about it?</li>
+				</ul>
+				<h3>And here's the biggest secret of all...</h3>
+				<p>The meaning of life is <span class="font-comic-sans">variable</span>. Earlier, it was <span id="pastMeaning" class="bg-cyan">hugs</span>. Now, it's <span id="currentMeaning" class="bg-pink">chocolate cake</span>.</p>
+				<p>Tomorrow, it's your turn to choose the meaning of life, so make it a good one.</p>
+
+				<br/>
+				<button onclick="changeMeaningsOfLife(false)">Check if the meaning of life has changed yet</button>
+				<br/><br/>
+				<p id="noChange" style="display:none;">The meaning of life has not changed yet. Go make the most of it while you can.</p>
+
+			<footer>
+				<p>Copyright &copy; 2472 Jenna Breunig</p>
+				<p><a href="privacy.html">Privacy policy</a></p>
+			</footer>
+		</div>
+		
+
+	</body>
+	
+<script type="text/javascript">
+	
+	function changeMeaningsOfLife(pickOldMeaning) {
+
+		var noChangeSentence = document.getElementById("noChange");
+
+		// On page load, pick a new "old meaning" so it doesn't say chocolate cake all the time.
+		if (pickOldMeaning) {
+			oldMeaning = generateNewMeaning();
+		}
+		else {
+			oldMeaning = document.getElementById("currentMeaning").innerHTML;
+
+			// Sometimes, the meaning will not change.
+			// Let the user know and return.
+			if (Math.random() < 0.3) {
+				noChangeSentence.style.display = "block";
+				return false;
+			}
+		}
+
+		// The code below only runs if we are changing the meaning of life.
+		// Hide the "unchanged" paragraph
+		noChangeSentence.style.display = "none";
+
+			
+		document.getElementById("pastMeaning").innerHTML = oldMeaning;
+
+		// Pick a unique new meaning of life
+		newMeaning = generateNewMeaning();
+		while (newMeaning === oldMeaning) {
+			newMeaning = generateNewMeaning();
+		}
+
+		document.getElementById("currentMeaning").innerHTML = newMeaning;
+
+		// Don't refresh page
+		return false;
+
+	}
+
+	function generateNewMeaning() {
+		var meanings = [
+			"making people smile",
+			"holding hands",
+			"sitting quietly with someone you love",
+			"showing funny pictures to someone special",
+			"leaving people little gifts",
+			"making silly faces in the mirror",
+			"laughter",
+			"cat videos",
+			"soft bread",
+			"cheesecake",
+			"chocolate cake",
+			"touching soft fabric",
+			"collecting shiny things",
+			"cool rocks",
+			"taking walks in nature",
+			"listening to birdsong",
+			"the smell of fresh air",
+			"looking at clouds",
+			"good music",
+			"buying stickers from Jenna's shop"
+		]
+		return meanings[Math.floor(Math.random() * meanings.length)];
+	}
+
+</script>
+
+</html>
