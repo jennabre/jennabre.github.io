@@ -1,11 +1,12 @@
 
 :root {
 	--dark-gray: #444;
-	--deep-green: #194037;
-	--dark-green: #286658;
-	--medium-green: #84AEA2;
-	--light-green: #CCDFDB;
-	--pastel-green: #E6EFED;
+	--green0: #194037;
+	--green1: #286658;
+	--green2: #517d72;
+	--green3: #84AEA2;
+	--green4: #CCDFDB;
+	--green5: #E6EFED;
 
 	--nav-width: 140px;
 }
@@ -16,7 +17,7 @@
 
 
 body {
-	background-color: var(--light-green);
+	background-color: var(--green4);
 	background: url(pics/texture-light-green.jpg);
 	background-repeat: repeat;
 	color: #555;
@@ -24,28 +25,29 @@ body {
 	font-size: 1.1em;
 }
 
-h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; color: var(--dark-green);  }
+/* Text */
+h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; color: var(--green1);  }
 h1 { margin-top: 0; }
 
-/* Links */
-/* No a:visited or nav links will act up */
-a { color: var(--dark-green); }
+a { color: var(--green1); }
+a:hover, a:active { color: var(--green3); text-decoration: none; }
 
-a:hover { color: var(--light-green); text-decoration: none; }
-a:active { color: var(--light-green); text-decoration: none; }
+.text-green2 { color: var(--green2); }
+
+.huge-text { font-size: 2em; }
+
+ul li::before, li::marker { color: var(--green1); }
 
 header {
-	background-color: var(--dark-green);
+	background-color: var(--green1);
 	background: url(pics/texture-dark-green.jpg);
 	background-repeat: repeat;
-	height: 50px;
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
 	font-family: "Goudy Old Style", "Times New Roman", Serif;
 	margin-bottom: 0;
-	/* Not sure why padding on bottom has to be so huge in order for it to look nice */
-	padding: 15px 15px 50px 15px;
+	padding: 15px;
 }
 header a {
 	color: #fff;
@@ -75,7 +77,7 @@ footer {
 
 nav {
 	float: left;
-	background-color: var(--pastel-green);
+	background-color: var(--green5);
 	height: 100%;
 	position: absolute;
 	width: var(--nav-width);
@@ -84,16 +86,16 @@ nav a {
 	display: block;
 	padding: 15px;
 	text-decoration: none;
-	color: var(--deep-green);
+	color: var(--green0);
 }
 nav ul ul a {
 	padding-left: 25px;
-	color: var(--dark-green);
+	color: var(--green1);
 }
 nav ul { padding: 0; margin: 0; }
 nav li { list-style-type: none; }
 
-nav a:hover { color: white; background-color: var(--medium-green); }
+nav a:hover { color: white; background-color: var(--green3); }
 
 .toggle-button { display: none; }
 
@@ -114,6 +116,9 @@ nav a:hover { color: white; background-color: var(--medium-green); }
 .columns .right-column { padding-left: 0.5em; }
 .columns:after { content: ""; display: table; clear: both; }
 
+.max-width200 { max-width: 200px; }
+.max-width630 { max-width: 630px; }
+
 .fade-on-hover:hover { opacity: 70%; }
 
 .clearfix:after {
@@ -128,15 +133,15 @@ nav a:hover { color: white; background-color: var(--medium-green); }
 }
 
 .accent-box {
-	background-color: var(--pastel-green);
+	background-color: var(--green5);
 	padding: 1em;
 	font-size: 1.2em;
-	color: var(--deep-green);
+	color: var(--green0);
 }
 
 button {
-	padding: 0.8em;
-	background-color: var(--dark-green);
+	padding: 0.5em 1em;
+	background-color: var(--green1);
 	background-image: url(pics/texture-dark-green.jpg);
 	background-repeat: repeat;
 	color: white;
@@ -145,13 +150,25 @@ button {
 	font-size: 1.2em;
 	cursor: pointer;
 }
-button:hover { background-image: none; background-color: var(--medium-green); }
-button:active { background-color: var(--pastel-green); }
+button:hover { background-image: none; background-color: var(--green3); }
+button:active { background-color: var(--green5); }
+
+/* Icon-list */
+.icon-list .row {
+	display: flex;
+	align-items: top;
+	margin-bottom: 20px;
+}
+.icon-list div { display: block; }
+.icon-list.image-120 .image { min-width: 120px; }
+.icon-list .image { color: var(--green1); font-weight: bold; text-align: center; }
+.icon-list .text { margin-left: 1em;}
+.icon-list ul { margin: 0; padding-left: 20px; }
 
 
 /* Quotes */
 .quote-box {
-	background-color: var(--pastel-green);
+	background-color: var(--green5);
 	padding: 10px 20px;
 	width: 90%;
 	margin: 0 auto 20px auto;
@@ -188,12 +205,12 @@ button:active { background-color: var(--pastel-green); }
 /* Image gallery */
 /* Thanks to https://www.w3schools.com/css/tryit.asp?filename=trycss_image_pic_gallery */
 .pic {
-	background-color: var(--pastel-green);
+	background-color: var(--green5);
 	padding: 10px;
 }
 .pic:hover { opacity: 70%; }
 .pic img { width: 100%; height: auto; }
-.desc { padding: 1em; text-align: center; color: var(--deep-green); }
+.desc { padding: 1em; text-align: center; color: var(--green0); }
 
 * { box-sizing: border-box; }
 
@@ -228,8 +245,8 @@ button:active { background-color: var(--pastel-green); }
 }
 .display-row .big-pic { position: relative; }
 #image-text {
-	background-color: var(--pastel-green);
-	background: url(pics/texture-pastel-green.jpg);
+	background-color: var(--green5);
+	background: url(pics/texture-green5.jpg);
 	background-repeat: repeat;
 	width: 100%;
   padding: 0.2em;
@@ -309,7 +326,7 @@ button:active { background-color: var(--pastel-green); }
 	nav { display: none; width: 100%; height: auto; position: relative; }
 	nav a {
 		display: block;
-		border-bottom: 2px solid var(--dark-green);
+		border-bottom: 2px solid var(--green1);
 	}
 	.toggle-button {
 		display: block;
