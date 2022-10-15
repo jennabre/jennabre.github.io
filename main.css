@@ -106,6 +106,7 @@ nav a:hover { color: white; background-color: var(--green3); }
 .float-left { float: left; }
 .float-right { float: right; }
 .center-block { margin: 0 auto; }
+.align-right { text-align: right; margin-right: auto; }
 
 .columns > div { float: left; }
 .column2 { float: left; width: 50%; }
@@ -117,6 +118,7 @@ nav a:hover { color: white; background-color: var(--green3); }
 .columns:after { content: ""; display: table; clear: both; }
 
 .max-width200 { max-width: 200px; }
+.max-width400 { max-width: 400px; }
 .max-width630 { max-width: 630px; }
 
 .fade-on-hover:hover { opacity: 70%; }
@@ -283,6 +285,8 @@ button:active { background-color: var(--green5); }
 .pr20 { padding-right: 20px; }
 .pr25 { padding-right: 25px; }
 .pr30 { padding-right: 30px; }
+
+.mt0 { margin-top: 0;}
 
 /***********************
 			Mobile CSS
