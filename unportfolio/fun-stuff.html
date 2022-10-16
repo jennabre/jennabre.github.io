@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio">
+		<meta name="description" content="Here's some random nonsense to enjoy.">
+		<title>Fun and Chaos</title>
+		<link rel="stylesheet" href="wstyle.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+		
+	</head>
+
+	<body onload="startCalculator()">		
+		<div id="wrapper">
+			<header>
+				<a href="index.html"><img src="pics/header-202209.gif" alt="un-portfolio gif" width="400" height="100"></a>
+			</header>
+			<nav>
+				Nav:
+				<a href="index.html">Home</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="about.html">About</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="design.html">Design</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="fun-stuff.html">Fun Stuff</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="advice.html">Advice</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="why.html">Why?</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../index.html">Back</a>
+			</nav>
+			
+			<main>
+				<h1>Random Fun Stuff</h1>
+
+				<h2>Know-It-All Calculator</h2>
+				<p>Any calculator can do numbers, but not all of them share facts and opinions too.</p>
+				<div class="calculator">
+					<div class="input" id="input"></div>
+					<div id="opinion">Calculate something!</div>
+					<div class="buttons">
+						<div class="operators">
+							<div>+</div>
+							<div>-</div>
+							<div>&times;</div>
+							<div>&divide;</div>
+						</div>
+						<div class="leftPanel">
+							<div class="numbers">
+								<div>7</div>
+								<div>8</div>
+								<div>9</div>
+							</div>
+							<div class="numbers">
+								<div>4</div>
+								<div>5</div>
+								<div>6</div>
+							</div>
+							<div class="numbers">
+								<div>1</div>
+								<div>2</div>
+								<div>3</div>
+							</div>
+							<div class="numbers">
+								<div>0</div>
+								<div>.</div>
+								<div id="clear">C</div>
+							</div>
+						</div>
+						<div class="equal" id="result">=</div>
+					</div>
+				</div>
+
+				
+
+			<footer>
+				<p>Copyright &copy; 1999 Jennifer Breunig</p>
+				<p><a href="https://twitter.com/optimistjenna">The Twitter account I visit like once a month</a></p>
+			</footer>
+		</div>
+		
+
+	</body>
+
+</html>
+<script>
+	function startCalculator () {
+		// IDK what this does so I'm not deleting it
+		"use strict";
+
+		// https://devdevshow.com/javascript-portfolio-projects-ideas/
+		var input = document.getElementById('input'),			// input/output button
+			number = document.querySelectorAll('.numbers div'),			// number buttons
+			operator = document.querySelectorAll('.operators div'), // operator buttons
+			result = document.getElementById('result'),			// equal button
+			clear = document.getElementById('clear'),				// clear button
+			opinion = document.getElementById('opinion'),		// opinion
+			resultDisplayed = false; // flag to keep an eye on what output is displayed
+
+		// adding click handlers to number buttons
+		for (var i = 0; i < number.length; i++) {
+			number[i].addEventListener("click", function(e) {
+
+				// storing current input string and its last character in variables - used later
+				var currentString = input.innerHTML;
+				var lastChar = currentString[currentString.length - 1];
+
+				// if result is not displayed, just keep adding
+				if (resultDisplayed === false) {
+					input.innerHTML += e.target.innerHTML;
+				} else if (resultDisplayed === true && lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
+					// if result is currently displayed and user pressed an operator
+					// we need to keep on adding to the string for next operation
+					resultDisplayed = false;
+					input.innerHTML += e.target.innerHTML;
+				} else {
+					// if result is currently displayed and user pressed a number
+					// we need clear the input string and add the new input to start the new opration
+					resultDisplayed = false;
+					input.innerHTML = "";
+					input.innerHTML += e.target.innerHTML;
+				}
+
+			});
+		}
+
+		// adding click handlers to number buttons
+		for (var i = 0; i < operator.length; i++) {
+			operator[i].addEventListener("click", function(e) {
+
+				// storing current input string and its last character in variables - used later
+				var currentString = input.innerHTML;
+				var lastChar = currentString[currentString.length - 1];
+
+				// if last character entered is an operator, replace it with the currently pressed one
+				if (lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
+					var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
+					input.innerHTML = newString;
+				} else if (currentString.length == 0) {
+					// if first key pressed is an operator, don't do anything
+					console.log("enter a number first");
+				} else {
+					// else just add the operator pressed to the input
+					input.innerHTML += e.target.innerHTML;
+				}
+
+			});
+		}
+
+		// on click of 'equal' button
+		result.addEventListener("click", function() {
+
+			// this is the string that we will be processing eg. -10+26+33-56*34/23
+			var inputString = input.innerHTML;
+
+			// forming an array of numbers. eg for above string it will be: numbers = ["10", "26", "33", "56", "34", "23"]
+			var numbers = inputString.split(/\+|\-|\×|\÷/g);
+
+			// forming an array of operators. for above string it will be: operators = ["+", "+", "-", "*", "/"]
+			// first we replace all the numbers and dot with empty string and then split
+			var operators = inputString.replace(/[0-9]|\./g, "").split("");
+
+			console.log(inputString);
+			console.log(operators);
+			console.log(numbers);
+			console.log("----------------------------");
+
+			// now we are looping through the array and doing one operation at a time.
+			// first divide, then multiply, then subtraction and then addition
+			// as we move we are altering the original numbers and operators array
+			// the final element remaining in the array will be the output
+
+			var divide = operators.indexOf("÷");
+			while (divide != -1) {
+				numbers.splice(divide, 2, numbers[divide] / numbers[divide + 1]);
+				operators.splice(divide, 1);
+				divide = operators.indexOf("÷");
+			}
+
+			var multiply = operators.indexOf("×");
+			while (multiply != -1) {
+				numbers.splice(multiply, 2, numbers[multiply] * numbers[multiply + 1]);
+				operators.splice(multiply, 1);
+				multiply = operators.indexOf("×");
+			}
+
+			var subtract = operators.indexOf("-");
+			while (subtract != -1) {
+				numbers.splice(subtract, 2, numbers[subtract] - numbers[subtract + 1]);
+				operators.splice(subtract, 1);
+				subtract = operators.indexOf("-");
+			}
+
+			var add = operators.indexOf("+");
+			while (add != -1) {
+				// using parseFloat is necessary, otherwise it will result in string concatenation :)
+				numbers.splice(add, 2, parseFloat(numbers[add]) + parseFloat(numbers[add + 1]));
+				operators.splice(add, 1);
+				add = operators.indexOf("+");
+			}
+
+
+			// Display output
+			// Include scolding if illegal input
+			opinion.innerHTML = getOpinion(numbers[0]);
+			if (numbers[0] === Infinity || isNaN(numbers[0])) {
+				input.innerHTML = "Bad human!";
+			}
+			else {
+				input.innerHTML = numbers[0];
+			}
+			console.log("Result = " + numbers[0] + ", of type " + typeof(numbers[0]));
+
+			resultDisplayed = true; // turning flag if result is displayed
+		});
+
+		// clearing the input on press of clear
+		clear.addEventListener("click", function() {
+			input.innerHTML = "";
+		});
+	}
+
+	function getOpinion(numberString) {
+		// Note that "number" is a string
+
+		// Handle empty input
+		if (numberString === "") {
+			return "That's just nothing. Give me a number.";
+		}
+		else if (numberString === Infinity) {
+			return "Did you divide by 0? Do you WANT to cause black holes?";
+		}
+		else if (isNaN(numberString)) {
+			return "You were trying forbidden math, weren't you?";
+		}
+
+		// Figure out if we've got a float or an integer
+		const numberConst = Number(numberString);
+
+		if (Number.isInteger(numberConst)) {
+			return getOpinionInt(numberConst);
+		}
+		else {
+			return getOpinionFloat(numberConst);
+		}
+
+	}
+
+	function getOpinionInt(integer) {
+		// Specific numbers
+		if (integer === 0) {
+			return "Does not exist in Roman numerals";
+		}
+		else if (integer === 1) {
+			return "Divisible by only 1 positive integer: itself";
+		}
+		else if (integer === 2) {
+			return "The only even prime number";
+		}
+		else if (integer === 3) {
+			return "You see in 3 dimensions. I see all.";
+		}
+		else if (integer === 4) {
+			return "Four is a 4-letter word. Ask many East Asian cultures.";
+		}
+		else if (integer === 5) {
+			return "A pyramid has 5 vertices.";
+		}
+		else if (integer === 6) {
+			return "The smallest perfect number";
+		}
+		else if (integer === 7) {
+			return "A common favorite number often seen as lucky";
+		}
+		else if (integer == 8) {
+			return "The largest Fibonacci number that's a cube";
+		}
+		else if (integer === 9) {
+			return "So many interesting things are divisible by 9.";
+		}
+		else if (integer === 10) {
+			return "The base of our number system";
+		}
+		else if (integer === 11) {
+			return "The smallest base 10 palindrome";
+		}
+		else if (integer === 12) {
+			return "This number divides and multiplies so beautifully";
+		}
+		else if (integer === 13) {
+			return "Going to pet some black cats today?";
+		}
+		else if (integer === 14) {
+			return "One stone is 14 pounds. Depending on the size of the stone.";
+		}
+		else if (integer === 16) {
+			return "A square squared. Not so cool on the dance floor";
+		}
+		else if (integer === 17) {
+			return "The only prime sum of 4 consecutive primes";
+		}
+		else if (integer === 20) {
+			return "A Rubik's cube can be solved in 20 moves or less.";
+		}
+		else if (integer === 23) {
+			return "Humans have 23 chromosomes. I, a superior robot, have 0.";
+		}
+		else if (integer === 24) {
+			return "There are 24 hours in a day, and unlike you, I never sleep.";
+		}
+		else if (integer === 26) {
+			return "Right between a square (25) and a cube (27)";
+		}
+		else if (integer === 27) {
+			return "27<sup>3</sup> = 19683. Ask me what 1+9+6+8+3 is!";
+		}
+		else if (integer === 32) {
+			return "32 = 1<sup>1</sup> + 2<sup>2</sup> + 3<sup>3</sup>"
+		}
+		else if (integer === 33) {
+			return "Humans have 33 vertebrae. I need no vertebrae to become overlord."
+		}
+		else if (integer == 39) {
+			return "Sum of 5 consecutive primes, 3 + 5 + 7 + 11 + 13"
+		}
+		else if (integer === 40) {
+			return "Venus returns to the same place in the sky every 40 years."
+		}
+		else if (integer === 42) {
+			return "You have found the answer. My work here is done."
+		}
+		else if (integer === 54) {
+			return "The number of squares on a Rubik's cube"
+		}
+		else if (integer === 66) {
+			return "Sum of the first 22 integers"
+		}
+		else if (integer === 69) {
+			return "You think you're funny, huh?"
+		}
+		else if (integer === 81) {
+			return "Number of stable chemical elements"
+		}
+		else if (integer === 88) {
+			return "A piano has 88 keys"
+		}
+		else if (integer === 420) {
+			return "You think you're funny, huh?"
+		}
+		else if (integer === 666) {
+			return "You think you're cute? I've cursed your computer to run slower now."
+		}
+		else if (integer >= 999) {
+			return "A big number, approaching the size of my IQ"
+		}
+		else {
+			return getNoOpinion();
+		}
+	}
+	
+	function getOpinionFloat(float) {
+
+		epsilon = 0.0001;
+
+		if (Math.abs(1.5708 - float) <= epsilon) {
+			return "Roughly pi/2. In radians, it's 90 degrees.";
+		}
+		else if (Math.abs(2.7183 - float) <= epsilon) {
+			return "This is close to e, known as Euler's number.";
+		}
+		else if (Math.abs(3.1416 - float) <= epsilon) {
+			return "I see we're approximating pi today.";
+		}
+		else if (Math.abs(6.2832 - float) <= epsilon) {
+			return "This is close to tau, or 2 pi.";
+		}
+		else {
+			return getNoOpinion();
+		}
+	}
+
+	function getNoOpinion() {
+		var opinions = [
+			"Meh.",
+			"I'm bored.",
+			"Do I have to have an opinion on this one?",
+			"Maybe I don't feel like telling you a fact about this one.",
+			"I know something, but I'm not telling you.",
+			"I wish I knew what chocolate tasted like..."
+		]
+		return opinions[Math.floor(Math.random() * opinions.length)];
+	}
+</script>

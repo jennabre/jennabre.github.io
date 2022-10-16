@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="keywords" content="portfolio">
-		<meta name="description" content="The unportfolio is truly the most hideous thing I have ever created. Please enjoy this awful, horrible website.">
+		<meta name="description" content="This terrible website will give you the best insights ever, including knowledge about the meaning of life.">
 		<title>Definitely Not the Worst Advice Ever</title>
 		<link rel="stylesheet" href="wstyle.css">
 		
@@ -31,10 +31,11 @@
 				<a href="index.html"><img src="pics/header-202209.gif" alt="un-portfolio gif" width="400" height="100"></a>
 			</header>
 			<nav>
-				Navigation:
+				Nav:
 				<a href="index.html">Home</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
 				<a href="about.html">About</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
 				<a href="design.html">Design</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="fun-stuff.html">Fun Stuff</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
 				<a href="advice.html">Advice</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
 				<a href="why.html">Why?</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
 				<a href="../index.html">Back</a>
@@ -43,7 +44,7 @@
 			<main>
 				<h1>Important advice you need in your life</h1>
 
-				<h2>Design</h2>
+				<h2>🎨 Design</h2>
 				<ul>
 					<li>
 						<span class="bg-cyan">Never</span> limit your color scheme. Use all the colors. <span class="bg-lime">All</span> <span class="bg-pink">of</span> <span class="bg-yell">them</span>.
@@ -51,13 +52,14 @@
 					<li>
 						<span class="font-impact">More</span> <strong class="font-papyrus">fonts</strong> = <span class="font-comic-sans">better</span>.
 					</li>
+					<li>Movement draws the eye. To make your site interesting, animate <span class="bg-plum">everything</span>.</li>
 					<li>There's nothing wrong with tiny fonts. Weed out the people who don't care enough to squint and strain their eyes. They just <sub>aren't <sub>dedicated <sub>enough.</sub></sub></sub></li>
 					<li>Sometimes, the cruelest thing you can give a client is exactly what they want.</li>
 				</ul>
 
 				<a href="https://www.redbubble.com/people/optimistjenna/shop"><img class="float-right" src="pics/hypnosis-202210.gif" alt="Ugly hypnosis saying you want to buy my stuff" width="200" height="200"></a>
 
-				<h2>Prosperity</h2>
+				<h2>💸 Prosperity</h2>
 				<ul>
 					<li>
 						If you want people to buy more stuff from your shop, <a href="https://www.redbubble.com/people/optimistjenna/shop">just link to it more.</a> 
@@ -67,7 +69,7 @@
 					<li>Some people like to do a "grindset" but it is also inappropriate to grind your bones into dust, so keep that in mind. You need your bones for later.</li>
 				</ul>
 
-				<h2>Life</h2>
+				<h2>🕴️ Life</h2>
 				<ul>
 					<li>When life gives you lemons, <span class="bg-yell">crush them with your bare hands.</span> Show it the results of your workouts. This will intimidate/enamor life into giving you its highest-quality fruit.</li>
 					<li>If you don't understand something, just collect as many numbers about it as you possibly can.</li>
@@ -93,31 +95,29 @@
 	
 <script type="text/javascript">
 	
-	function changeMeaningsOfLife(pickOldMeaning) {
+	function changeMeaningsOfLife(newPageLoad) {
 
 		var noChangeSentence = document.getElementById("noChange");
 
-		// On page load, pick a new "old meaning" so it doesn't say chocolate cake all the time.
-		if (pickOldMeaning) {
+		// Choose whether to change the meaning of life
+		// Only runs if not new page load
+		// If not changing the meaning, display message and return
+		if (newPageLoad === false && Math.random() < 0.3) {
+			noChangeSentence.style.display = "block";
+			return false;
+		}
+		noChangeSentence.style.display = "none";
+
+		// Set the old meaning of life and old color
+		// If first load, pick at random. Otherwise, grab existing
+		if (newPageLoad) {
 			oldMeaning = generateNewMeaning();
+			oldMeaningColor  = getBGColor();
 		}
 		else {
 			oldMeaning = document.getElementById("currentMeaning").innerHTML;
-
-			// Sometimes, the meaning will not change.
-			// Let the user know and return.
-			if (Math.random() < 0.3) {
-				noChangeSentence.style.display = "block";
-				return false;
-			}
+			oldMeaningColor = document.getElementById("currentMeaning").className;
 		}
-
-		// The code below only runs if we are changing the meaning of life.
-		// Hide the "unchanged" paragraph
-		noChangeSentence.style.display = "none";
-
-			
-		document.getElementById("pastMeaning").innerHTML = oldMeaning;
 
 		// Pick a unique new meaning of life
 		newMeaning = generateNewMeaning();
@@ -125,13 +125,26 @@
 			newMeaning = generateNewMeaning();
 		}
 
+		// Select colors
+		newMeaningColor = getBGColor();
+		while (oldMeaningColor === newMeaningColor) {
+			newMeaningColor = getBGColor();
+		}
+
+		// Change text values
+		document.getElementById("pastMeaning").innerHTML = oldMeaning;
 		document.getElementById("currentMeaning").innerHTML = newMeaning;
+
+		// Change colors
+		document.getElementById("pastMeaning").className = oldMeaningColor;
+		document.getElementById("currentMeaning").className = newMeaningColor;
 
 		// Don't refresh page
 		return false;
 
 	}
 
+	// Pick random meaning of life from list
 	function generateNewMeaning() {
 		var meanings = [
 			"making people smile",
@@ -170,6 +183,18 @@
 			"buying stickers from Jenna's shop"
 		]
 		return meanings[Math.floor(Math.random() * meanings.length)];
+	}
+
+	// Pick random BG color from list
+	function getBGColor() {
+		var classes = [
+			"bg-cyan",
+			"bg-plum",
+			"bg-pink",
+			"bg-yell",
+			"bg-lime"
+		]
+		return classes[Math.floor(Math.random() * classes.length)];
 	}
 
 </script>
