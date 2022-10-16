@@ -6,6 +6,7 @@
 		<meta name="description" content="Here's some random nonsense to enjoy.">
 		<title>Fun and Chaos</title>
 		<link rel="stylesheet" href="wstyle.css">
+		<link rel="stylesheet" href="weird-extras.css">
 		
 		<!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
@@ -25,7 +26,7 @@
 		
 	</head>
 
-	<body onload="startCalculator()">		
+	<body onload="init()">		
 		<div id="wrapper">
 			<header>
 				<a href="index.html"><img src="pics/header-202209.gif" alt="un-portfolio gif" width="400" height="100"></a>
@@ -43,6 +44,15 @@
 			
 			<main>
 				<h1>Random Fun Stuff</h1>
+
+				<h2>Wrong Clock</h2>
+				<p>Even a stopped clock is right twice a day. But this one, being constantly wrong, is worse.</p>
+
+				<div class="clock">
+					<span id="time">11:95 am</span>
+				</div>
+
+				<div class="spacer"></div>
 
 				<h2>Know-It-All Calculator</h2>
 				<p>Any calculator can do numbers, but not all of them tell you what they think about those numbers.</p>
@@ -82,6 +92,7 @@
 					</div>
 				</div>
 
+				<div class="spacer"></div>
 				
 
 			<footer>
@@ -95,6 +106,61 @@
 
 </html>
 <script>
+
+	function init() {
+		showWrongTime();
+		startCalculator();
+	}
+
+	// Inspiration: https://devdevshow.com/javascript-portfolio-projects-ideas/
+	function showWrongTime() {
+    var date = new Date();
+    var correctH = date.getHours(); // 0 - 23
+    var correctM = date.getMinutes(); // 0 - 59
+    var session = "am";
+    
+		// Calculate correct hour
+    if(correctH == 0){ correctH = 12; }
+    if(correctH > 12){
+			correctH = correctH - 12;
+			session = "pm";
+    }
+    correctH = (correctH < 10) ? "0" + correctH : correctH;
+
+		// Calculate incorrect minutes
+		var incorrectM = correctM;
+		while (incorrectM === correctM) {
+			incorrectM = Math.floor(Math.random() * 70); // 70 instead of 60 for impossible numbers
+			incorrectM = (incorrectM < 10) ? "0" + incorrectM : incorrectM;
+		}
+
+		var thisH = correctH;
+		var thisSession = session;
+
+		// Randomize hour sometimes
+		if (Math.floor(Math.random() * 3) < 1) {
+			thisH = Math.floor(Math.random() * 13);
+			thisH = (thisH < 10) ? "0" + thisH : thisH;
+		}
+		// Make AM/PM wrong sometimes
+		if (Math.floor(Math.random() * 3) < 1 ) {
+			if (session === "am") {
+				thisSession = "pm";
+			}
+			else {
+				thisSession = "am";
+			}
+		}
+    
+    var time = thisH + ":" + incorrectM + " " + session;
+    document.getElementById("time").innerText = time;
+    document.getElementById("time").textContent = time;
+    
+		// Incorrect time changes every 10 sec (for novelty)
+    setTimeout(showWrongTime, 10000);
+    
+}
+
 	function startCalculator () {
 		// IDK what this does so I'm not deleting it
 		"use strict";
