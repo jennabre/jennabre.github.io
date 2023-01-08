@@ -22,6 +22,35 @@
 
 		  gtag('config', 'G-95Q4H0KXJJ');
 		</script>
+
+		<!-- animation extras -->
+		<style>
+			/* Source: https://codepen.io/kh-mamun/pen/NdwZdW */
+			.animated span { display: inline-block; }
+			.animated span:nth-of-type(2) { animation-delay: .1s; }
+			.animated span:nth-of-type(3) { animation-delay: .2s; }
+			.animated span:nth-of-type(4) { animation-delay: .3s; }
+			.animated span:nth-of-type(5) { animation-delay: .4s; }
+			.animated span:nth-of-type(6) { animation-delay: .5s; }
+			.animated span:nth-of-type(7) { animation-delay: .6s; }
+			.animated span:nth-of-type(8) { animation-delay: .7s; }
+			.animated span:nth-of-type(9) { animation-delay: .8s; }
+			.animated span:nth-of-type(10) { animation-delay: 1s; }
+
+			.animated span {
+				transform: translate(-150px, 0) scale(.3);
+				animation: leftRight 5s forwards;
+			}
+
+
+			@keyframes leftRight {
+				0% { color: #F3AABB; }
+				40% { transform: translate(50px, 0) scale(.7); }
+				60% { color: #a84159; }
+				80% { transform: translate(0) scale(2); }
+				100% { transform: translate(0) scale(1); }
+			}
+		</style>
 		
 	</head>
 
@@ -52,7 +81,7 @@
 					<li>
 						<span class="font-impact">More</span> <strong class="font-papyrus">fonts</strong> = <span class="font-comic-sans">better</span>.
 					</li>
-					<li>Movement draws the eye. To make your site interesting, animate <span class="bg-plum">everything</span>.</li>
+					<li>Movement draws the eye. To make your site interesting, animate <span class="animated bg-plum"><span>e</span><span>v</span><span>e</span><span>r</span><span>y</span><span>t</span><span>h</span><span>i</span><span>n</span><span>g</span></span>.</li>
 					<li>There's nothing wrong with tiny fonts. Weed out the people who don't care enough to squint and strain their eyes. They just <sub>aren't <sub>dedicated <sub>enough.</sub></sub></sub></li>
 					<li>Sometimes, the cruelest thing you can give a client is exactly what they want.</li>
 				</ul>

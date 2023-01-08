@@ -61,6 +61,8 @@ nav a:hover {
 
 /* End of nav */
 
+/* Text */
+
 a { color: var(--pink0); }
 a:hover { color: var(--pink2); }
 
@@ -68,6 +70,8 @@ a:hover { color: var(--pink2); }
 h1 { font-family: 'Brush Script MT', sans-serif; font-size: 2.2em; color: var(--green3) }
 h2 { font-family: 'Comic Sans MS', serif; font-size: 1.8em; color: var(--pink1) }
 h3 { font-family: Papyrus, serif; color: var(--pink1); }
+
+ul li::before, li::marker { color: var(--pink1); }
 
 p {
 	font-size: 1.1em;
