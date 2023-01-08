@@ -138,6 +138,7 @@ button:hover {
 .font-comic-sans { font-family: 'Comic Sans MS', serif; }
 .font-impact { font-family: Impact, sans-serif; }
 .font-papyrus { font-family: Papyrus; }
+.font-mono { font-family: Consolas, monospace; }
 
 /* Q&A */
 /* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */

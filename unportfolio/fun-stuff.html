@@ -46,7 +46,7 @@
 				<h1>Random Fun Stuff</h1>
 
 				<h2>Wrong Clock</h2>
-				<p>Even a stopped clock is right twice a day. But this one, being constantly wrong, is worse.</p>
+				<p>Even a stopped clock is right twice a day. But this one, being constantly wrong, is <span class="bg-cyan">much worse</span>.</p>
 
 				<div class="clock">
 					<span id="time">11:95 am</span>
@@ -54,8 +54,27 @@
 
 				<div class="spacer"></div>
 
+				<h2>Evil Stopwatch</h2>
+				<p>This evil stopwatch can cheat to make you look better. Use it wisely. Or not.</p>
+
+				<div class="stopwatch-box columns">
+					<div class="padded left">
+						<p class="big font-mono"><span id="minutes">00</span>m <span id="seconds">00</span>.<span id="tenths">00</span>s</p>
+						<button id="button-start">Start</button>
+						<button id="button-reset">Reset</button>
+					</div>
+
+					<div class="padded">
+						<p class="big">Speed: <span id="report-speed">100</span>%</p>
+						<button id="button-slower">Slower!</button>
+						<button id="button-normal">100%</button>
+						<button id="button-faster">Faster!</button>
+					</div>
+				</div>
+
 				<h2>Know-It-All Calculator</h2>
 				<p>Any calculator can do numbers, but not all of them tell you what they think about those numbers.</p>
+				<p>It does not accept <span class="bg-plum">forbidden math</span>.</p>
 				<div class="calculator">
 					<div class="input" id="input"></div>
 					<div id="opinion">Calculate something!</div>
@@ -109,6 +128,7 @@
 
 	function init() {
 		showWrongTime();
+		loadStopwatch();
 		startCalculator();
 	}
 
@@ -161,6 +181,123 @@
     
 }
 
+
+	// Evil Stopwatch
+	// Good counterpart: https://codepen.io/cathydutton/pen/xxpOOw
+	function loadStopwatch() {
+		var seconds = 00; 
+		var tenths = 00; 
+		var minutes = 00;
+
+		var isRunning = false;
+		var intervalSpeed = 100;
+		var speedToReport = 100;
+
+		var displayTenths = document.getElementById("tenths");
+		var displaySeconds = document.getElementById("seconds");
+		var displayMinutes = document.getElementById("minutes");
+		var buttonStart = document.getElementById('button-start');
+		var buttonReset = document.getElementById('button-reset');
+
+		// button speed
+		var reportSpeed = document.getElementById("report-speed")
+		var buttonSlower = document.getElementById('button-slower');
+		var buttonNormal = document.getElementById('button-normal');
+		var buttonFaster = document.getElementById('button-faster');
+		var Interval ;
+
+		// Start/stop
+		buttonStart.onclick = function() {
+			if (isRunning) {
+				clearInterval(Interval);
+				isRunning = false;
+				buttonStart.innerHTML = "Start";
+			}
+			else {
+				useNewSpeed();
+				isRunning = true;
+				buttonStart.innerHTML = "Stop";
+			}
+		}
+		
+		// Reset
+		buttonReset.onclick = function() {
+			clearInterval(Interval);
+			isRunning = false;
+			tenths = "00";
+			seconds = "00";
+			minutes = "00";
+			displayTenths.innerHTML = tenths;
+			displaySeconds.innerHTML = seconds;
+			displayMinutes.innerHTML = minutes;
+		}
+
+		// Run with specified speed
+		function useNewSpeed() {
+			clearInterval(Interval);
+			Interval = setInterval(startTimer, intervalSpeed/10);
+		}
+
+		// Slow it down
+		buttonSlower.onclick = function() {
+			intervalSpeed *= 2;
+			speedToReport /= 2;
+			reportSpeed.innerHTML = speedToReport;
+			if (isRunning)
+				useNewSpeed();
+		}
+		// Speed it up
+		buttonFaster.onclick = function() {
+			intervalSpeed /= 2;
+			speedToReport *= 2;
+			reportSpeed.innerHTML = speedToReport;
+			if (isRunning)
+				useNewSpeed();
+		}
+		// Make it normal
+		buttonNormal.onclick = function() {
+			intervalSpeed = 100;
+			speedToReport = 100;
+			reportSpeed.innerHTML = speedToReport;
+			if (isRunning)
+				useNewSpeed();
+		}
+		
+		
+		function startTimer () {
+			tenths++;
+			
+			// increment seconds and minutes as needed
+			if (tenths > 99) {
+				seconds++;
+				tenths = 0;
+			}
+			if (seconds > 59 ) {
+				minutes++;
+				seconds = 0;
+			}
+
+			// Now display everything
+
+			// display tenths
+			if(tenths <= 9){ displayTenths.innerHTML = "0" + tenths; }
+			else { displayTenths.innerHTML = tenths; }
+
+			// display seconds
+			if (seconds <= 9) { displaySeconds.innerHTML = "0" + seconds; }
+			else { displaySeconds.innerHTML = seconds; }
+
+			// display minutes
+			if (minutes <= 9) { displayMinutes.innerHTML = "0" + minutes; }
+			else { displayMinutes.innerHTML = minutes; }
+
+			
+		
+		}
+	}
+
+
+	// Calculator
 	function startCalculator () {
 		// IDK what this does so I'm not deleting it
 		"use strict";
@@ -304,7 +441,7 @@
 		if (numberString === "") {
 			return "That's just nothing. Give me a number.";
 		}
-		else if (numberString === Infinity) {
+		else if (numberString === Infinity || numberString === -Infinity) {
 			return "Did you divide by 0? Do you WANT to cause black holes?";
 		}
 		else if (isNaN(numberString)) {
@@ -406,6 +543,9 @@
 		else if (integer === 42) {
 			return "You have found the answer. My work here is done."
 		}
+		else if (integer === 52) {
+			return "The size of a standard deck of cards"
+		}
 		else if (integer === 54) {
 			return "The number of squares on a Rubik's cube"
 		}
@@ -426,6 +566,15 @@
 		}
 		else if (integer === 666) {
 			return "You think you're cute? I've cursed your computer to run slower now."
+		}
+		else if (integer % 60 === 0) {
+			return "This is divisible by 1, 2, 3, 4, 5, 6, AND 10. Nice!"
+		}
+		else if (integer % 12 === 0) {
+			return "This is divisible by 1, 2, 3, 4, 6, and 12. Neat!"
+		}
+		else if (integer % 3 === 0) {
+			return "It's divisible by 3. Add the values of each digit. Also divisible by 3!"
 		}
 		else if (integer >= 999) {
 			return "A big number, approaching the size of my IQ"

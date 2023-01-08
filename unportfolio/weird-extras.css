@@ -28,6 +28,17 @@
 	font-size: 2em;
 }
 
+.stopwatch-box {
+  width: max-content;
+}
+.stopwatch-box { border: 2px solid var(--green4);}
+.stopwatch-box .padded { padding: 1em; }
+.stopwatch-box .padded.left { border-right: 2px solid var(--green4); }
+.stopwatch-box .big {
+  font-size: 2em; color: var(--pink0);
+}
+
+
 /* Opinionated calculator */
 /* Derived from https://devdevshow.com/javascript-portfolio-projects-ideas/ */
 .calculator {
