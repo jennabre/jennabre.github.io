@@ -284,11 +284,13 @@
 			else { displayTenths.innerHTML = tenths; }
 
 			// display seconds
-			if (seconds <= 9) { displaySeconds.innerHTML = "0" + seconds; }
+			if (seconds < 1) { displaySeconds.innerHTML = "00"; }
+			else if (seconds <= 9 && seconds >= 1) { displaySeconds.innerHTML = "0" + seconds; }
 			else { displaySeconds.innerHTML = seconds; }
 
 			// display minutes
-			if (minutes <= 9) { displayMinutes.innerHTML = "0" + minutes; }
+			if (minutes < 1) { displayMinutes.innerHTML = "00"; }
+			else if (minutes <= 9 && seconds >= 1) { displayMinutes.innerHTML = "0" + minutes; }
 			else { displayMinutes.innerHTML = minutes; }
 
 			
