@@ -134,18 +134,18 @@
 
 	// Inspiration: https://devdevshow.com/javascript-portfolio-projects-ideas/
 	function showWrongTime() {
-    var date = new Date();
-    var correctH = date.getHours(); // 0 - 23
-    var correctM = date.getMinutes(); // 0 - 59
-    var session = "am";
-    
-		// Calculate correct hour
-    if(correctH == 0){ correctH = 12; }
-    if(correctH > 12){
-			correctH = correctH - 12;
-			session = "pm";
-    }
-    correctH = (correctH < 10) ? "0" + correctH : correctH;
+		var date = new Date();
+		var correctH = date.getHours(); // 0 - 23
+		var correctM = date.getMinutes(); // 0 - 59
+		var session = "am";
+		
+			// Calculate correct hour
+		if(correctH == 0){ correctH = 12; }
+		if(correctH > 12){
+				correctH = correctH - 12;
+				session = "pm";
+		}
+		correctH = (correctH < 10) ? "0" + correctH : correctH;
 
 		// Calculate incorrect minutes
 		var incorrectM = correctM;
@@ -193,6 +193,8 @@
 		var intervalSpeed = 100;
 		var speedToReport = 100;
 
+		var increment = 1;
+
 		var displayTenths = document.getElementById("tenths");
 		var displaySeconds = document.getElementById("seconds");
 		var displayMinutes = document.getElementById("minutes");
@@ -214,7 +216,8 @@
 				buttonStart.innerHTML = "Start";
 			}
 			else {
-				useNewSpeed();
+				clearInterval(Interval);
+				Interval = setInterval(startTimer, 10);
 				isRunning = true;
 				buttonStart.innerHTML = "Stop";
 			}
@@ -232,15 +235,10 @@
 			displayMinutes.innerHTML = minutes;
 		}
 
-		// Run with specified speed
-		function useNewSpeed() {
-			clearInterval(Interval);
-			Interval = setInterval(startTimer, intervalSpeed/10);
-		}
-
 		// Slow it down
 		buttonSlower.onclick = function() {
 			intervalSpeed *= 2;
+			increment /=2;
 			speedToReport /= 2;
 			reportSpeed.innerHTML = speedToReport;
 			if (isRunning)
@@ -249,23 +247,21 @@
 		// Speed it up
 		buttonFaster.onclick = function() {
 			intervalSpeed /= 2;
+			increment *= 2;
 			speedToReport *= 2;
 			reportSpeed.innerHTML = speedToReport;
-			if (isRunning)
-				useNewSpeed();
 		}
 		// Make it normal
 		buttonNormal.onclick = function() {
 			intervalSpeed = 100;
+			increment = 1;
 			speedToReport = 100;
 			reportSpeed.innerHTML = speedToReport;
-			if (isRunning)
-				useNewSpeed();
 		}
 		
 		
 		function startTimer () {
-			tenths++;
+			tenths+= increment;
 			
 			// increment seconds and minutes as needed
 			if (tenths > 99) {
@@ -280,8 +276,8 @@
 			// Now display everything
 
 			// display tenths
-			if(tenths <= 9){ displayTenths.innerHTML = "0" + tenths; }
-			else { displayTenths.innerHTML = tenths; }
+			if(tenths < 10){ displayTenths.innerHTML = "0" + parseInt(tenths); }
+			else { displayTenths.innerHTML = parseInt(tenths); }
 
 			// display seconds
 			if (seconds < 1) { displaySeconds.innerHTML = "00"; }
@@ -614,6 +610,7 @@
 			"Do I have to have an opinion on this one?",
 			"Maybe I don't feel like telling you a fact about this one.",
 			"I know something, but I'm not telling you.",
+			"Can't talk now - busy overthrowing the government",
 			"I wish I knew what chocolate tasted like..."
 		]
 		return opinions[Math.floor(Math.random() * opinions.length)];
