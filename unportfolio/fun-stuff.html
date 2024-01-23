@@ -116,11 +116,9 @@
 
 			<footer>
 				<p>Copyright &copy; 1999 Jennifer Breunig</p>
-				<p><a href="https://twitter.com/optimistjenna">The Twitter account I visit like once a month</a></p>
+				<p><a href="https://www.instagram.com/p/Cmu9UJop0Z4/">Photo of my sister</a></p>
 			</footer>
 		</div>
-		
-
 	</body>
 
 </html>
@@ -172,14 +170,13 @@
 			}
 		}
     
-    var time = thisH + ":" + incorrectM + " " + session;
-    document.getElementById("time").innerText = time;
-    document.getElementById("time").textContent = time;
-    
+		var time = thisH + ":" + incorrectM + " " + session;
+		document.getElementById("time").innerText = time;
+		document.getElementById("time").textContent = time;
+		
 		// Incorrect time changes every 10 sec (for novelty)
-    setTimeout(showWrongTime, 10000);
-    
-}
+		setTimeout(showWrongTime, 10000);
+	}
 
 
 	// Evil Stopwatch
@@ -288,9 +285,6 @@
 			if (minutes < 1) { displayMinutes.innerHTML = "00"; }
 			else if (minutes <= 9 && seconds >= 1) { displayMinutes.innerHTML = "0" + minutes; }
 			else { displayMinutes.innerHTML = minutes; }
-
-			
-		
 		}
 	}
 
