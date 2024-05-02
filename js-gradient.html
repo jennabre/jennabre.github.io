@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio, JavaScript, email, VML, Outlook">
+		<meta name="description" content="This JavaScript VML gradient generator creates Outlook-compatible gradients for email.">
+		<title>JavaScript VML Gradient Generator</title>
+		<link rel="stylesheet" href="main.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+
+		<style>
+			#out-holder { padding: 20px; background-color: #E6EFED; }
+			#out-holder div { background-color: white; padding: 10px;}
+			#out-html,
+			#out-warnings { margin-top: 10px; }
+
+			/* text */
+			#out-html h3 { margin: 0; }
+			#out-css h3, #out-warnings h3 { margin-top: 0;}
+			#out-html { white-space: pre-wrap; }
+			form p, #out-warnings p { margin: 5px 0; }
+			#out-css p,
+			#out-html p { font-family: monospace; margin: 0; tab-size: 2; }
+
+			/* warnings */
+			.bg-red { background-color: #FECECB;}
+			.bg-yell { background-color: #F6E4C3;}
+		</style>
+		
+	</head>
+
+	<body>		
+		<div id="wrapper">
+			<header>
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="pics/icon-hamburger.png" width="25" height="25" />
+				</a>
+				<a href="index.html">Jenna's Portfolio</a>
+			</header>
+			<nav id="nav-list" role="navigation">
+			  <ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="code.html">Code</a>
+						<ul>
+						<li><a href="sites-html.html">HTML Sites</a></li>
+						<li><a href="sites-wordpress.html">WordPress</a></li>
+						<li><a href="apps.html">Apps</a></li>
+						<li><a href="vml-gradient.html">JS Gradient</a></li>
+						</ul>
+					</li>
+					<li><a href="art.html">Art</a>
+						<ul>
+						<li><a href="art-ig.html">Instagram</a></li>
+						<li><a href="art-misc.html">Misc</a></li>
+						</ul>
+					</li>
+					<li><a href="photoedit.html">Photos</a></li>
+				</ul>
+			</nav>
+			
+			<main>
+				<h1>JavaScript VML Gradient Generator</h1>
+				
+				<p>Generate an Outlook-friendly VML and HTML gradient for your email.</p>
+				
+				<div class="columns">
+					<div class="column2">
+						<form id="gradient-form">
+							<p>
+								<label for="in-color1">Color 1:</label> <input type="text" id="in-color1" name="in-color1" size="7" maxlength="7" placeholder="#123456" required>
+							</p>
+							<p>
+								<label for="in-color2">Color 2:</label> <input type="text" id="in-color2" name="in-color2" size="7" maxlength="7" placeholder="#123456" required>
+							</p>
+							<p>
+								<label for="in-angle">Gradient angle:</label> <input type="number" id="in-angle" name="in-angle" placeholder="e.g. 90" required>
+							</p>
+							<p>
+								<label for="in-width">Width of gradient in px:</label> <input type="number" id="in-width" name="in-width" min="1" placeholder="e.g. 650" required>
+							</p>
+							<p>
+								<label for="in-pad">Inner padding (left & right):</label> <input type="number" id="in-pad" name="in-pad" min="0" placeholder="Leave blank for 0">
+							</p>
+							<p>
+								Fallback color: 
+								<label for="bg1"><input type="radio" name="in-bg" value="1" id="bg1" checked>Color 1</label> 
+								<label for="bg2"><input type="radio" name="in-bg" value="2" id="bg2">Color 2</label>
+							</p>
+							<br/>
+							<!-- type="button" prevents page refresh-->
+							<button onclick="generateGradient()" type="button">Generate</button>
+						</form>
+					</div>
+					<!-- end first column, start second column -->
+					<div class="column2">
+						<h3 class="mt0">Gradient Angle Reference</h3>
+						<img class="float-left pr20" src="pics/gradient-angle.jpg" alt="0 on the bottom, 180 on top, 90 on the left, 270 on the right" width="170" height="" />
+						<p>Use the number to describe where color 1 comes from.</p>
+						<p>For example, if color 1 is blue, an angle of 135 would make blue come from the top left.</p>
+					</div>
+					<!-- end second column -->
+				</div>
+				<!-- end columns -->
+
+				<br/>
+
+				<div id="out-holder">
+					<div id="out-css">Input gradient info to get started.</div>
+					<div id="out-html" style="display: none;"></div>
+					<div id="out-warnings" style="display: none;"></div>
+				</div>
+
+				<h2>Using Your Generated Gradient</h2>
+				<ul>
+					<li class="pb5">Don't put VML in VML. Putting a VML button, bg image, or other item inside your gradient box will break your layout.</li>
+					<li class="pb5">Outlook can be finicky with padding inside VML boxes. This code uses table widths to get around this, but padding you add inside may be ignored. If so, try using fixed widths, moving padding to child classes, or creating Outlook-specific classes.</li>
+					<li class="pb5"><a href="https://www.campaignmonitor.com/css/color-background/css-gradients/">Some email clients</a> do not support gradients. In these clients, the fallback color will show instead.</li>
+					<li>VML must be enabled in your HTML tag.</li>
+				</ul>
+
+				<p class="accent-box code">&lt;html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en-US" xml:lang="en-US"&gt;</p>
+
+				<p>Certain numbers, like the VML angle and the width of the inner table, have been calculated based on your input.</p>
+
+				<br/>
+				<h2>About This</h2>
+				<p>This gradient generator features:</p>
+				<ul>
+					<li>Indented, easy-to-paste CSS, VML, and HTML output</li>
+					<li>Input validity checking with regular expressions</li>
+					<li>Handling of common human errors (e.g. too-short hex codes or a missing #)</li>
+				</ul>
+
+			<footer>
+				<p>Copyright &copy; 2024 Jenna Breunig</p>
+				<div class="socials">
+					<a href="https://www.optimistjenna.com/"><img src="pics/icon-pencil.jpg" alt="Optimist Jenna blog" width="25" height="25" /></a> &nbsp; 
+					<a href="https://www.linkedin.com/in/jennifer-breunig/"><img src="pics/social-linkedin.png" alt="LinkedIn" width="25" height="25" /></a> &nbsp; 
+					<a href="https://instagram.com/optimist.jenna"><img src="pics/social-ig.png" alt="Instagram" width="25" height="25" /></a>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	function toggleMenu() {
+		var x = document.getElementById("nav-list");
+			if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+
+	function generateGradient() {
+
+		let warningString = ""
+
+		// create variables
+		let color1 = getValidHexColor(document.getElementById('in-color1').value, "#CCDFDB", 1);
+		let color2 = getValidHexColor(document.getElementById('in-color2').value, "#84AEA2", 2);
+		let angle = getValidAngle(document.getElementById('in-angle').value);
+		let width = getValidWidth(document.getElementById('in-width').value);
+		let padding = getValidPadding(document.getElementById('in-pad').value);
+		let innerWidth = width - (padding * 2);
+		
+		let bgColor = color1;
+		let bgNumber = document.querySelector('input[name="in-bg"]:checked').value;
+		if (Number(bgNumber) === 2) {
+			bgColor = color2;
+		}
+
+		//console.log(`Color 1: ${color1}, color 2: ${color2}, angle: ${angle}, width: ${width}, padding: ${padding}, bg color: ${bgColor}`);
+
+
+		// CSS
+		document.getElementById('out-holder').style.background = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+		document.getElementById('out-css').innerHTML = `<h3>CSS</h3><p>.gradient { background-color: ${bgColor}; background: linear-gradient(${angle}deg, ${color1}, ${color2}) }</p>`;
+
+		// VML & HTML
+		let vmlAngle = 360 - angle;
+		if (angle === 0)
+			vmlAngle = 0;
+		document.getElementById('out-html').innerHTML ="<h3>HTML</h3> <p>" + makeString() + "</p>";
+		document.getElementById('out-html').style.display = "block";
+
+		// Print warnings, if any exist
+		if (warningString != "") {
+			document.getElementById('out-warnings').innerHTML = `<h3>Notices</h3>${warningString}`;
+			document.getElementById('out-warnings').style.display = "block";
+		}
+		
+		
+		// Don't refresh page
+		return false;
+
+		function getValidHexColor(inputColor, defaultColor, number) {
+			// set up regular expressions
+			let hashThree = /^#[0-9a-f]{3}/i;
+			let hashSix = /^#[0-9a-f]{6}/i;
+			let hashlessThree = /^[0-9a-f]{3}/i;
+			let hashlessSix = /^[0-9a-f]{6}/i;
+
+			// if input exists, test it against valid regular expressions
+			if ( inputColor != "") {
+				// 3-digit hex
+				if (hashThree.test(inputColor) === true && inputColor.length === 4) {
+					inputColor = inputColor + inputColor.substring(1,4); // make it 6 digits
+					warningString = warningString + `<p><span class="bg-yell">Note:</span> Three-digit hex codes are unreliable in email. The hex code for Color ${number} was transformed into a six-digit hex code.<p>`;
+					return inputColor;
+				}
+				// 6-digit hex (perfect input)
+				else if (hashSix.test(inputColor) === true && inputColor.length === 7) {
+					return inputColor;
+				}
+				// 3-digit hex, hash missing
+				else if (hashlessThree.test(inputColor) === true && inputColor.length === 3) {
+					inputColor = "#" + inputColor + inputColor; // add hash and duplicate 3 digits
+					warningString = warningString + `<p><span class="bg-yell">Note:</span> Three-digit hex codes are unreliable in email. The hex code for Color ${number} was transformed into a six-digit hex code.<p>`;
+					return inputColor;
+				}
+				// 6-digit hex, hash missing
+				else if (hashlessSix.test(inputColor) === true && inputColor.length === 6) {
+					inputColor = "#" + inputColor; // add hash
+					return inputColor;
+				}
+			}
+
+			// Check for string length errors on otherwise-valid inputs (e.g. #1234)
+			if (
+				((hashThree.test(inputColor) === true || hashSix.test(inputColor) === true) &&  inputColor.length != 7 && inputColor.length != 4 )
+				||
+				((hashlessThree.test(inputColor) === true || hashlessSix.test(inputColor) === true) &&  inputColor.length != 6 && inputColor.length != 3 )
+			) {
+				warningString = warningString + `<p><span class="bg-red">Warning</span>: It looks like your input for Color ${number} has the wrong number of characters. Please enter 3 or 6 characters after the hash.`;
+			}
+
+			// if no valid input was found
+			warningString = warningString + `<p><span class="bg-red">Warning</span>: You didn't enter a valid hex color for Color ${number}. Six-digit hex colors are the most reliable option for email. The color ${defaultColor} was used instead.</p>`;
+			return defaultColor;
+
+		}
+		// end getValidHexColor()
+
+		function getValidAngle(inputAngle){
+			let outputAngle = Number(inputAngle); // 0 if blank
+			if (outputAngle === NaN) {
+				warningString = warningString + `<p><span class="bg-red">Warning:</span> No valid angle was found. The number 180 (which corresponds to a top-to-bottom gradient) was substituted.<p>`;
+				return 180;
+			}
+			while (outputAngle < 0)
+				outputAngle += 360;
+			while (outputAngle > 360)
+				outputAngle -= 360;
+			return outputAngle;
+		}
+		// end getValidAngle()
+
+		function getValidWidth(inputWidth){
+			let outputWidth = Number(inputWidth); // is 0 if no input
+			if (outputWidth < 1) {
+				warningString = warningString + `<p><span class="bg-red">Warning:</span> Width should be a number above 0. The number 650 (a common email width) was substituted.<p>`;
+				return 650;
+			}
+			else if (outputWidth > 700) {
+				warningString = warningString + `<p><span class="bg-yell">Note:</span> Emails wider than 700px are too wide for most desktop users. Consider a more standard email width, like 650px.<p>`;
+			}
+			return outputWidth;
+		}
+		// end getValidWidth()
+
+		function getValidPadding(inputPadding){
+			let outputPadding = Number(inputPadding); // is 0 if no input
+			if (outputPadding < 1) {
+				warningString = warningString + `<p><span class="bg-yell">Note:</span> A value of 0 was used for padding. That means any content inside your gradient will touch the edge.<p>`;
+				return 0;
+			}
+			// handle too-large paddings
+			else if ((outputPadding*2) > width) {
+				if ( width > 30) {
+					warningString = warningString + `<p><span class="bg-red">Warning:</span> Your specified padding is too big for the container width. The value 15 was used instead. To change it, try widening your gradient area or reducing the padding.<p>`;
+					return 15;
+				}
+				warningString = warningString + `<p><span class="bg-red">Warning:</span> Your specified padding is too big for the container width. Since your container width is tiny, no padding will be used. To change it, try widening your gradient area.<p>`;
+				return 0;
+			}
+			return outputPadding;
+		}
+		// end getValidWidth()
+
+		function makeString() {
+			// the funky indentation is necessary to ensure the right amount of tabs on output
+			let outputString =`
+&lt;!-- start gradient --&gt;
+&lt;tr&gt;
+	&lt;td class=\"gradient\" style=\"padding:0;margin:0;\" width=\"100%\"&gt;
+		&lt;center&gt;
+			&lt;!--[if gte mso 9]&gt;
+			&lt;v:rect xmlns:v=\"urn:schemas-microsoft-com:vml\" fill=\"true\" stroke=\"false\" style=\"width:${width}px;\" fillcolor=\"${bgColor}\"&gt;  
+			&lt;v:fill type=\"gradient\" color1=\"${color1}\" color2=\"${color2}\" colors=\"0% ${color1}, 100% ${color2}\" angle=\"${vmlAngle}\"/&gt;  &lt;v:textbox style=\"mso-fit-shape-to-text:true\" inset=\"0,0,0,0\"&gt;  
+			&lt;center&gt;
+			&lt;![endif]--&gt;
+			&lt;table align=\"center\" role=\"presentation\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"${width}\" style=\"margin:0;padding:0;width:${width}px;\"&gt;
+ 		
+				&lt;!-- Content inside gradient --&gt;
+				&lt;tr&gt;
+					&lt;td class=\"gradient-content\"&gt;
+						&lt;table align=\"center\" role=\"presentation\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"${innerWidth}\" style=\"width:${innerWidth}px;\"&gt;
+							Edit the .gradient and .gradient-content classes carefully. Remember that the VML is a child of .gradient, so don't put padding on .gradient or it'll look funny on Outlook. 
+						&lt;/table&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/table&gt;
+			&lt;!--[if gte mso 9]&gt;
+			&lt;/center&gt;
+	
+			&lt;/v:textbox&gt;
+			&lt;/v:rect&gt;
+			&lt;![endif]--&gt;
+		&lt;/center&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;!-- end gradient --&gt;
+			`;
+			return outputString;
+		}
+		// end makeString()
+
+	}	
+</script>

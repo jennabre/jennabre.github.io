@@ -33,7 +33,7 @@ a { color: var(--green1); }
 a:hover, a:active { color: var(--green3); text-decoration: none; }
 
 .text-green2 { color: var(--green2); }
-
+.code { font-family: monospace; }
 .huge-text { font-size: 2em; }
 
 ul li::before, li::marker { color: var(--green1); }
