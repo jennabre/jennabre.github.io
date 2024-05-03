@@ -284,7 +284,7 @@
 		function getValidWidth(inputWidth){
 			let outputWidth = Number(inputWidth); // is 0 if no input
 			if (outputWidth < 1) {
-				warningString = warningString + `<p><span class="bg-red">Warning:</span> Width should be a number above 0. The number 650 (a common email width) was substituted.<p>`;
+				warningString = warningString + `<p><span class="bg-red">Warning:</span> Width should be a valid number above 0. The number 650 (a common email width) was substituted.<p>`;
 				return 650;
 			}
 			else if (outputWidth > 700) {
@@ -321,6 +321,7 @@
 			}
 			return true;
 		}
+		// end isNumber()
 
 		function makeString() {
 			// the funky indentation is necessary to ensure the right amount of tabs on output
