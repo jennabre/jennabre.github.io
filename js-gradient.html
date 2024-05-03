@@ -126,6 +126,7 @@
 					<div id="out-html" style="display: none;"></div>
 					<div id="out-warnings" style="display: none;"></div>
 				</div>
+				<p><em>Note that the preview box shows the colors and angle, but not width or padding.</em></p>
 
 				<h2>Using Your Generated Gradient</h2>
 				<ul>
@@ -174,9 +175,13 @@
 
 		let warningString = "";
 
+		// seriously, I mean it
+		if (warningString != "")
+			warningString = "";
+
 		// create variables
-		let color1 = getValidHexColor(document.getElementById('in-color1').value, "#CCDFDB", 1);
-		let color2 = getValidHexColor(document.getElementById('in-color2').value, "#84AEA2", 2);
+		let color1 = getValidHexColor(document.getElementById('in-color1').value, "#CCDFDB", "light green", 1);
+		let color2 = getValidHexColor(document.getElementById('in-color2').value, "#84AEA2", "medium green", 2);
 		let angle = getValidAngle(document.getElementById('in-angle').value);
 		let width = getValidWidth(document.getElementById('in-width').value);
 		let padding = getValidPadding(document.getElementById('in-pad').value);
@@ -188,7 +193,7 @@
 			bgColor = color2;
 		}
 
-		//console.log(`Color 1: ${color1}, color 2: ${color2}, angle: ${angle}, width: ${width}, padding: ${padding}, bg color: ${bgColor}`);
+		console.log(`Color 1: ${color1}, color 2: ${color2}, angle: ${angle}, width: ${width}, padding: ${padding}, bg color: ${bgColor}`);
 
 
 		// CSS
@@ -203,58 +208,52 @@
 		document.getElementById('out-html').style.display = "block";
 
 		// Print warnings, if any exist
-		if (warningString != "") {
+		if (warningString === "")
+			document.getElementById('out-warnings').style.display = "none"; // in case it's currently showing from a past run
+		else {
 			document.getElementById('out-warnings').innerHTML = `<h3>Notices</h3>${warningString}`;
 			document.getElementById('out-warnings').style.display = "block";
 		}
 		
-		
 		// Don't refresh page
 		return false;
 
-		function getValidHexColor(inputColor, defaultColor, number) {
+		function getValidHexColor(inputColor, defaultColor, defaultColorName, number) {
 			// set up regular expressions
-			let hashThree = /^#[0-9a-f]{3}/i;
-			let hashSix = /^#[0-9a-f]{6}/i;
-			let hashlessThree = /^[0-9a-f]{3}/i;
-			let hashlessSix = /^[0-9a-f]{6}/i;
+			let hashThree = /^#?[0-9a-f]{3}$/i;
+			let hashSix = /^#?[0-9a-f]{6}$/i;
+
+			let tooShortSix = /^#?[0-9a-f]{4,5}$/i;
+			let tooShortThree = /^#?[0-9a-f]{2}$/i;
 
 			// if input exists, test it against valid regular expressions
 			if ( inputColor != "") {
 				// 3-digit hex
-				if (hashThree.test(inputColor) === true && inputColor.length === 4) {
-					inputColor = inputColor + inputColor.substring(1,4); // make it 6 digits
+				if (hashThree.test(inputColor) === true) {
+					// add missing hash if needed
+					if (inputColor.substring(0,1) != "#")
+						inputColor = "#" + inputColor;
+					inputColor ="#" + inputColor.substring(1,2) + inputColor.substring(1,2) + inputColor.substring(2,3) + inputColor.substring(2,3) + inputColor.substring(3,4) + inputColor.substring(3,4); // make it 6 digits
 					warningString = warningString + `<p><span class="bg-yell">Note:</span> Three-digit hex codes are unreliable in email. The hex code for Color ${number} was transformed into a six-digit hex code.<p>`;
 					return inputColor;
 				}
-				// 6-digit hex (perfect input)
-				else if (hashSix.test(inputColor) === true && inputColor.length === 7) {
+				// 6-digit hex
+				else if (hashSix.test(inputColor) === true) {
+					// add missing hash if needed
+					if (inputColor.substring(0,1) != "#")
+						inputColor = "#" + inputColor;
 					return inputColor;
 				}
-				// 3-digit hex, hash missing
-				else if (hashlessThree.test(inputColor) === true && inputColor.length === 3) {
-					inputColor = "#" + inputColor + inputColor; // add hash and duplicate 3 digits
-					warningString = warningString + `<p><span class="bg-yell">Note:</span> Three-digit hex codes are unreliable in email. The hex code for Color ${number} was transformed into a six-digit hex code.<p>`;
-					return inputColor;
+				// wrong number of digits
+				else if (tooShortSix.test(inputColor) === true || tooShortThree.test(inputColor) === true) {
+					warningString = warningString + `<p><span class="bg-red">Warning</span>: Your color for Color ${number} is the wrong length. Try a six-digit hex color. The color ${defaultColor} (${defaultColorName}) was used instead.</p>`;
+					return defaultColor;
 				}
-				// 6-digit hex, hash missing
-				else if (hashlessSix.test(inputColor) === true && inputColor.length === 6) {
-					inputColor = "#" + inputColor; // add hash
-					return inputColor;
-				}
-			}
-
-			// Check for string length errors on otherwise-valid inputs (e.g. #1234)
-			if (
-				((hashThree.test(inputColor) === true || hashSix.test(inputColor) === true) &&  inputColor.length != 7 && inputColor.length != 4 )
-				||
-				((hashlessThree.test(inputColor) === true || hashlessSix.test(inputColor) === true) &&  inputColor.length != 6 && inputColor.length != 3 )
-			) {
-				warningString = warningString + `<p><span class="bg-red">Warning</span>: It looks like your input for Color ${number} has the wrong number of characters. Please enter 3 or 6 characters after the hash.`;
+				
 			}
 
 			// if no valid input was found
-			warningString = warningString + `<p><span class="bg-red">Warning</span>: You didn't enter a valid hex color for Color ${number}. Six-digit hex colors are the most reliable option for email. The color ${defaultColor} was used instead.</p>`;
+			warningString = warningString + `<p><span class="bg-red">Warning</span>: You didn't enter a valid hex color for Color ${number}. Try a six-digit hex color. The color ${defaultColor}  (${defaultColorName}) was used instead.</p>`;
 			return defaultColor;
 
 		}
@@ -262,10 +261,18 @@
 
 		function getValidAngle(inputAngle){
 			let outputAngle = Number(inputAngle); // 0 if blank
-			if (outputAngle === NaN) {
+
+			// handle bad inputs
+			if (outputAngle === NaN || !isNumber(inputAngle)) {
 				warningString = warningString + `<p><span class="bg-red">Warning:</span> No valid angle was found. The number 180 (which corresponds to a top-to-bottom gradient) was substituted.<p>`;
 				return 180;
 			}
+			else if (outputAngle >= 1000 || outputAngle <= -1000) {
+				warningString = warningString + `<p><span class="bg-red">Warning:</span> Ridiculously large angle numbers are not accepted. The number 180 (which corresponds to a top-to-bottom gradient) was substituted.<p>`;
+				return 180;
+			}
+
+			//reduce down
 			while (outputAngle < 0)
 				outputAngle += 360;
 			while (outputAngle > 360)
@@ -305,6 +312,15 @@
 			return outputPadding;
 		}
 		// end getValidWidth()
+
+		function isNumber(input) {
+			let numberTest = /^-?([0-9]\d*)(\.\d+)?$/;
+
+			if (numberTest.test(input) === false) {
+				return false;
+			}
+			return true;
+		}
 
 		function makeString() {
 			// the funky indentation is necessary to ensure the right amount of tabs on output
