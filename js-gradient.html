@@ -123,8 +123,8 @@
 
 				<div id="out-holder">
 					<div id="out-css">Input gradient info to get started.</div>
-					<div id="out-html" style="display: none;"></div>
 					<div id="out-warnings" style="display: none;"></div>
+					<div id="out-html" style="display: none;"></div>
 				</div>
 				<p><em>Note that the preview box shows the colors and angle, but not width or padding.</em></p>
 
@@ -267,16 +267,12 @@
 				warningString = warningString + `<p><span class="bg-red">Warning:</span> No valid angle was found. The number 180 (which corresponds to a top-to-bottom gradient) was substituted.<p>`;
 				return 180;
 			}
-			else if (outputAngle >= 1000 || outputAngle <= -1000) {
-				warningString = warningString + `<p><span class="bg-red">Warning:</span> Ridiculously large angle numbers are not accepted. The number 180 (which corresponds to a top-to-bottom gradient) was substituted.<p>`;
-				return 180;
-			}
 
-			//reduce down
-			while (outputAngle < 0)
+			// reduce down
+			outputAngle = outputAngle % 360;
+			if (outputAngle < 0 )
 				outputAngle += 360;
-			while (outputAngle > 360)
-				outputAngle -= 360;
+
 			return outputAngle;
 		}
 		// end getValidAngle()
