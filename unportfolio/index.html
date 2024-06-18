@@ -92,14 +92,15 @@
 		</div>
 	</body>
 	
+<!-- toggle show/hide for those Q&As -->
 <script type="text/javascript">
-	var coll = document.getElementsByClassName("question");
-	var i;
+	let coll = document.getElementsByClassName("question");
+	let i;
 
 	for (i = 0; i < coll.length; i++) {
 		coll[i].addEventListener("click", function() {
 			this.classList.toggle("active");
-			var answer = this.nextElementSibling;
+			let answer = this.nextElementSibling;
 			if (answer.style.display === "block") {
 				answer.style.display = "none";
 			} else {
@@ -109,19 +110,18 @@
 	}
 </script>
 <script type="text/javascript">
+	// handle popup
 	window.addEventListener("load", function(){
     setTimeout(
-        function open(event){
-            document.querySelector(".popup").style.display = "block";
-        },
-        1000
+			function open(event){
+					document.querySelector(".popup").style.display = "block";
+			},
+			1000
     )
-});
-
-
-function closePopup(){
-    document.querySelector(".popup").style.display = "none";
-};
+	});
+	function closePopup(){
+		document.querySelector(".popup").style.display = "none";
+	};
 </script>
 
 </html>

@@ -141,10 +141,10 @@
 
 	// Inspiration: https://devdevshow.com/javascript-portfolio-projects-ideas/
 	function showWrongTime() {
-		var date = new Date();
-		var correctH = date.getHours(); // 0 - 23
-		var correctM = date.getMinutes(); // 0 - 59
-		var session = "am";
+		let date = new Date();
+		let correctH = date.getHours(); // 0 - 23
+		let correctM = date.getMinutes(); // 0 - 59
+		let session = "am";
 		
 			// Calculate correct hour
 		if(correctH == 0){ correctH = 12; }
@@ -155,14 +155,14 @@
 		correctH = (correctH < 10) ? "0" + correctH : correctH;
 
 		// Calculate incorrect minutes
-		var incorrectM = correctM;
+		let incorrectM = correctM;
 		while (incorrectM === correctM) {
 			incorrectM = Math.floor(Math.random() * 70); // 70 instead of 60 for impossible numbers
 			incorrectM = (incorrectM < 10) ? "0" + incorrectM : incorrectM;
 		}
 
-		var thisH = correctH;
-		var thisSession = session;
+		let thisH = correctH;
+		let thisSession = session;
 
 		// Randomize hour sometimes
 		if (Math.floor(Math.random() * 3) < 1) {
@@ -179,7 +179,7 @@
 			}
 		}
     
-		var time = thisH + ":" + incorrectM + " " + session;
+		let time = thisH + ":" + incorrectM + " " + session;
 		document.getElementById("time").innerText = time;
 		document.getElementById("time").textContent = time;
 		
@@ -191,28 +191,28 @@
 	// Evil Stopwatch
 	// Good counterpart: https://codepen.io/cathydutton/pen/xxpOOw
 	function loadStopwatch() {
-		var seconds = 00; 
-		var tenths = 00; 
-		var minutes = 00;
+		let seconds = 00; 
+		let tenths = 00; 
+		let minutes = 00;
 
-		var isRunning = false;
-		var intervalSpeed = 100;
-		var speedToReport = 100;
+		let isRunning = false;
+		let intervalSpeed = 100;
+		let speedToReport = 100;
 
-		var increment = 1;
+		let increment = 1;
 
-		var displayTenths = document.getElementById("tenths");
-		var displaySeconds = document.getElementById("seconds");
-		var displayMinutes = document.getElementById("minutes");
-		var buttonStart = document.getElementById('button-start');
-		var buttonReset = document.getElementById('button-reset');
+		let displayTenths = document.getElementById("tenths");
+		let displaySeconds = document.getElementById("seconds");
+		let displayMinutes = document.getElementById("minutes");
+		let buttonStart = document.getElementById('button-start');
+		let buttonReset = document.getElementById('button-reset');
 
 		// button speed
-		var reportSpeed = document.getElementById("report-speed")
-		var buttonSlower = document.getElementById('button-slower');
-		var buttonNormal = document.getElementById('button-normal');
-		var buttonFaster = document.getElementById('button-faster');
-		var Interval ;
+		let reportSpeed = document.getElementById("report-speed")
+		let buttonSlower = document.getElementById('button-slower');
+		let buttonNormal = document.getElementById('button-normal');
+		let buttonFaster = document.getElementById('button-faster');
+		let Interval ;
 
 		// Start/stop
 		buttonStart.onclick = function() {
@@ -304,7 +304,7 @@
 		"use strict";
 
 		// https://devdevshow.com/javascript-portfolio-projects-ideas/
-		var input = document.getElementById('input'),			// input/output button
+		let input = document.getElementById('input'),			// input/output button
 			number = document.querySelectorAll('.numbers div'),			// number buttons
 			operator = document.querySelectorAll('.operators div'), // operator buttons
 			result = document.getElementById('result'),			// equal button
@@ -313,12 +313,12 @@
 			resultDisplayed = false; // flag to keep an eye on what output is displayed
 
 		// adding click handlers to number buttons
-		for (var i = 0; i < number.length; i++) {
+		for (let i = 0; i < number.length; i++) {
 			number[i].addEventListener("click", function(e) {
 
 				// storing current input string and its last character in variables - used later
-				var currentString = input.innerHTML;
-				var lastChar = currentString[currentString.length - 1];
+				let currentString = input.innerHTML;
+				let lastChar = currentString[currentString.length - 1];
 
 				// if result is not displayed, just keep adding
 				if (resultDisplayed === false) {
@@ -340,16 +340,16 @@
 		}
 
 		// adding click handlers to number buttons
-		for (var i = 0; i < operator.length; i++) {
+		for (let i = 0; i < operator.length; i++) {
 			operator[i].addEventListener("click", function(e) {
 
 				// storing current input string and its last character in variables - used later
-				var currentString = input.innerHTML;
-				var lastChar = currentString[currentString.length - 1];
+				let currentString = input.innerHTML;
+				let lastChar = currentString[currentString.length - 1];
 
 				// if last character entered is an operator, replace it with the currently pressed one
 				if (lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
-					var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
+					let newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
 					input.innerHTML = newString;
 				} else if (currentString.length == 0) {
 					// if first key pressed is an operator, don't do anything
@@ -366,14 +366,14 @@
 		result.addEventListener("click", function() {
 
 			// this is the string that we will be processing eg. -10+26+33-56*34/23
-			var inputString = input.innerHTML;
+			let inputString = input.innerHTML;
 
 			// forming an array of numbers. eg for above string it will be: numbers = ["10", "26", "33", "56", "34", "23"]
-			var numbers = inputString.split(/\+|\-|\×|\÷/g);
+			let numbers = inputString.split(/\+|\-|\×|\÷/g);
 
 			// forming an array of operators. for above string it will be: operators = ["+", "+", "-", "*", "/"]
 			// first we replace all the numbers and dot with empty string and then split
-			var operators = inputString.replace(/[0-9]|\./g, "").split("");
+			let operators = inputString.replace(/[0-9]|\./g, "").split("");
 
 			console.log(inputString);
 			console.log(operators);
@@ -385,28 +385,28 @@
 			// as we move we are altering the original numbers and operators array
 			// the final element remaining in the array will be the output
 
-			var divide = operators.indexOf("÷");
+			let divide = operators.indexOf("÷");
 			while (divide != -1) {
 				numbers.splice(divide, 2, numbers[divide] / numbers[divide + 1]);
 				operators.splice(divide, 1);
 				divide = operators.indexOf("÷");
 			}
 
-			var multiply = operators.indexOf("×");
+			let multiply = operators.indexOf("×");
 			while (multiply != -1) {
 				numbers.splice(multiply, 2, numbers[multiply] * numbers[multiply + 1]);
 				operators.splice(multiply, 1);
 				multiply = operators.indexOf("×");
 			}
 
-			var subtract = operators.indexOf("-");
+			let subtract = operators.indexOf("-");
 			while (subtract != -1) {
 				numbers.splice(subtract, 2, numbers[subtract] - numbers[subtract + 1]);
 				operators.splice(subtract, 1);
 				subtract = operators.indexOf("-");
 			}
 
-			var add = operators.indexOf("+");
+			let add = operators.indexOf("+");
 			while (add != -1) {
 				// using parseFloat is necessary, otherwise it will result in string concatenation :)
 				numbers.splice(add, 2, parseFloat(numbers[add]) + parseFloat(numbers[add + 1]));
@@ -607,7 +607,7 @@
 	}
 
 	function getNoOpinion() {
-		var opinions = [
+		let opinions = [
 			"Meh.",
 			"I'm bored.",
 			"Do I have to have an opinion on this one?",

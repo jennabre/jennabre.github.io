@@ -135,11 +135,11 @@
 		
 		function getBadReason() {
 		
-			var adverbs = [
+			let adverbs = [
 				"absolutely", "definitely", "happily", "excitedly", "immediately", "instantly", "totally"
 			]
 			adverb = adverbs[Math.floor(Math.random() * adverbs.length)];
-			var reasons = [
+			let reasons = [
 				"I can " + getUselessSkill(),
 				"I'm too weird to be boring",
 				"my mom thinks I make life more colorful",
@@ -173,7 +173,7 @@
 		}
 		
 		function getUselessSkill() {
-			var skills = [
+			let skills = [
 				"put my foot on my head",
 				"lick my own nose",
 				"play Chopin on the piano (if you don't mind a lot of mistakes)",
@@ -184,7 +184,7 @@
 		}
 		
 		function getRelative() {
-			var people = [
+			let people = [
 				"dad", "mom", "little sister"
 			]
 			return people[Math.floor(Math.random() * people.length)];
