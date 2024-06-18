@@ -193,15 +193,15 @@
 	</body>
 	<script>
 		function changePicture(imgs) {
-			var expandImg = document.getElementById("expandedImg");
-			var text = document.getElementById("image-text");
+			let expandImg = document.getElementById("expandedImg");
+			let text = document.getElementById("image-text");
 			expandImg.src = imgs.src;
 			text.innerHTML = imgs.alt;
 			expandImg.parentElement.style.display = "block";
 		}
 
 		function toggleMenu() {
-			var x = document.getElementById("nav-list");
+			let x = document.getElementById("nav-list");
 				if (x.style.display === "none") {
 				x.style.display = "block";
 			} else {

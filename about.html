@@ -111,7 +111,7 @@
 </html>
 <script>
 	function toggleMenu() {
-		var x = document.getElementById("nav-list");
+		let x = document.getElementById("nav-list");
 			if (x.style.display === "none") {
 			x.style.display = "block";
 		} else {
@@ -130,11 +130,11 @@
 	}
 	
 	function getGoodReason() {
-		var adjectives = [
+		let adjectives = [
 			"n excellent", "n invaluable",
 			" good", " worthwhile", " superb", " useful", " helpful", " practical", " quality", " unique", " fantastic", " valuable", " splendid"
 		]
-		var reasons = [
+		let reasons = [
 			"I enjoy creative projects",
 			"I can focus for long periods of time on a project that I enjoy",
 			"I take pride in producing quality work",
