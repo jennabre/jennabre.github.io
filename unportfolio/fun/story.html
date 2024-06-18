@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio, Mad Libs, story generator, story maker, silly story, silly stories, JavaScript Mad Libs">
+		<meta name="description" content="Generate a Mad-Libs-style silly story with an illustration.">
+		<title>Illustrated Story Generator</title>
+		<link rel="stylesheet" href="../wstyle.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+		
+	</head>
+
+	<body onload="init()">		
+		<div id="wrapper">
+			<header>
+				<a href="index.html"><img src="../pics/header-202209.gif" alt="un-portfolio gif" width="400" height="100"></a>
+			</header>
+			<nav>
+				Nav:
+				<a href="../index.html">Home</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../about.html">About</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../design.html">Design</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../fun-stuff.html">Fun Stuff</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../advice.html">Advice</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../why.html">Why?</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../../index.html">Back</a>
+			</nav>
+			
+			<main>
+				<p><sub><a href="../fun-stuff.html">&lt; Back to fun stuff</a></sub></p>
+				<h1>Illustrated Story Generator</h1>
+				<p>Have you ever dreamed of being an amazing author who writes incredible stories? I can't help you with that, but you can coauthor a terrible story with me. Name your characters, add details, and get silly!</p>
+
+				<form id="gradient-form">
+					<p>
+						<label for="in-woman1">Woman's name (first and last):</label> <input type="text" id="in-woman1" name="in-woman1" maxlength="30" placeholder="Jane"> <input type="text" id="in-woman2" name="in-woman2" maxlength="30" placeholder="Doe">
+					</p>
+					<p>
+						<label for="in-man1">Man's name (first and last):</label> <input type="text" id="in-man1" name="in-man1" maxlength="30" placeholder="John">
+						<input type="text" id="in-man2" name="in-man2" maxlength="30" placeholder="Doe">
+					</p>
+					<p>
+						<label for="in-pet">Furry pet animal:</label> <input type="text" id="in-pet" name="in-pet" placeholder="dog, bunny, chinchilla etc.">
+					</p>
+					<p>
+						<label for="in-city">City/town name:</label> <input type="text" id="in-city" name="in-city" placeholder="Phoenix, Tibet">
+					</p>
+					<p>
+						<label for="in-game">Game you can play on a screen:</label> <input type="text" id="in-game" name="in-game" maxlength="30" placeholder="chess, Animal Crossing">
+					</p>
+					<p>
+						<label for="in-object">Handheld object:</label> <input type="text" id="in-object" name="in-object" maxlength="30" placeholder="hairbrush, bedazzled diary">
+					</p>
+					<p>
+						<label for="in-smell">Smell:</label> <input type="text" id="in-smell" name="in-smell" maxlength="30" placeholder="lemon, wet dog, garbage">
+					</p>
+					<p>
+						A color: 
+						<label for="color1"><input type="radio" name="in-color" value="expired-bubblegum pink" id="color1" checked>expired-bubblegum pink</label> 
+						<label for="color2"><input type="radio" name="in-color" value="suspicious-pond green" id="color2">suspicious-pond green</label>
+						<label for="color3"><input type="radio" name="in-color" value="highlighter yellow" id="color3">highlighter yellow</label>
+						<label for="color4"><input type="radio" name="in-color" value="dull gray" id="color4">dull gray</label>
+					</p>
+					<p>
+						A food: 
+						<label for="food1"><input type="radio" name="in-food" value="pizza" id="food1" checked>pizza</label> 
+						<label for="food2"><input type="radio" name="in-food" value="pasta" id="food2">pasta</label> 
+						<label for="food3"><input type="radio" name="in-food" value="sushi" id="food3">sushi</label>
+						<label for="food4"><input type="radio" name="in-food" value="soup" id="food4">soup</label>
+						<label for="food5"><input type="radio" name="in-food" value="saltwater taffy" id="food5">saltwater taffy</label>
+						<label for="food6"><input type="radio" name="in-food" value="sour candy" id="food6">sour candy</label>
+					</p>
+					<p>
+						Story must include a:
+						<label for="genre1"><input type="radio" name="in-genre" value="sci-fi" id="genre1">spaceship</label> 
+						<label for="genre2"><input type="radio" name="in-genre" value="superhero" id="genre2">supervillain</label>
+						<label for="genre3"><input type="radio" name="in-genre" value="fantasy" id="genre3">gnome</label>
+						<label for="genre4"><input type="radio" name="in-genre" value="any" id="genre4" checked>any of these</label>
+					</p>
+					<p>
+						<label for="in-author">Your author name:</label> <input type="text" id="in-author" name="in-author" maxlength="30" placeholder="J. J. Lightning">
+					</p>
+					<br/>
+					<!-- type="button" prevents page refresh-->
+					<button onclick="generateStory()" type="button">Generate weird story!</button>
+				</form>
+				
+
+				<div class="spacer"></div>
+				<div id="out-holder">
+					<div id="errors"></div>
+					<div id="part-1"></div>
+					<div id="picture" class="float-right" style="width: 270px; margin-left: 15px;"></div>
+					<div id="part-2"></div>
+				</div>
+				<div class="spacer"></div>
+
+
+			<footer>
+				<p>Copyright &copy; 2266 Jennifer Breunig</p>
+				<p><a href="privacy.html">Privacy policy</a></p>
+			</footer>
+		</div>
+	</body>
+
+</html>
+<script>
+	function generateStory() {
+		document.getElementById('part-1').innerHTML = "";
+		document.getElementById('part-2').innerHTML = "";
+
+		let errorMessage = "";
+
+		// read values
+		let femaleFirstName = capitalize(document.getElementById('in-woman1').value);
+		let femaleLastName = capitalize(document.getElementById('in-woman2').value);
+		let maleFirstName = capitalize(document.getElementById('in-man1').value);
+		let maleLastName = capitalize(document.getElementById('in-man2').value);
+		let pet = document.getElementById('in-pet').value;
+		let city = capitalize(document.getElementById('in-city').value);
+		let game = document.getElementById('in-game').value;
+		let object = document.getElementById('in-object').value;
+		let smell = document.getElementById('in-smell').value;
+		let author = capitalize(document.getElementById('in-author').value);
+		let color = document.querySelector('input[name="in-color"]:checked').value;
+		let food = document.querySelector('input[name="in-food"]:checked').value;
+		let genre = document.querySelector('input[name="in-genre"]:checked').value;
+		let hexColor = "#D9D9D9"; // default: dull gray
+
+		// populate empty values
+		if (femaleFirstName === "") femaleFirstName = getFemaleFirstName();
+		if (femaleLastName === "") femaleLastName = getLastName();
+		if (maleFirstName === "") maleFirstName = getMaleFirstName();
+		if (maleLastName ==="") {
+			do { maleLastName = getLastName(); } while (maleLastName === femaleLastName); // prevent identical generated last names
+		}
+		if (pet === "") pet = getPet();
+		if (city === "") city = getCity();
+		if (game === "") game = getGame();
+		if (object === "") object = getObject();
+		if (smell === "") smell = getSmell();
+		if (author === "") author = "Anonymous";
+
+		// generate hex color (default: dull gray)
+		switch(color) {
+			case "expired-bubblegum pink": hexColor = "#F3AABB"; break;
+			case "suspicious-pond green": hexColor = "#40a48a"; break;
+			case "highlighter yellow": hexColor = "#fe4"; break;
+		}
+
+
+		// don't you dare write fanfic about me
+		if ((femaleFirstName.substring(0,3) === "Jen") && (femaleLastName === "Breunig" || femaleLastName === "Bruenig" || femaleLastName === "Bruening")) {
+			femaleFirstName = getFemaleFirstName();
+			femaleLastName = getLastName();
+			errorMessage += "<p>Nice try, but you may not write fanfic about me. A randomly-generated name has been created.</p>";
+		}
+
+		// set up image
+		document.getElementById('picture').style.display = "block";
+
+
+		// populate
+		document.getElementById('errors').innerHTML = errorMessage;
+		if (genre != "sci-fi" && genre != "superhero" && genre != "fantasy") {
+			let names = [
+				"sci-fi", "superhero", "fantasy"
+			];
+			genre = names[Math.floor(Math.random() * names.length)];
+		}
+		switch(genre) {
+			case "sci-fi":
+				printSciFi();
+				break;
+			case "superhero":
+				printSuperhero();
+				break;
+			default:
+				printFantasy();
+				break;
+		}
+
+		// story generation functions
+		function printSciFi() {
+			// name the extra officer
+			let officerFirstName = getFemaleFirstName();
+			while (femaleFirstName === officerFirstName)
+				officerFirstName = getFemaleFirstName();
+			let officerLastName = getLastName();
+			while (officerLastName === femaleLastName || officerLastName === maleLastName) {
+				officerLastName = getLastName();
+			}
+
+			// name the pet
+			let petName = "Fluffy " + capitalize(smell);
+			// print story and pic
+			document.getElementById('part-1').innerHTML = `<h2>Alien On Deck!</h2><p>by ${author} and Jenna Breunig<p>
+			<p>“Status report,” said Captain ${femaleFirstName} ${femaleLastName}. She commanded the bridge of the USS ${city} with a calm, steady presence.</p>
+			<p>“We’re going steady at Warp 8. We should reach Earth’s moon by dinnertime,” said Officer ${officerFirstName} ${officerLastName}.</p>
+			<p>“A busy captain like me doesn’t always get to eat dinner before midnight,” the captain responded.</p>
+			<p>“Sorry, ma’am. I meant by 1800 hours. And is your work-life balance OK?”</p>
+			<p>But before Captain ${femaleLastName} could reflect on her habits, the port doors opened. A huge furry ${color} beast bounded into the room. Officer ${officerLastName} screamed. Commander ${maleFirstName} ${maleLastName} fired his phaser. The beast opened its mouth and ate the beam, shaking its body like a dog playing with a hose.</p>
+			<p>“What is that?” Captain ${femaleLastName} asked, pointing her phaser.</p>
+			<p>“I don’t know!” yelled Commander ${maleLastName}, changing his phaser’s settings and firing again. The beast ate it again. Commander ${maleLastName} threw his ${object} at it, but it ate that too.</p>
+			<p>“Computer, what is this creature?” the captain yelled.</p>
+			<p>“This feature is a game known as ${game},” the computer said. “You requested for its audio to be turned off so you could play it on the bridge without your officers noticing.”</p>
+			<p>“No! The creature!” cried the captain.</p>`;
+
+			document.getElementById('picture').innerHTML = `<img src="../pics/story scifi.png" alt="an alien rips off part of Commander ${maleLastName}'s pants while Captain ${femaleLastName} watches in horror" width="270" height="270" style="background-color: ${hexColor};" /><figcaption>Hungry for cotton, the beast pounced on Commander ${maleLastName}'s pants before Captain ${femaleLastName} could react.</figcaption>`;
+
+			document.getElementById('part-2').innerHTML = `
+			<p>The beast opened its mouth and let out a loud booming sound. Everyone clapped their hands to their ears as the floor shook. Its breath filled the air with the smell of ${smell} and burnt ${food}.</p>
+			<p>Then the beast pounced on Commander ${maleLastName}. It ripped off the seat of his pants, exposing his “I Love the USS ${city}” boxers.</p>
+			<p>The captain shook her head, ears ringing. “We need a xenobiologist, xenolinguist, xenomartial artist, anyone!”</p>
+			<p>The screen beeped with an incoming video call. Unfortunately, the officer who usually handled incoming calls had locked himself in the storage closet.</p>
+			<p>The beast's thrashing tail knocked over the ship's shortest security officer, then hit a screen, accepting the incoming call.</p>
+			<p>An alien captain appeared on screen. “${petName}? Is that you?” he asked.</p>
+			<p>Fluffy perked up and looked at the screen, jaws chewing on a shred of Commander ${maleLastName}’s pants.</p>
+			<p>“You found her! You found my ${pet}!” cried the alien on screen.</p>
+			<p>The captain raised her eyebrows. “That’s supposed to be... your ${pet}?”?</p>
+			<p>The alien captain looked from the pants to the phaser on the ground. “And you even fed her too! Oh, thank you for finding my precious baby! Who’s a good girl? Who’s a good girl?”</p>
+			<p>Soon, their new friend beamed his precious "${pet}" onto his ship. He offered a reward. But this was a post-scarcity society that didn’t use money, so they suggested having a party instead. They all had a great time, except for Commander ${maleLastName}, who didn’t think to bring a third change of pants.</p>`;
+		}
+		function printSuperhero() {
+			// capitalize superhero and villain names
+			object = capitalize(object);
+			smell = capitalize(smell);
+
+			// print story
+			document.getElementById('part-1').innerHTML = `<h2>A Crisis in ${city}</h2><p>by ${author} and Jenna Breunig<p>`;
+
+			document.getElementById('picture').innerHTML = `<img src="../pics/story superhero.png" alt="${object} Man protests while Dr. ${femaleLastName} talks to the camera" width="270" height="270" style="background-color: ${hexColor};" /><figcaption>Hesitant to fight his beloved pet, ${object} Man tried to reason with Dr. ${femaleLastName}.</figcaption>`;
+
+			document.getElementById('part-2').innerHTML = `<p>“I’ve finally done it! Behold my newest creation!” crowed Dr. ${femaleFirstName} ${femaleLastName} into the microphone she had stolen from famous reporter ${maleFirstName} ${maleLastName}. The reporter was busy crying over his crushed car, but the camerawoman was still rolling.</p>
+			<p>Behind Dr. ${femaleLastName}, a giant ${color} creature examined a skyscraper. It checked the quality of the footholds.</p>
+			<p>“I’ve created a plan so evil, so despicable, it’ll make ${object} Man wish he never broke up with me!” said Dr. ${femaleLastName}.</p>
+			<p>“Stop telling everyone we broke up! It was only two dates!” yelled ${object} Man. Flying through the sky, he shot his laser eye beams at her. But they bounced off her personal force field.</p>
+			<p>“Anyway, look what I did to his pet ${pet}! Now it’s ${color}, humongous, and determined to destroy ${city}!” she announced into the camera.</p>
+			<p>${object} Man turned his attention to his giant pet. It didn’t look much like his ${pet} anymore. “Down, boy,” he said. “You know I don’t want to fight you.”</p>
+			<p>“Genetically-modified giant animals don’t listen to their owners! All they want to do is climb things! And crush things!” said Dr. ${femaleLastName}. “Look, your precious pet destroyed that ${food} place! Just like you destroyed my heart when you stood me up for our third date!”</p>
+			<p>“Fighting crime doesn’t have set hours!” said ${object} Man. “I already told you, ${smell} Woman was robbing a museum and I had to go stop her!”</p>
+			<p>“I knew it was another woman!” Dr. ${femaleLastName} said. She turned to the camera. “You heard it here first, folks! ${object} Man is a cheater!”</p>
+			<p>“Augh! I told you, I came back for you as soon as I could! But when I got there, you were gone!”</p>
+			<p>Dr. ${femaleLastName} blinked. “What? You never told me that.”</p>
+			<p>“Yeah, I wanted to get ${food} together, ride the boats, and then maybe play ${game} with you if it was going well,” ${object} Man confessed.</p>
+			<p>“I love ${game},” said Dr. ${femaleLastName}. She paused. “Maybe we could do that this evening?”</p>
+			<p>${object} Man sighed. “I want to, but I kind of have a situation here with my genetically-modified ${pet}.”</p>
+			<p>His ${pet} was trying to get a foothold on the skyscraper. It wasn’t going well.</p>
+			<p>“Oh, I can un-modify him,” Dr. ${femaleLastName} said with a shrug. “I’ve got an un-modifier in my pocket and a backup un-modifier in my car. You always have to plan ahead for big gestures like this.” She fired an un-modification ray at the ${pet}, which immediately started shrinking.</p>
+			<p>“You’re astounding.” ${object} Man flew down to the ground.</p>
+			<p>“You bet I am.” Dr. ${femaleLastName} turned to the camerawoman. “Stop filming already. We’re going to make out now, and I don’t want any interruptions.”</p>
+			<p>“I don’t get paid enough,” the camerawoman grumbled.</p>
+
+			`;
+		}
+		function printFantasy() {
+			// name farmer
+			let farmer = getLastName();
+			while (farmer === maleLastName || farmer === femaleLastName)
+				farmer = getLastName();
+			// print story
+			document.getElementById('part-1').innerHTML = `<h2>${femaleFirstName}'s New Life</h2><p>by ${author} and Jenna Breunig<p>
+			<p>The unicorn led ${femaleFirstName} ${femaleLastName} to a small village. Its mane glistened ${color} with a faint rainbow hue. Fairies flitted past and a little girl played ball with a winged ${pet}.</p>
+			<p>Fifteen minutes ago, ${femaleFirstName} tripped at an intersection in ${city}, dropping her ${object}. A truck careened towards her. Everything went black and she smelled ${smell}. Then, when she opened her eyes, she was lying in the woods in a fancy dress with a unicorn sniffing her face.</p>`;
+
+			document.getElementById('picture').innerHTML = `<img src="../pics/story fantasy.png" alt="A friendly gnome approaches ${femaleFirstName}, who is wearing a medieval dress and standing next to a unicorn." width="270" height="270" style="background-color: ${hexColor};" /><figcaption>${femaleFirstName} didn't know what to make of this strange world.</figcaption>`;
+
+			document.getElementById('part-2').innerHTML = `<p>A gnome walked out of a beautiful stone house. “Excuse me, miss,” he said. “I don’t recognize you, and you look confused. You wouldn’t be one of those Americans, would you?”</p>
+			<p>“How did you know?” asked ${femaleFirstName}.</p>
+			<p>“I’m ${maleFirstName} ${maleLastName}, the local shoemaker,” said the gnome. “We get Americans here every few years. Let me guess, you fell into a well or got hit by a chariot, and now you’re here.”</p>
+			<p>“Pretty much,” ${femaleFirstName} said.</p>
+			<p>“Well, we can put you up at the inn while you get settled,” ${maleFirstName} told her. “The innkeeper knows how to make American-style ${food}. The townsfolk will be awful curious. Your land of America is so strange.”</p>
+			<p>“Kinda,” ${femaleFirstName} agreed.</p>
+			<p>“We’ve heard so many things about America,” ${maleFirstName} said as he led her down the street. “Like how you have advanced medicine, but not for the poor. How you have big houses but also big thieves. How everyone connects to a web of information, but half of it is wrong.”</p>
+			<p>“I guess that’s accurate,” said ${femaleFirstName}.</p>
+			<p>“Americans are interesting,” ${maleFirstName} continued. “Some cry all day because they miss their magic mirrors and their ${game}, whatever that is. Others love our friendly community where everyone works one job instead of two.”</p>
+			<p>${femaleFirstName} blinked. “Work. ${maleFirstName}, I need to work. I have no money. I need to make a living.”</p>
+			<p>“The community will take care of you while you settle in,” the gnome assured her. “Farmer ${farmer} needs help with his fruits and vegetables. What did you do for work before?”</p>
+			<p>“I was an email project manager,” ${femaleFirstName} told him. “I had to figure out what customers wanted, answer questions from devs, attend lots of meetings, tell customers when their expectations were unrealistic, solve all sorts of problems…” She took a breath. “Maybe gardening would be a nice vacation from that.”</p>
+			<p>“Sounds fascinating.” ${maleFirstName} opened the door to the local inn for her. “You’ll have to tell us all about it. And what is an E-Male? Am I an E-Male?”</p>
+			<p>${femaleFirstName} smiled at him. “No, you are better.”</p>
+			<br/>
+			<p><em>This story is dedicated to the fantastic PMs I know.</em></p>`;
+		}
+
+		// for capitalizing words 
+		function capitalize(word) {
+			// https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+			return word.replace(
+				/\w\S*/g,
+				function(txt) {
+					return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+				}
+			);
+		}
+
+
+		// helpers to populate empty values
+		function getFemaleFirstName() {
+			let names = [
+				"Apple", "Blondie", "Cashmere", "Charleigh", "Eulalia", "Florida", "Genius", "Indigo", "Mocha", "Tempest", "Velvet"
+			];
+			return names[Math.floor(Math.random() * names.length)];
+		}
+		function getMaleFirstName() {
+			let names = [
+				"Banjo", "Bumper", "Buzzard", "Hurricane", "Kazoo", "Scamp", "Squiggle", "Tango", "Waffle"
+			];
+			return names[Math.floor(Math.random() * names.length)];
+		}
+		function getLastName() {
+			let names = [
+				"Bader", "Berger", "Burro", "Chew", "Duck", "Fanny", "Hickinbottom", "Hogg", "Large", "Lawless", "Pigg", "Recker", "Schmuck", "Tingle"
+			];
+			return names[Math.floor(Math.random() * names.length)];
+		}
+		function getPet() {
+			let names = [
+				"bunny", "cat", "chinchilla", "dog", "ferret", "guinea pig", "hamster", "kitten", "puppy"
+			];
+			return names[Math.floor(Math.random() * names.length)];
+		}
+		function getCity() {
+			// These are actual names I found online
+			let names = [
+				"Bacon Level", "Bat Cave", "Bigfoot", "Bitter End", "Bugtussle", "Cookietown", "Ding Dong", "French Lick", "Greasy Corner", "Ketchuptown", "Peculiar", "Random Lake", "Tombstone", "Turkey Scratch", "Two Egg"
+			];
+			return names[Math.floor(Math.random() * names.length)];
+		}
+		function getGame() {
+			let games = [
+				"Animal Crossing", "checkers", "chess", "Minecraft", "Rocket League", "Scrabble", "Tetris"
+			];
+			return games[Math.floor(Math.random() * games.length)];
+		}
+		function getObject() {
+			let names = [
+				"diary", "hairbrush", "lotion bottle", "rubber duck", "pet rock", "phone", "vegan smoothie", "yo-yo"
+			];
+			return names[Math.floor(Math.random() * names.length)];
+		}
+		function getSmell() {
+			let smells = [
+				"chocolate", "hot garbage", "lemon", "pine sap", "tuna", "wet dog"
+			];
+			return smells[Math.floor(Math.random() * smells.length)];
+		}
+	}
+
+</script>

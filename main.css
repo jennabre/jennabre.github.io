@@ -212,7 +212,7 @@ button:active { background-color: var(--green5); }
 }
 .pic:hover { opacity: 70%; }
 .pic img { width: 100%; height: auto; }
-.desc { padding: 1em; text-align: center; color: var(--green0); }
+.desc { padding: 1em 0; text-align: center; color: var(--green0); }
 
 * { box-sizing: border-box; }
 
