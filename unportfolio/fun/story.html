@@ -165,7 +165,8 @@
 
 
 		// don't you dare write fanfic about me
-		if ((femaleFirstName.substring(0,3) === "Jen") && (femaleLastName === "Breunig" || femaleLastName === "Bruenig" || femaleLastName === "Bruening")) {
+		let myLastName = /^Br[euni]{2,}g$/i; // nobody can spell my last name, so this regex will catch approximations
+		if ((femaleFirstName.substring(0,3) === "Jen") && myLastName.test(femaleLastName) === true) {
 			femaleFirstName = getFemaleFirstName();
 			femaleLastName = getLastName();
 			errorMessage += "<p>Nice try, but you may not write fanfic about me. A randomly-generated name has been created.</p>";
