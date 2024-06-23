@@ -26,8 +26,9 @@ body {
 }
 
 /* Text */
-h1, h2, h3 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; color: var(--green1);  }
+h1, h2 { font-family: "Goudy Old Style", "Times New Roman", Serif; font-weight: bold; color: var(--green1);  }
 h1 { margin-top: 0; }
+h3 { color: var(--green2); font-weight: normal;}
 
 a { color: var(--green1); }
 a:hover, a:active { color: var(--green3); text-decoration: none; }
@@ -140,6 +141,7 @@ nav a:hover { color: white; background-color: var(--green3); }
 	font-size: 1.2em;
 	color: var(--green0);
 }
+.bg-green { background-color: var(--green5); padding: 1em; }
 
 button {
 	padding: 0.5em 1em;
@@ -200,8 +202,16 @@ button:active { background-color: var(--green5); }
 .flexbox div { max-width: 300px; padding: 15px; }
 .flexbox img { max-width: 270px; }
 
-.flexbox img:hover { opacity:70%; }
-.social img:hover { opacity: 70%; }
+a img:hover { opacity:70%; }
+
+/* Inline displays */
+.inline-icons {
+	text-align: center;
+	
+}
+.inline-icons p.big { font-size: 30px; margin-bottom: 0; margin-top: 0;}
+.inline-icons div { display: inline-block; width: 110px; text-align: center; }
+.inline-icons img { max-width: 50px; max-height: 50px; }
 
 
 /* Image gallery */
@@ -212,6 +222,7 @@ button:active { background-color: var(--green5); }
 }
 .pic:hover { opacity: 70%; }
 .pic img { width: 100%; height: auto; }
+.pic a img:hover { opacity: 100% } /* override general img opacity */
 .desc { padding: 1em 0; text-align: center; color: var(--green0); }
 
 * { box-sizing: border-box; }
