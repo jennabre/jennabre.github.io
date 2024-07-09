@@ -42,78 +42,72 @@
 		<script>
 			function initComparisons() {
 			  let x, i;
-			  /*find all elements with an "overlay" class:*/
 			  x = document.getElementsByClassName("img-comp-overlay");
+				// run compareImages on each pic
 			  for (i = 0; i < x.length; i++) {
-				/*once for each "overlay" element:
-				pass the "overlay" element as a parameter when executing the compareImages function:*/
-				compareImages(x[i]);
+					compareImages(x[i]);
 			  }
 			  function compareImages(img) {
-				let slider, img, clicked = 0, w, h;
-				/*get the width and height of the img element*/
-				w = img.offsetWidth;
-				h = img.offsetHeight;
-				/*set the width of the img element to 50%:*/
-				img.style.width = (w / 2) + "px";
-				/*create slider:*/
-				slider = document.createElement("DIV");
-				slider.setAttribute("class", "img-comp-slider");
-				/*insert slider*/
-				img.parentElement.insertBefore(slider, img);
-				/*position the slider in the middle:*/
-				slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
-				slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
-				/*execute a function when the mouse button is pressed:*/
-				slider.addEventListener("mousedown", slideReady);
-				/*and another function when the mouse button is released:*/
-				window.addEventListener("mouseup", slideFinish);
-				/*or touched (for touch screens:*/
-				slider.addEventListener("touchstart", slideReady);
-				/*and released (for touch screens:*/
-				window.addEventListener("touchstop", slideFinish);
-				function slideReady(e) {
-				  /*prevent any other actions that may occur when moving over the image:*/
-				  e.preventDefault();
-				  /*the slider is now clicked and ready to move:*/
-				  clicked = 1;
-				  /*execute a function when the slider is moved:*/
-				  window.addEventListener("mousemove", slideMove);
-				  window.addEventListener("touchmove", slideMove);
-				}
-				function slideFinish() {
-				  /*the slider is no longer clicked:*/
-				  clicked = 0;
-				}
-				function slideMove(e) {
-				  let pos;
-				  /*if the slider is no longer clicked, exit this function:*/
-				  if (clicked == 0) return false;
-				  /*get the cursor's x position:*/
-				  pos = getCursorPos(e)
-				  /*prevent the slider from being positioned outside the image:*/
-				  if (pos < 0) pos = 0;
-				  if (pos > w) pos = w;
-				  /*execute a function that will resize the overlay image according to the cursor:*/
-				  slide(pos);
-				}
-				function getCursorPos(e) {
-				  let a, x = 0;
-				  e = e || window.event;
-				  /*get the x positions of the image:*/
-				  a = img.getBoundingClientRect();
-				  /*calculate the cursor's x coordinate, relative to the image:*/
-				  x = e.pageX - a.left;
-				  /*consider any page scrolling:*/
-				  x = x - window.pageXOffset;
-				  return x;
-				}
-				function slide(x) {
-				  /*resize the image:*/
-				  img.style.width = x + "px";
-				  /*position the slider:*/
-				  slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
-				}
+					let slider, img, clicked = 0, w, h;
+					// get image width & height
+					w = img.offsetWidth;
+					h = img.offsetHeight;
+					/*set the width of the img element to 50%:*/
+					img.style.width = (w / 2) + "px";
+
+					// create & insert slider
+					slider = document.createElement("DIV");
+					slider.setAttribute("class", "img-comp-slider");
+					img.parentElement.insertBefore(slider, img);
+					/*position the slider in the middle:*/
+					slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+					slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+	
+					// add event listeners
+					slider.addEventListener("mousedown", slideReady);
+					window.addEventListener("mouseup", slideFinish);
+					slider.addEventListener("touchstart", slideReady);
+					window.addEventListener("touchstop", slideFinish);
+
+					function slideReady(e) {
+						/*prevent any other actions that may occur when moving over the image:*/
+						e.preventDefault();
+						clicked = 1;
+						window.addEventListener("mousemove", slideMove);
+						window.addEventListener("touchmove", slideMove);
+					}
+					// done clicking
+					function slideFinish() {
+						clicked = 0;
+					}
+					function slideMove(e) {
+						let pos;
+						if (clicked == 0) return false;
+						
+						// get cursor position
+						pos = getCursorPos(e)
+						// slider can't go outside the image area
+						if (pos < 0) pos = 0;
+						if (pos > w) pos = w;
+						//resize top image based on cursor position
+						slide(pos);
+					}
+					function getCursorPos(e) {
+						let a, x = 0;
+						e = e || window.event;
+						/*get the x positions of the image:*/
+						a = img.getBoundingClientRect();
+						/*calculate the cursor's x coordinate, relative to the image:*/
+						x = e.pageX - a.left;
+						/*consider any page scrolling:*/
+						x = x - window.pageXOffset;
+						return x;
+					}
+					// resize pic, then position slider
+					function slide(x) {
+						img.style.width = x + "px";
+						slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+					}
 			  }
 			}
 		</script>
@@ -210,7 +204,7 @@
 			<footer>
 				<p>Copyright &copy; 2024 Jenna Breunig</p>
 				<div class="socials">
-					<a href="https://www.optimistjenna.com/"><img src="pics/icon-pencil.jpg" alt="Optimist Jenna blog" width="25" height="25" /></a> &nbsp; 
+					<a href="https://www.optimistjenna.com/"><img src="pics/icon-pencil.jpg" alt="Blog" width="25" height="25" /></a> &nbsp; 
 					<a href="https://www.linkedin.com/in/jennifer-breunig/"><img src="pics/social-linkedin.png" alt="LinkedIn" width="25" height="25" /></a> &nbsp; 
 					<a href="https://instagram.com/optimist.jenna"><img src="pics/social-ig.png" alt="Instagram" width="25" height="25" /></a>
 				</div>
@@ -219,7 +213,7 @@
 
 
 	<script>
-		/*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+		/*Run those comparisons*/
 		initComparisons();
 	</script>
 	</body>
@@ -228,10 +222,9 @@
 <script>
 	function toggleMenu() {
 		let x = document.getElementById("nav-list");
-			if (x.style.display === "none") {
+		if (x.style.display === "none")
 			x.style.display = "block";
-		} else {
+		else
 			x.style.display = "none";
-		}
 	}
 </script>

@@ -37,9 +37,18 @@ a:hover, a:active { color: var(--green3); text-decoration: none; }
 .code { font-family: monospace; }
 .huge-text { font-size: 2em; }
 
-ul li::before, li::marker { color: var(--green1); }
+ul li::before, li::marker { color: var(--green2); }
+
+#wrapper {
+	display: grid;
+	grid-template-columns: var(--nav-width), 100%;
+	grid-template-areas: "header header"
+		"nav main"
+		"footer footer";
+}
 
 header {
+	grid-area: header;
 	background-color: var(--green1);
 	background: url(pics/texture-dark-green.jpg);
 	background-repeat: repeat;
@@ -62,10 +71,10 @@ header a {
 	max-width: 2048px;
 	margin: 0 auto;
 }
-main { padding: 2em; margin-left: var(--nav-width); }
+main { padding: 2em; grid-area: main; }
 
 footer {
-	margin-top: 2em;
+	grid-area: footer;
 	font-size: 90%;
 	font-style: italic;
 	text-align: center;
@@ -77,10 +86,8 @@ footer {
 ***********************/
 
 nav {
-	float: left;
+	grid-area: nav;
 	background-color: var(--green5);
-	height: 100%;
-	position: absolute;
 	width: var(--nav-width);
 }
 nav a {
@@ -338,6 +345,7 @@ a img:hover { opacity:70%; }
 	}
 	h1 { font-size: 1.7em; }
 	
+	#wrapper { display: block; } /* no grid columns */
 	nav { display: none; width: 100%; height: auto; position: relative; }
 	nav a {
 		display: block;
