@@ -140,6 +140,10 @@ button:hover {
 .font-papyrus { font-family: Papyrus; }
 .font-mono { font-family: Consolas, monospace; }
 
+/***********************
+			TOYS
+***********************
+
 /* Q&A */
 /* Base: https://www.w3schools.com/howto/howto_js_collapsible.asp */
 .question {
@@ -199,8 +203,22 @@ button:hover {
 	cursor: pointer;
 }
 
+/* animation */
+@keyframes upDown {
+	0% { transform: translate(0, 0); }
+	25% { transform: translate(0, 3px); }
+	50% { transform: translate(0, 0); }
+	75% { transform: translate(0, -3px)}
+	100% { transform: translate(0, 0); }
+}
+.bounce span { display: inline-block; }
+.bounce span:nth-child(odd) { animation: upDown 2s infinite; }
+.bounce span:nth-child(even) { animation: upDown 2s infinite reverse;}
 
-/* Responsive */
+
+/***********************
+			RESPONSIVE
+***********************
 /* Tablet */
 @media only screen and (max-width: 64em) {
 	body {
