@@ -99,7 +99,7 @@
 						<label for="genre1"><input type="radio" name="in-genre" value="sci-fi" id="genre1">spaceship</label> 
 						<label for="genre2"><input type="radio" name="in-genre" value="superhero" id="genre2">supervillain</label>
 						<label for="genre3"><input type="radio" name="in-genre" value="fantasy" id="genre3">gnome</label>
-						<label for="genre4"><input type="radio" name="in-genre" value="any" id="genre4" checked>any of these</label>
+						<label for="genre4"><input type="radio" name="in-genre" value="" id="genre4" checked>any of these</label> <!-- value must be blank for JS -->
 					</p>
 					<p>
 						<label for="in-author">Your author name:</label> <input type="text" id="in-author" name="in-author" maxlength="30" placeholder="J. J. Lightning">
@@ -136,42 +136,25 @@
 		let errorMessage = "";
 
 		// read values
-		let femaleFirstName = capitalize(document.getElementById('in-woman1').value);
-		let femaleLastName = capitalize(document.getElementById('in-woman2').value);
-		let maleFirstName = capitalize(document.getElementById('in-man1').value);
-		let maleLastName = capitalize(document.getElementById('in-man2').value);
-		let pet = document.getElementById('in-pet').value;
-		let city = capitalize(document.getElementById('in-city').value);
-		let game = document.getElementById('in-game').value;
-		let object = document.getElementById('in-object').value;
-		let smell = document.getElementById('in-smell').value;
-		let author = capitalize(document.getElementById('in-author').value);
+		// or if blank, generate value
+		let femaleFirstName = capitalize(document.getElementById('in-woman1').value) || getFemaleFirstName();
+		let femaleLastName = capitalize(document.getElementById('in-woman2').value) || getLastName();
+		let maleFirstName = capitalize(document.getElementById('in-man1').value) || getMaleFirstName();
+		let maleLastName = capitalize(document.getElementById('in-man2').value) || getLastName();
+		let pet = document.getElementById('in-pet').value || getPet();
+		let city = capitalize(document.getElementById('in-city').value) || getCity();
+		let game = document.getElementById('in-game').value || getGame();
+		let object = document.getElementById('in-object').value || getObject();
+		let smell = document.getElementById('in-smell').value || getSmell();
+		let author = capitalize(document.getElementById('in-author').value) || "Anonymous";
 		let color = document.querySelector('input[name="in-color"]:checked').value;
 		let food = document.querySelector('input[name="in-food"]:checked').value;
-		let genre = document.querySelector('input[name="in-genre"]:checked').value;
+		let genre = document.querySelector('input[name="in-genre"]:checked').value || getGenre();
 		let hexColor = "#D9D9D9"; // default: dull gray
 
-		// populate empty values
-		if (femaleFirstName === "") femaleFirstName = getFemaleFirstName();
-		if (femaleLastName === "") femaleLastName = getLastName();
-		if (maleFirstName === "") maleFirstName = getMaleFirstName();
-		if (maleLastName ==="") {
-			do { maleLastName = getLastName(); } while (maleLastName === femaleLastName); // prevent identical generated last names
-		}
-		if (pet === "") pet = getPet();
-		if (city === "") city = getCity();
-		if (game === "") game = getGame();
-		if (object === "") object = getObject();
-		if (smell === "") smell = getSmell();
-		if (author === "") author = "Anonymous";
-
-		// generate hex color (default: dull gray)
-		switch(color) {
-			case "expired-bubblegum pink": hexColor = "#F3AABB"; break;
-			case "suspicious-pond green": hexColor = "#40a48a"; break;
-			case "highlighter yellow": hexColor = "#fe4"; break;
-		}
-
+		// prevent identical last names
+		while (maleLastName === femaleLastName)
+			maleLastName = getLastName();
 
 		// don't you dare write fanfic about me
 		let myLastName = /^Br[euni]{2,}g$/i; // nobody can spell my last name, so this regex will catch approximations
@@ -181,18 +164,16 @@
 			errorMessage += "<p>Nice try, but you may not write fanfic about me. A randomly-generated name has been created.</p>";
 		}
 
-		// set up image
-		document.getElementById('picture').style.display = "block";
-
-
-		// populate
-		document.getElementById('errors').innerHTML = errorMessage;
-		if (genre != "sci-fi" && genre != "superhero" && genre != "fantasy") {
-			let names = [
-				"sci-fi", "superhero", "fantasy"
-			];
-			genre = names[Math.floor(Math.random() * names.length)];
+		// populate hex color (default: gray)
+		switch(color) {
+			case "expired-bubblegum pink": hexColor = "#F3AABB"; break;
+			case "suspicious-pond green": hexColor = "#40a48a"; break;
+			case "highlighter yellow": hexColor = "#fe4"; break;
 		}
+
+		// display results
+		document.getElementById('picture').style.display = "block";
+		document.getElementById('errors').innerHTML = errorMessage;
 		switch(genre) {
 			case "sci-fi":
 				printSciFi();
@@ -369,6 +350,12 @@
 				"chocolate", "hot garbage", "lemon", "pine sap", "tuna", "wet dog"
 			];
 			return smells[Math.floor(Math.random() * smells.length)];
+		}
+		function getGenre() {
+			let names = [
+				"sci-fi", "superhero", "fantasy"
+			];
+			return names[Math.floor(Math.random() * names.length)];
 		}
 	}
 
