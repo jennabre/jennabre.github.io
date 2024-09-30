@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="JavaScript, game, birthday, Mitzi">
+		<meta name="description" content="It's Mitzi's birthday! Give her a great meal in this JavaScript game.">
+		<title>Mitzi's Birthday</title>
+		<link rel="stylesheet" href="main.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+
+		<!-- start game CSS-->
+		<style>
+			.bar {
+				background-color:#CCDFDB;
+				padding: 10px;
+				width: 600px;
+				font-size: 18px;
+				position: relative;
+				z-index: 3;
+			}
+			#controls {
+				box-sizing: border-box;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				justify-items: center;
+				align-items: center;
+				margin: 0;
+			}
+			#game { position: relative; } /* keep or food will spawn from top of screen */
+			#game button { box-shadow: #84AEA2 2px 2px; min-width: 100px; }
+			#game button:active{ box-shadow: none; }
+			#space {
+				background-color: #E6EFED;
+				width: 600px;
+				height: 300px;
+				position: relative; /* keeps Mitzi at the bottom */
+				margin: 0;
+			}
+			#mitzi { font-size: 48px; position: absolute; bottom: 0; left: 250px; transition: left 0.1s ease; }
+			.food{ position: absolute; font-size: 30px; z-index: 2; transition: bottom 0.1s ease;}
+
+			/* ending messages */
+			.end {
+				width: 500px;
+				height: 200px;
+				position: absolute;
+				top: 50px;
+				left: 50px;
+				display: none; /* game over message will be display:grid */
+				grid-template-columns: 1fr 2fr;
+				align-items: center;
+				background-color: white;
+				border: 2px solid #84AEA2;
+				z-index: 4;
+			}
+			.end .emoji {
+				font-size: 130px;
+			}
+			.end h2 {
+				font-size: 70px;
+				font-family: sans-serif;
+				margin: 20px 0;
+			}
+			.end h3 {
+				font-size: 35px;
+				font-family: sans-serif;
+				margin: 20px 0;
+			}
+		</style>
+		<!-- end game CSS -->
+		
+	</head>
+
+	<body>		
+		<div id="wrapper">
+			<header>
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="pics/icon-hamburger.png" width="25" height="25" />
+				</a>
+				<a href="index.html">Jenna's Portfolio</a>
+			</header>
+			<nav id="nav-list" role="navigation">
+			  <ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="code.html">Code</a>
+						<ul>
+						<li><a href="sites-html.html">HTML Sites</a></li>
+						<li><a href="sites-wordpress.html">WordPress</a></li>
+						<li><a href="apps.html">Apps</a></li>
+						<li><a href="js-gradient.html">JS Gradient</a></li>
+						</ul>
+					</li>
+					<li><a href="art.html">Art</a>
+						<ul>
+						<li><a href="art-ig.html">Instagram</a></li>
+						<li><a href="art-misc.html">Misc</a></li>
+						</ul>
+					</li>
+					<li><a href="photoedit.html">Photos</a></li>
+				</ul>
+			</nav>
+			
+			<main>
+				<h1>Game: Mitzi's Birthday</h1>
+				<p>It's Mitzi the monkey's birthday, but dinner got burned! Luckily, the fridge is stocked with Mitzi's favorite fruits. Her friends suggested a game: they will blindfold her and drop fruit for her to catch. Unfortunately, a prankster friend is dropping Mitzi's least favorite food, onions.</p>
+				
+				<h2>Goal</h2>
+				<p>Help Mitzi catch the fruit (🍌🥭🍎🍏🍊) and avoid the onions (🧅) for a tasty birthday meal.</p>
+
+				<h2>How it works</h2>
+				<ul>
+					<li>Move Mitzi side-to-side with arrow keys or WASD.</li>
+					<li>To win and get birthday cake, eat all the food required.</li>
+					<li>Don't let Mitzi's mood drop too low or she'll give up.</li>
+				</ul>
+
+				Food tips:
+				<ul>
+					<li>Apples (🍎🍏) are high in fiber. They fill Mitzi up faster.</li>
+					<li>Onions (🧅) are gross. She won't eat them. Tasting them makes her sadder.</li>
+					<li>Bananas (🍌) are Mitzi's favorite. They improve her mood.</li>
+				</ul>
+				<section>
+					<div id="game">
+						<div class="bar" id="controls">
+							<!-- type="button" prevents page refresh-->
+							<div>Must eat: <span id="hungerLevel">12</span></div>
+							<div>Mood: <span id="moodLevel">🙂</span></div>
+							<div><button id="playPause" onclick="toggleGame()" type="button">Play ⏵</button></div>
+							<div><button id="quit" onclick="quit()" type="button">Quit</button></div>
+						</div>
+						<div id="space">
+							<!-- Hidden win/lose messages -->
+							<div id="loseMessage" class="end">
+								<div class="emoji">💔</div>
+								<div><h2>You lose!</h2>
+									<h3>Onions ruined it.</h3></div>
+							</div>
+							<div id="winMessage" class="end">
+								<div class="emoji">🎂</div>
+								<div><h2>You win!</h2>
+									<h3>Time for cake!</h3></div>
+							</div>
+							<!-- End hidden win/lose messages -->
+							
+							<div id="mitzi"><img src="pics/Mitzi grin.png" width="50"></div>
+						</div>
+						<div class="bar" id="message">&nbsp;</div>
+					</div>
+				</section>
+				
+				
+
+
+				<footer>
+					<p>Copyright &copy; 2024 Jenna Breunig</p>
+					<div class="socials">
+						<a href="https://www.optimistjenna.com/"><img src="pics/icon-pencil.jpg" alt="Optimist Jenna blog" width="25" height="25" /></a> &nbsp; 
+						<a href="https://www.linkedin.com/in/jennifer-breunig/"><img src="pics/social-linkedin.png" alt="LinkedIn" width="25" height="25" /></a> &nbsp; 
+						<a href="https://instagram.com/optimist.jenna"><img src="pics/social-ig.png" alt="Instagram" width="25" height="25" /></a>
+					</div>
+				</footer>
+		</div>
+	</body>
+
+</html>
+<script>
+	// game
+	let ongoingGame = false;
+	let playing = false;
+	let boxHeight = 300;
+	let boxWidth = 600;
+	let gameSpace = document.getElementById("space");
+
+	// mitzi
+	let mitzi = document.getElementById("mitzi");
+	let speed = 5;
+	let x = 250; // she starts at 250 in CSS
+	let y = 0;
+	let mitziWidth = 50;
+	let mitziHeight = 114;
+	let hunger = 12;
+	let mood = 2;
+
+	// food stuff
+	let foods = [];
+	let foodSpeeds = [2, 3, 4, 3];
+	let foodInterval;		// for setInterval
+	let foodSize = 30;	// font-size of .food, needed for position calculations
+	let chanceOfOnion = 0.2;
+	let onionCount = 0;	// track number of onions
+	let maxOnions = 2;
+	let chanceOfBanana = 0.2;
+	let bananaCount = 0;
+	let maxBananas = 2;
+	
+	
+
+	// turn game on or off
+	function toggleGame() {
+		playing = !playing;
+		if (playing) {
+			setupGame();
+		}
+		else {
+			pauseGame();
+		}
+	}
+	function playGame() {
+		foodInterval = setInterval(renderFoods, 50);
+	}
+
+	function setupGame() {
+		console.log("Starting game");
+
+		// unpause & make Mitzi movable
+		document.getElementById("playPause").innerHTML = "Pause ⏸";
+		gameSpace.style.opacity = 1;
+		document.addEventListener("keydown", moveMitzi);
+
+		// first-time setup (if applicable)
+		if (!ongoingGame) {
+			// hide win/lose message
+			document.getElementById("loseMessage").style.display = "none";
+			document.getElementById("winMessage").style.display = "none";
+
+			// reset text
+			document.getElementById("message").innerHTML = `Use arrow keys to move.`;
+			document.getElementById("hungerLevel").innerHTML = hunger;
+			document.getElementById("moodLevel").innerHTML = "🙂";
+
+			// make new food and start ongoing game
+			for (let i = 0; i < 4; i++)
+				foods[i] = makeFood();
+			ongoingGame = true;
+		}
+
+		playGame();
+	}
+
+	function pauseGame() {
+		document.getElementById("playPause").innerHTML = "Play ⏵";
+		gameSpace.style.opacity = 0.5;
+
+		// Mitzi and food stop moving
+		document.removeEventListener("keydown", moveMitzi);
+		clearInterval(foodInterval);
+	}
+	
+	function quit() {
+		console.log("Game over");
+		pauseGame();
+
+		// reset game
+		ongoingGame = false;
+		playing = false;
+		document.getElementById("message").innerHTML = ``;
+		
+
+		// reset Mitzi
+		x = 250;
+		mitzi.style.left = `${x}px`;
+		hunger = 12;
+		mood = 2;
+		renderHunger();
+		renderMood();
+
+		// reset foods
+		foods = [];
+		onionCount = 0;
+		bananaCount = 0;
+
+		//delete last frame
+		deleteFoods();
+			
+	}
+
+	function deleteFoods() {
+		let oldFoods = document.getElementsByClassName("food");
+		for (let i = 0; i < 4; i++)
+			gameSpace.removeChild(oldFoods[0]);
+	}
+	
+	function gameOver() {
+		console.log("Game over");
+		ongoingGame = false;
+		playing = false;
+
+		// Mitzi and food stop moving
+		document.removeEventListener("keydown", moveMitzi);
+		clearInterval(foodInterval);
+
+		// reset Mitzi
+		hunger = 12;
+		mood = 2;
+
+		// reset foods
+		foods = [];
+		onionCount = 0;
+		bananaCount = 0;
+			
+	}
+	// ***********
+	// INTERACTION
+	// ***********
+
+	function moveMitzi(e) {
+		// move left
+		if ((e.key === "a" || e.key === "ArrowLeft") && x > 0) {
+			x-= speed;
+		}
+		// move right
+		if ((e.key === "d" || e.key === "ArrowRight") && x < (boxWidth - mitziWidth)) {
+			x+= speed;
+		}
+		mitzi.style.left = `${x}px`;
+	}
+
+	// retains i (index) for eat()
+	function checkCollision(food, i) {
+		if ((food.x + foodSize) >= x && 
+		(food.x) <= (x + mitziWidth) &&
+		food.y <= (y + mitziHeight - 15))
+			eat(food, i);
+	}
+
+	function eat(food, i) {
+		let type = food.type;
+		console.log(`Mitzi caught a ${type}!`);
+
+		foods[i] = makeFood();
+
+		// print a message
+		let message;
+		switch(type) {
+			case "🧅":
+				message = `<strong>Ew! Onion!</strong> Mood -1`;
+				mood--;
+				break;
+			case "🍎", "🍏":
+				message = "<strong>Fiber!</strong> Hunger -2";
+				hunger -= 2;
+				break;
+			case "🍌":
+				if (mood < 3) {
+					message = "<strong>Mitzi's favorite!</strong> Hunger -1, Mood +1"
+					mood++;
+				}
+				else
+					message = "<strong>Mitzi's favorite!</strong> Hunger -1, Mood is maxed"
+				hunger--;
+				break;
+			default:
+				message = "<strong>Yum!</strong> Hunger -1"
+				hunger--;
+				break;
+		}
+		document.getElementById("message").innerHTML = `${type} ${message}`;
+
+		renderMood();
+		renderHunger();
+	}
+
+	// **************
+	// PRINT MESSAGES
+	// **************
+	
+	// Print hunger level, win if applicable
+	function renderHunger() {
+		if (hunger < 0)
+			hunger = 0;		// no negative numbers
+		document.getElementById("hungerLevel").innerHTML = hunger;
+		if (hunger <= 0)
+			win();
+	}
+
+	// Print mood, lose if applicable
+	function renderMood() {
+		let emoji;
+		if (mood > 3)
+			mood = 3;
+		else if (mood < 0)
+			mood = 0;
+
+		switch(mood) {
+			case 3:
+				emoji = "😄";
+				break;
+			case 2:
+				emoji = "🙂";
+				break;
+			case 1:
+				emoji = "😕";
+				break;
+			case 0:
+				emoji = "😭";
+				break;
+		}
+		document.getElementById("moodLevel").innerHTML = emoji;
+
+		if (mood <= 0)
+			lose();
+	}
+	
+	function win() {
+		gameOver();
+		document.getElementById("winMessage").style.display = "grid";
+		document.getElementById("playPause").innerHTML = "Replay ⟳";
+		gameSpace.style.opacity = 1;
+		document.getElementById("message").innerHTML = `💜 Mitzi loves cake!`;
+	}
+	
+	function lose() {
+		gameOver();
+		document.getElementById("loseMessage").style.display = "grid";
+		document.getElementById("playPause").innerHTML = "Replay ⟳";
+		gameSpace.style.opacity = 1;
+		document.getElementById("message").innerHTML = `🧅 Mitzi doesn't want to play anymore...`;
+	}
+	// **************
+	// FOOD FUNCTIONS
+	// **************
+
+	// Render food
+	function renderFoods() {
+		//delete last frame
+		let oldFoods = document.getElementsByClassName("food");
+		while (oldFoods.length > 0)
+			gameSpace.removeChild(oldFoods[0]);
+
+		if (ongoingGame && playing) {
+			// i = index
+			foods.forEach(function(food, i) {
+				food.fall(foodSpeeds[i]);
+
+				// create a new div.food
+				let thisFood = document.createElement("div");
+				thisFood.innerHTML = food.type;
+				thisFood.style.bottom = `${food.y}px`;
+				thisFood.style.left = `${food.x}px`;
+				thisFood.className = "food";
+
+				// put the food on the doc
+				gameSpace.appendChild(thisFood);
+
+				// delete foods once they go too low
+				if (food.y < -foodSize) {
+					if (food.type === "🧅")
+						onionCount--;
+					else if (food.type === "🍌")
+						bananaCount--;
+					foods[i] = makeFood();
+				}
+
+				checkCollision(food, i);
+				
+			}); // end forEach
+		} // end if
+	}
+
+	// Generate random food
+	function makeFood() {
+		let type;
+		// 2 onion calculations:
+		// 1: If onions below min, regular chances
+		// 2: If no onions, double chances
+		if (
+			(Math.random() < chanceOfOnion && onionCount < maxOnions) || 
+			(onionCount === 0 && Math.random() < (chanceOfOnion * 2))
+		) {
+			type = "🧅";
+			onionCount++;
+		}
+		else if (Math.random() < chanceOfBanana && bananaCount < maxBananas) {
+			type = "🍌";
+			bananaCount++;
+		}
+		else {
+			let fruits = ["🥭", "🍎", "🍏", "🍊"];
+			type = fruits[Math.floor(Math.random() * fruits.length)];
+		}
+		// add new food to array at random x position
+		let x = Math.floor(Math.random() * (boxWidth - foodSize - 20));
+		return new Food(type, x);
+	}
+
+	// Food class: type for apple/onion/etc., x and y for location with y initialized at top
+	class Food {
+		constructor(type, x) {
+			this._type = type;
+			this._x = x;
+			this._y = boxHeight + 10; // why? IDK, but that's what works
+		}
+		get type() { return this._type;}
+		get x() { return this._x;}
+		get y() { return this._y;}
+		fall(speed) {
+			this._y -= speed;
+		}
+		toString() {
+			return `${this._type} at (${this._x}, ${this._y})`;
+		}
+	}
+
+	// *********
+	// DEBUGGING
+	// *********
+	function getListOfFoods() {
+		let foodList = "";
+		for (let i = 0; i < foods.length - 1; i++) {
+			foodList+= foods[i].toString() + ", ";
+		}
+		foodList+= foods[foods.length - 1].toString() + ".";
+		return `Foods: ${foodList}`;
+	}
+</script>
