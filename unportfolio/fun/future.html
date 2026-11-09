@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="future, fortune, horoscope">
+		<meta name="description" content="See your future with this advanced foresight program. It's as reliable as a horoscope!">
+		<title>Future Teller</title>
+		<link rel="stylesheet" href="../wstyle.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+
+		<style>
+			/* Remember, design consistency is for GOOD websites, which this is not */
+			#out-holder h2 { font-family: Papyrus, sans-serif; }
+			form {
+				border: 2px solid #FFD4E1; padding: 1em;
+			}
+			input, select, textarea { padding: 2px; }
+		</style>
+		
+	</head>
+
+	<body>		
+		<div id="wrapper">
+			<header>
+				<a href="index.html"><img src="../pics/header-202209.gif" alt="un-portfolio gif" width="400" height="100"></a>
+			</header>
+			<nav>
+				Nav:
+				<a href="../index.html">Home</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../about.html">About</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../design.html">Design</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../fun-stuff.html">Fun Stuff</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../advice.html">Advice</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../why.html">Why?</a> <span class="divider">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<a href="../../index.html">Back</a>
+			</nav>
+			
+			<main>
+				<p><sub><a href="../fun-stuff.html">&lt; Back to fun stuff</a></sub></p>
+				<h1>See the Future</h1>
+				<p>Do you wish you could see the future? Maybe you have a tough choice to make, a worry about a possibility, or some other question burning down the walls of your mind.</p>
+				<p>Consult one of my wise oracles to see your future.</p>
+
+				<form>
+					<p>
+						<label for="in-name">Name:</label> <input type="text" id="in-name" name="in-name" maxlength="40" placeholder="e.g. Jane Doe">
+					</p>
+					<p>
+						<label for="in-age">Age:</label> <input type="number" id="in-age" name="in-age" placeholder="40">
+					</p>
+					<p>
+						Love life: 
+						<label for="love-found"><input type="radio" name="in-love" value="found" id="love-found" checked>I am in a serious relationship</label> 
+						<label for="love-seek"><input type="radio" name="in-love" value="seek" id="love-seek">I want to find love (now or someday)</label> 
+						<label for="love-no"><input type="radio" name="in-love" value="no" id="love-no">No romance, please</label>
+					</p>
+					<p>
+						Ask about:<br/>
+						<label for="ask-yn"><input type="radio" name="in-topic" value="decisions" id="ask-yn" checked>A yes/no decision I must make</label> <br/>
+						<label for="ask-love"><input type="radio" name="in-topic" value="love" id="ask-love">Love</label><br/>
+						<label for="ask-work"><input type="radio" name="in-topic" value="work" id="ask-work">Career</label><br/>
+						<label for="ask-money"><input type="radio" name="in-topic" value="money" id="ask-money">How to spend my spare money</label><br/>
+						<label for="ask-death"><input type="radio" name="in-topic" value="death" id="ask-death">My lifespan and death</label>
+					</p>
+					
+					<p>
+						Bring the question before the: <br/>
+						<label for="monkey"><input type="radio" name="in-oracle" value="monkey" id="monkey">monkey with a typewriter</label> <br/>
+						<label for="raccoon"><input type="radio" name="in-oracle" value="raccoon" id="raccoon">raccoon who wears sunglasses</label><br/>
+						<label for="well"><input type="radio" name="in-oracle" value="well" id="well">ghost at the bottom of an ominous well</label><br/>
+						<label for="anyone"><input type="radio" name="in-oracle" value="" id="anyone" checked>any of these</label> <!-- value must be blank for JS -->
+					</p>
+					<br/>
+					<!-- type="button" prevents page refresh-->
+					<button onclick="getFortune()" type="button">Ask the chosen oracle</button>
+				</form>
+				
+
+				<div class="spacer"></div>
+				<div id="out-holder">
+					<p id="errors"></p>
+					<figure id="picture" class="float-right" style="width: 270px; margin: 0 0 15px 15px;"></figure>
+					<h2 id="heading"></h2>
+					<p id="intro"></p>
+					<p id="fortune"></p>
+					<p id="bonus"></p>
+
+					<div class="spacer"></div>
+					<p><i>Disclaimer: The opinions you see belong to their respective animals and ghostly entities. Don't sue me if you dislike what they told you. Plus, the raccoon would probably bite you if you tried.</i></p>
+				</div>
+
+				<div class="spacer"></div>
+
+			<footer>
+				<p>Copyright &copy; 3000 Jennifer Breunig</p>
+				<p><a href="https://www.instagram.com/p/C6zc06wSWBO/">My sister yelling at ducks</a></p>
+			</footer>
+		</div>
+	</body>
+
+</html>
+<script>
+	function getFortune() {
+		document.getElementById('intro').innerHTML = "";
+		document.getElementById('fortune').innerHTML = "";
+		document.getElementById('bonus').innerHTML = "";
+
+		let errorMessage = "";
+
+		// read values, generate some if blank
+		let name = capitalize(document.getElementById('in-name').value) || "Anonymous";
+		let age = document.getElementById('in-age').value || -1;
+		let love = document.querySelector('input[name="in-love"]:checked').value;
+		let question = document.querySelector('input[name="in-topic"]:checked').value;
+		let oracle = document.querySelector('input[name="in-oracle"]:checked').value || chooseOracle();
+
+
+		// display results
+		document.getElementById('picture').style.display = "block";
+		document.getElementById('errors').innerHTML = errorMessage;
+		document.getElementById('out-holder').style.minHeight = "290px";
+		switch(oracle) {
+			case "monkey":
+				askMonkey();
+				break;
+			case "raccoon":
+				askRaccoon();
+				break;
+			default:
+				askGhost();
+				break;
+		}
+
+		// story generation functions
+		function askMonkey() {
+			document.getElementById('heading').innerHTML = `Dear ${name},`;
+			document.getElementById('heading').style.fontFamily = "Comic Sans MS, Lucida Handwriting, Brush Script MT, sans-serif";
+			document.getElementById('intro').innerHTML = `I am the monkey's assistant and translator. She looked into the future and wants you to know this:`;
+			document.getElementById('picture').innerHTML = `<img src="../pics/oracle-mitzi.gif" alt="cute monkey with a hair bow typing on a typewriter" width="270" height="270"/><figcaption>Mitzi loves her typewriter.</figcaption>`;
+			let message ="I no tell future now. More banana first.";
+
+			switch(question) {
+				case "decisions":
+					message = getYesNo(Math.floor(Math.random()*10));
+					break;
+				case "love":
+					message = getLove(getNumber(name, 0), getNumber(name, 1));
+					break;
+				case "work":
+					message = getWork(getNumber(name, 3), getNumber(name, 3) + age, getNumber(name, name.length - 1));
+					break;
+				case "money":
+					message = getMoney(Math.floor(Math.random()*10));
+					break;
+				case "death":
+					message = getDeath();
+					break;
+			}
+			document.getElementById('fortune').innerHTML = `<blockquote>${message}</blockquote>`;
+
+			// Mitzi's forecast
+			function getYesNo(choice) {
+				let fortunes = [
+					"say yes", "say no", "do funner thing", "do favorite thing", "definitely", "not do it", "ask good friend advice", "run away", "stop worry so much and eat more banana"
+				];
+				return "<p>Mitzi recommend " + fortunes[choice % fortunes.length] + ".</p>";
+			}
+			function getLove(choice1, choice2) {
+				let adjectives = [
+					"good", "difficult but worth it", "wild", "slow at first", "peaceful", "wonderful"
+				];
+				let adjective = adjectives[choice1 % adjectives.length];
+				let advice = [
+					"be good listener", "assert self gently", "pay close attention", "give space when needed", "share time together often", "share in interests", "balance trying new things with comfort", "share banana split every week"
+				];
+				let yourAdvice = advice[choice2 % advice.length];
+
+				// identify goal
+				let type = "love"
+				let goal = "be happy";
+				switch (love) {
+					case "found" :
+						goal = "be happy with special someone";
+						type = "Romantic life";
+						break;
+					case "seek" :
+						goal = "find and keep true love";
+						type = "Romantic life";
+						break;
+					default :
+						goal = "be happy with friends and family";
+						type = "Happiness with loved ones";
+						break;
+				}
+				return `<p>${type} will be ${adjective}. To ${goal}, ${name} must ${yourAdvice}.</p>`;
+			}
+			function getWork(choice1, choice2, choice3) {
+				let states = [
+					"good", "very good", "pretty good", "decent", "OK"
+				];
+				let state = states[choice1 % states.length];
+				let focuses = [
+					"listening skills", "adaptability", "teamwork", "initiative", "try new skill", "hone existing skill", "time management and not phone scroll"
+				];
+				let focus = focuses[choice2 % focuses.length];
+				let rewards = [
+					"beautiful home", "fun vacation", "fun travel adventure", "big retirement savings", "big money for hobbies", "many tasty treats"
+				];
+				let reward = rewards[choice3 % rewards.length];
+				return `<p>Work for ${name} is ${state}. Get even better if focus on ${focus}. Mitzi glimpse ${reward} in future if ${name} work hard.</p>`;
+			}
+			function getMoney(choice) {
+				let fortunes = [
+					"more fruit like grape and banana", "tasty treats", "bird feeder for watching", "good brush for grooming", "colorful ball to play with", "wood to make fun tree house so human can enjoy trees too", "paintings of monkey to decorate home", "good pillow and bedding for naps", "gift for friend", "games to play with friend and family", "book or movie that make you laugh", "book to teach you sign language", "colorful stickers from <a href=\"https://www.redbubble.com/people/optimistjenna/shop\">Jenna shop</a>", "bananas for Mitzi", "gardening seeds and tools", "ticket to funny magic show", "stock market and eat all the stocks"
+				];
+				return "<p>Recommend buy " + fortunes[choice % fortunes.length] + ".</p>";
+			}
+			function getDeath(choice) {
+				return `<p>You die today. Reason is sadness. Sad because I no have enough banana. Give banana, save life.</p><button onclick="giveBanana()" type="button">Give Mitzi a banana</button>`;
+			}
+		}
+		
+		function askRaccoon() {
+			document.getElementById('heading').innerHTML = `Dumpster Diving for Answers`;
+			document.getElementById('heading').style.fontFamily = "Impact, Viner Hand ITC, Comic Sans MS, sans-serif";
+			document.getElementById('intro').innerHTML = `The raccoon has read the tea leaves at the bottom of the dumpster and advises this:`;
+			let message ="Look, kid, you just gotta find the best dumpster you can.";
+			switch(question) {
+				case "decisions":
+					message = getYesNo();
+					break;
+				case "love":
+					message = getLove(getNumber(name, 0), getNumber(name, 1));
+					break;
+				case "work":
+					message = getWork(getNumber(name, 3), getNumber(name, 3) + age);
+					break;
+				case "money":
+					message = getMoney();
+					break;
+				case "death":
+					message = getDeath(2*(getNumber(name, name.length - 1) + getNumber(name, 0) - 162), getNumber(name, name.length - 2));
+					break;
+			}
+			document.getElementById('fortune').innerHTML = `<blockquote>${message}</blockquote>`;
+
+			// Raccoon
+			function getYesNo(choice) {
+				let fortunes = [
+					"Sure.", "Why not?", "Seems fine to me.", "Definitely.", "Go for it!",
+					"What could go wrong?", "Hey, you only live... what's the lifespan for a human? 20 years?", "Seriously?",
+					"Bad idea.", "Nah.", "You oughta know better than that.", "Stay away from that nonsense.", "Get the heck outta there."
+				];
+				return "<p>" + fortunes[Math.floor(Math.random() * fortunes.length)] + "</p>";
+			}
+			function getLove(choice1, choice2) {
+				let adjectives = [
+					"sweet", "nice", "pleasant", "peachy", "optimistic", "sunny",
+					"OK", "decent", "not too bad", "copacetic"
+				];
+				let adjective = adjectives[choice1 % adjectives.length];
+				let choices = [
+					"harness those listening skills", "be generous with your loot", "pay attention to the stuff people are going through", "be compassionate", "be assertive but not pushy", "show what you bring to the table", "stay loyal", "show respect and consideration", "fight for who you love", "pay attention to boundaries"
+				];
+				let choice = choices[choice2 % choices.length];
+				let goal = "be happy";
+				switch (love) {
+					case "found" :
+						goal = "a nice future with your special someone";
+						break;
+					case "seek" :
+						goal = "to find and keep a special someone";
+						break;
+					default :
+						goal = "a good time with your friends and family";
+						break;
+				}
+				return `<p>So you want ${goal}. Understandable.</p><p>I read the garbage at the bottom of the bin, and things look ${adjective} for you. It also suggests you should ${choice} if you want it to work out.</p>`;
+			}
+			function getWork(choice1, choice2) {
+				let adjectives = [
+					"decently", "fairly", "nicely",
+					"extremely", "incredibly", "wildly"
+				];
+				let adjective = adjectives[choice1 % adjectives.length];
+				let skills = [
+					"your soft skills", "assertiveness", "technical skills", "teamwork", "public speaking", "translating your know-how into simple terms", "writing", "communication"
+				];
+				let skill = skills[choice2 % skills.length];
+				return `<p>So you wanna get that cash. Understandable.</p><p>The patterns in the dumpster show me you've got the potential to be ${adjective} successful. At this phase of your life, they suggest you should work on ${skill}.</p><p>Just don't lose sight of what's important. You don't wanna be like my friend Mitzi. One typewriter and a novel draft later and she's believing in all this nonsense like "hygiene" and "eating food that didn't come from dumpsters." An attitude like that will ruin any good hangout, know what I mean?</p>`;
+			}
+			function getMoney() {
+				let funThings = [
+					"a nice big cake", "a dozen eggs to make a quiche", "some nice juicy fruit", "one of those cheesecakes with all the berries on top. Even if you're lactose intolerant", 
+					"a vehicle that goes really fast", "a good pair of sunglasses", "a fancy shirt, like with colorful flowers and stuff", "a trip to the beach", "a night at a fancy hotel with one of those minibars",
+					"a nice big outdoor garbage can that's easy for a little guy to tip over and climb into"
+				];
+				let funThing = funThings[Math.floor(Math.random() * funThings.length)];
+				return `<p>Let's see, kid. You gotta get yourself something nice for now and something nice for the future. First, get yourself ${funThing}. This kinda thing is what makes life worth living.</p><p>You also gotta squirrel away some cash for later. I recommend index funds. It's the best play in the market.</p>`;
+			}
+			function getDeath(choice1, choice2) {
+				if (age < 0)
+					return `Hey, not entering your age is cheating. Try again, kid.`;
+
+				// calculate years left and cause
+				let yearsLeft = getYearsLeft(choice1);
+				let cause = getDeathCause(choice2);
+
+				// calculate age of death
+				let ageDetails = "";
+				let deathAge = parseInt(yearsLeft) + parseInt(age);
+				if (age > 0)
+					ageDetails = `, at age ` + deathAge;
+
+				// calculate how much luckier you are than most raccoons
+				let times = Math.floor(deathAge / 3);
+				
+
+				return `
+					<p>Boy, have I got great news for you! You're gonna die in about ${yearsLeft} years${ageDetails}. That's ancient. It's gotta be at least ${times} times more than what most raccoons get.</p>
+					<p>I gotta squint to see it, but the garbage patterns here are saying something about ${cause}. I'd try to avoid that if I were you. Get regular doctor check-ups and drive safe and all.</p>
+					<p>Don't let it get you down. I've seen my own death too. It's gonna involve eating bad salmon. My friend Mitzi says I should stop eating salmon, but what does she know? Don't let fear stop you from living your life.</p>`;
+			}
+		}
+		
+		function askGhost() {
+			document.getElementById('heading').innerHTML = `Approach the well.`;
+			document.getElementById('heading').style.fontFamily = "Papyrus, Viner Hand ITC, Georgia, serif";
+			document.getElementById('intro').innerHTML = `The ghost from the well hears your question about ${question}. It replies:`;
+			document.getElementById('picture').innerHTML = `<img src="../pics/oracle-well.gif" alt="an old wooden well in a foggy dark forest" width="270" height="270"/><figcaption>A brisk wind chills you in the woods.</figcaption>`;
+			let message ="You are doomed. Doomed!";
+			switch(question) {
+				case "decisions":
+					message = getYesNo();
+					break;
+				case "love":
+					message = getLove(getNumber(name, 0), getNumber(name, 1));
+					break;
+				case "work":
+					message = getWork(getNumber(name, 3), getNumber(name, 3) + age);
+					break;
+				case "money":
+					message = getMoney();
+					break;
+				case "death":
+					message = getDeath(2*(getNumber(name, name.length - 1) + getNumber(name, 0) - 162), getNumber(name, name.length - 2));
+					break;
+			}
+			document.getElementById('fortune').innerHTML = `<blockquote>${message}</blockquote>`;
+
+			// Ghost
+			function getYesNo(choice) {
+				let fortunes = [
+					"Never", "You must not", "You cannot",
+					"You shall make an attempt", "You must, or all will be lost", "You shall perish if you say no", 
+					"You will make a terrible mistake either way", "All shall become irrelevant in the face of your looming death"
+				];
+				return "<p>" + fortunes[Math.floor(Math.random() * fortunes.length)] + ".</p>";
+			}
+			function getLove(choice1, choice2) {
+				let adjectives = [
+					"happy", "fun", "enjoyable", "stable", "peaceful", "idyllic", "joyful"
+				];
+				let adjective = adjectives[choice1 % adjectives.length];
+				let flaws = [
+					"difficulty listening", "thoughtlessness", "failure to be supportive", "self-doubt", "problems with communicating", "trust issues", "complacency", "tendency to jump to conclusions"
+				];
+				let flaw = flaws[choice2 % flaws.length];
+				let goal = "be happy";
+				switch (love) {
+					case "found" :
+						goal = "be together with your love";
+						break;
+					case "seek" :
+						goal = "find a deep and powerful love";
+						break;
+					default :
+						goal = "enjoy happiness with your friends and family";
+						break;
+				}
+				return `<p>Your life shall be ${adjective} for a time. You will ${goal}. But that life will be stolen from you. Your ${flaw} shall do you in. And in the end, all shall perish. All things end this way.</p>`;
+			}
+			function getWork(choice1, choice2) {
+				console.log(`Input: ${choice1}, ${choice2}`);
+				let states = [
+					"good", "very good", "decent", "OK"
+				];
+				let state = states[choice1 % states.length];
+				let focuses = [
+					"communication skills", "listening skills", "initiative", "time management", "leadership", "adaptability", "organization skills", "teamwork"
+				];
+				let skill = focuses[choice2 % focuses.length];
+				return `<p>You may think your work is ${state}. Do not expect good things to last. You can try to work on ${skill}. But no one can escape fate.</p>`;
+			}
+			function getMoney() {
+				let items = [
+					"a first aid kit", "a disaster survival kit", "blackout curtains", "extra batteries", "a mask to keep away dust and germs", "a fire extinguisher", "a go bag", "more smoke alarms",
+					"tall candles", "an old portrait painting", "an elaborate chandelier", "a large quantity of ceramic dolls", "wax carvings", "a talisman so I can possess your body when I feel like venturing outside this well"
+				];
+				return `<p>Trivialities like spending money do not concern me.</p><p>If you insist on asking, you may purchase something appropriate like ` + items[Math.floor(Math.random() * items.length)] + ".</p>";
+			}
+			function getDeath(choice1, choice2) {
+				if (age < 0)
+					return `I share the future only with those who share their information with me. Enter your age and ask again.`;
+
+				// get years left and cause
+				let yearsLeft = getYearsLeft(choice1);
+				let cause = getDeathCause(choice2);
+
+				// calculate age of death
+				let ageDetails = "";
+				let deathAge = parseInt(yearsLeft) + parseInt(age);
+				if (age > 0)
+					ageDetails = `, at age ` + deathAge;
+
+				return `
+					<p>Based on your current path, you shall die in ${yearsLeft} years${ageDetails}. Your death will involve ${cause}.</p>
+					<p>Perhaps you can prevent this possible death. Some try to delay their demise, and some succeed briefly. Yet the bell tolls for us all in the end.</p>`;
+			}
+		}
+		
+		
+		// for capitalizing words 
+		function capitalize(word) {
+			// https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+			return word.replace(
+				/\w\S*/g,
+				function(txt) {
+					return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+				}
+			);
+		}
+
+		// pick an oracle for the indecisive
+		function chooseOracle() {
+			let names = [
+				"monkey", "raccoon", "well"
+			];
+			return names[Math.floor(Math.random() * names.length)];
+		}
+		
+		// get number from name
+		function getNumber(word, location) {
+			// decrement location if it's longer than word length, then return unicode value of char at location
+			while (location > word.length - 1)
+				location -= word.length;
+			return word.charCodeAt(location);
+		}
+		
+		// death is the same regardless of who you ask
+		function getYearsLeft(choice1) {
+			let yearsLeft = Math.ceil((120 - age) - choice1/1.5);
+			while (yearsLeft < 0) {
+				yearsLeft += 10;
+			}
+			return yearsLeft;
+		}
+		function getDeathCause(input) {
+			let causes = [
+					"a natural disaster", "an aneurysm", "heart disease", "cancer", "sudden cardiac arrest", "pneumonia",
+					"diabetes", "lack of exercise", "unhealthy eating habits", "drowning", "cell phone driving", "vaccine-preventable illness", "failure to seek medical care in time", "falling asleep at the wheel"
+				];
+				return causes[input % causes.length];
+		}
+	}
+
+	// bananas for Mitzi (must stay outside getFortune function)
+	let countBananas = 0;
+	let bananaString = "";
+	function giveBanana() {
+		if (bananaString.length < 20) {
+			bananaString += "🍌";
+			countBananas++;
+			document.getElementById('bonus').innerHTML =`<blockquote><p>${bananaString}</p><p>Today you give Mitzi ${countBananas} banana. Mitzi say thank!</p></blockquote>`;
+		}
+		else 
+			document.getElementById('bonus').innerHTML =`<blockquote><p>${bananaString}</p><p>Mitzi have ${countBananas} banana. No need more. Me happy, we friends now.</p></blockquote>`;
+	}
+</script>
