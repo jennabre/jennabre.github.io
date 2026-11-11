@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="portfolio, writing, neurodivergent writer, writing portfolio">
+		<meta name="description" content="Here are some of my best blog posts and written works.">
+		<title>Writing by Jenna Breunig</title>
+		<link rel="stylesheet" href="main.css">
+		
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-95Q4H0KXJJ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-95Q4H0KXJJ');
+		</script>
+		
+	</head>
+
+	<body>		
+		<div id="wrapper">
+			<header>
+				<a class="toggle-button" href="javascript:void(0);" onclick="toggleMenu()">
+					<img src="pics/icon-hamburger.png" width="25" height="25" />
+				</a>
+				<a href="index.html">Jenna's Portfolio</a>
+			</header>
+			<nav id="nav-list" role="navigation">
+			  <ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="code.html">Code</a>
+						<ul>
+						<li><a href="sites-html.html">HTML Sites</a></li>
+						<li><a href="sites-wordpress.html">WordPress</a></li>
+						<li><a href="apps.html">Apps</a></li>
+						<li><a href="js-gradient.html">JS Gradient</a></li>
+						</ul>
+					</li>
+					<li><a href="writing.html">Writing</a></li>
+					<li><a href="art.html">Art</a>
+						<ul>
+						<li><a href="art-ig.html">Instagram</a></li>
+						</ul>
+					</li>
+					<li><a href="photoedit.html">Photos</a></li>
+				</ul>
+			</nav>
+			
+			<main>
+				
+				<h1>Writing</h1>
+
+				<p>Writing ignited my passion since I was a 3-year-old girl writing my name in chalk on the driveway. Today, I blog, edit wikis, and tell stories.</p>
+
+				<h2>Main Blog</h2>
+				
+				<p>At OptimistJenna.com, I write about neurodiversity, family, and disability inclusion. Here are a few of my favorite pieces.</p>
+			
+				<div class="flexbox">
+					<div>
+						<a href="https://www.optimistjenna.com/problem-iq-tests/"><img src="https://www.optimistjenna.com/wp-content/uploads/2023/01/22-9-iq-tests-problem.jpg" alt="A smiling young woman is labeled a valuable genius, while an uncomfortable man is labeled a stupid lost cause" /></a>
+						<p><a href="https://www.optimistjenna.com/problem-iq-tests/">The Problem with How We View IQ Tests</a></p>
+						<p>A piece blending research and my own observations</p>
+					</div>
+					<div>
+						<a href="https://www.optimistjenna.com/social-model-disability-autism/"><img src="https://www.optimistjenna.com/wp-content/uploads/2022/06/social-model-of-disability-autism.jpg" alt="A sign next to some stairs says that the inclusion meeting is upstairs, while a wheelchair user wonders what to do" /></a>
+						<p><a href="https://www.optimistjenna.com/social-model-disability-autism/">The Social Model of Disability in Autism and More</a></p>
+						<p>Explaining a concept that blew my mind</p>
+					</div>
+					<div>
+						<a href="https://www.optimistjenna.com/grateful-down-syndrome/"><img src="https://www.optimistjenna.com/wp-content/uploads/2021/09/grateful-for-sister-with-Down-syndrome-1024x597.jpg" alt="Photo of my sister's and my legs in matching Halloween leggings" /></a>
+						<p><a href="https://www.optimistjenna.com/grateful-down-syndrome/">5 Reasons I’m Grateful for a Sister with Down Syndrome</a></p>
+						<p>A simple sister listicle</p>
+					</div>					
+				</div>
+
+				<h2>Other Work</h2>
+
+				<p>You can coauthor a silly story with me using my unportfolio's <a href="unportfolio/fun/story.html">story generator</a>.</p>
+			</main>
+				
+			<footer>
+				<p>Copyright &copy; Jenna Breunig</p>
+				<div class="socials">
+					<a href="https://www.optimistjenna.com/"><img src="pics/icon-pencil.jpg" alt="Blog" width="25" height="25" /></a> &nbsp; 
+					<a href="https://www.linkedin.com/in/jennifer-breunig/"><img src="pics/social-linkedin.png" alt="LinkedIn" width="25" height="25" /></a> &nbsp; 
+					<a href="https://instagram.com/optimist.jenna"><img src="pics/social-ig.png" alt="Instagram" width="25" height="25" /></a>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
+
+<script>
+	function toggleMenu() {
+		let x = document.getElementById("nav-list");
+		if (x.style.display === "none")
+			x.style.display = "block";
+		else
+			x.style.display = "none";
+	}
+</script>
